@@ -317,7 +317,6 @@ public class Thongke_form extends javax.swing.JFrame {
     private void doanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseClicked
         tr="CHI TIÊT ĐƠN HÀNG";
         defaultTable.addColumn("Phòng");
-        defaultTable.addColumn("Tên phòng");
         defaultTable.addColumn("Tổng cộng");
         a = new Table_Thongke(defaultTable,tr); 
         new Table_Thongke(defaultTable,tr).setVisible(true);
@@ -340,7 +339,7 @@ public class Thongke_form extends javax.swing.JFrame {
 
     private void phongTrongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseClicked
         tr="DANH SÁCH PHÒNG"; 
-        defaultTable.addColumn("Số phòng");
+        defaultTable.addColumn("Phòng");
         defaultTable.addColumn("Diện tích");
         defaultTable.addColumn("Đối tượng");
         defaultTable.addColumn("Số người ở");
