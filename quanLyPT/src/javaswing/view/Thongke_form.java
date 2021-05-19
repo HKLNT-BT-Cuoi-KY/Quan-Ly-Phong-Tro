@@ -11,11 +11,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author HP
  */
-public class Thongke2_form extends javax.swing.JFrame {
+public class Thongke_form extends javax.swing.JFrame {
     String tr="";
     DefaultTableModel defaultTable;
     Table_Thongke a;
-    public Thongke2_form() {
+    public Thongke_form() {
         initComponents();
         this.setLocationRelativeTo(null);
         defaultTable = new DefaultTableModel();
@@ -361,21 +361,23 @@ public class Thongke2_form extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Thongke2_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Thongke_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Thongke2_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Thongke_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Thongke2_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Thongke_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Thongke2_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Thongke_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Thongke2_form().setVisible(true);
+                new Thongke_form().setVisible(true);
             }
         });
     }

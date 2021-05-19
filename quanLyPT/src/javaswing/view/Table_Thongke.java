@@ -13,9 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author HP
  */
-public class Table_Thongke extends javax.swing.JFrame {
-    
- // 
+public class Table_Thongke extends javax.swing.JFrame { 
     public Table_Thongke(DefaultTableModel defaultTable, String a) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -130,7 +128,7 @@ public class Table_Thongke extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Thongke2_form().setVisible(true);
+        new Thongke_form().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
