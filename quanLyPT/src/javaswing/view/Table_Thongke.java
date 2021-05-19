@@ -14,8 +14,8 @@ import javax.swing.table.DefaultTableModel;
  * @author HP
  */
 public class Table_Thongke extends javax.swing.JFrame {
-
-   
+    
+    //test
     public Table_Thongke(DefaultTableModel defaultTable, String a) {
         initComponents();
         this.setLocationRelativeTo(null);
