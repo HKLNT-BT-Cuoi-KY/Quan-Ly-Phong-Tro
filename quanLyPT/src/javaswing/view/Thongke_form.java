@@ -120,7 +120,7 @@ public class Thongke_form extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("TỔNG ĐƠN HÀNG");
 
-        donhang.setBackground(new java.awt.Color(255, 153, 51));
+        donhang.setBackground(new java.awt.Color(0, 153, 153));
         donhang.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         donhang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,7 +155,7 @@ public class Thongke_form extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        phongTrong.setBackground(new java.awt.Color(255, 153, 51));
+        phongTrong.setBackground(new java.awt.Color(0, 153, 153));
         phongTrong.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         phongTrong.setPreferredSize(new java.awt.Dimension(110, 101));
         phongTrong.setRequestFocusEnabled(false);
@@ -198,7 +198,7 @@ public class Thongke_form extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("TỔMG DOANH THU");
 
-        doanhThu.setBackground(new java.awt.Color(255, 153, 51));
+        doanhThu.setBackground(new java.awt.Color(0, 153, 153));
         doanhThu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         doanhThu.setPreferredSize(new java.awt.Dimension(125, 110));
         doanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -237,7 +237,7 @@ public class Thongke_form extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("TỔNG KHÁCH HÀNG");
 
-        khachHang.setBackground(new java.awt.Color(255, 153, 51));
+        khachHang.setBackground(new java.awt.Color(0, 153, 153));
         khachHang.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         khachHang.setPreferredSize(new java.awt.Dimension(125, 6));
         khachHang.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,6 +252,7 @@ public class Thongke_form extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(0, 153, 153));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("jLabel1");
@@ -396,7 +397,7 @@ public class Thongke_form extends javax.swing.JFrame {
     }//GEN-LAST:event_donhangMouseEntered
 
     private void donhangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseExited
-        donhang.setBackground(new Color(255,153,51));
+        donhang.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_donhangMouseExited
 
     private void doanhThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseEntered
@@ -404,7 +405,7 @@ public class Thongke_form extends javax.swing.JFrame {
     }//GEN-LAST:event_doanhThuMouseEntered
 
     private void doanhThuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseExited
-        doanhThu.setBackground(new Color(255,153,51));
+        doanhThu.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_doanhThuMouseExited
 
     private void phongTrongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseEntered
@@ -412,7 +413,7 @@ public class Thongke_form extends javax.swing.JFrame {
     }//GEN-LAST:event_phongTrongMouseEntered
 
     private void phongTrongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseExited
-         phongTrong.setBackground(new Color(255,153,51));
+         phongTrong.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_phongTrongMouseExited
 
     private void khachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseEntered
@@ -420,7 +421,7 @@ public class Thongke_form extends javax.swing.JFrame {
     }//GEN-LAST:event_khachHangMouseEntered
 
     private void khachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseExited
-        khachHang.setBackground(new Color(255,153,51));
+        khachHang.setBackground(new Color(0,153,153));
     }//GEN-LAST:event_khachHangMouseExited
 
     /**
