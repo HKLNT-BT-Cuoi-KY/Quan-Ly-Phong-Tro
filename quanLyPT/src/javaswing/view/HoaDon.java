@@ -148,6 +148,7 @@ public class HoaDon extends javax.swing.JFrame {
                 new HoaDon().setVisible(true);
             }
         });
+//        sdasdasdasd
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
