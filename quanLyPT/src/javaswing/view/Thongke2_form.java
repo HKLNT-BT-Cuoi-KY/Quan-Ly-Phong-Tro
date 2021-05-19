@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class Thongke2_form extends javax.swing.JFrame {
     String tr="";
     DefaultTableModel defaultTable;
-    NewJFrame a;
+    Table_Thongke a;
     public Thongke2_form() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -303,8 +303,8 @@ public class Thongke2_form extends javax.swing.JFrame {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         defaultTable.addColumn("sadefasdas");
         tr="THỐNG KÊ";
-        a = new NewJFrame(defaultTable,tr); 
-        new NewJFrame(defaultTable,tr).setVisible(true);
+        a = new Table_Thongke(defaultTable,tr); 
+        new Table_Thongke(defaultTable,tr).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -312,8 +312,8 @@ public class Thongke2_form extends javax.swing.JFrame {
         defaultTable.addColumn("ddd");
         tr="HELLO";
         defaultTable.addColumn("ccedfasdas");
-        a = new NewJFrame(defaultTable,tr); 
-        new NewJFrame(defaultTable,tr).setVisible(true);
+        a = new Table_Thongke(defaultTable,tr); 
+        new Table_Thongke(defaultTable,tr).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel2MouseClicked
 
@@ -326,8 +326,8 @@ public class Thongke2_form extends javax.swing.JFrame {
         defaultTable.addColumn("Giới tính");
         defaultTable.addColumn("Quê quán");
         defaultTable.addColumn("Phòng thuê");
-        a = new NewJFrame(defaultTable,tr); 
-        new NewJFrame(defaultTable,tr).setVisible(true);
+        a = new Table_Thongke(defaultTable,tr); 
+        new Table_Thongke(defaultTable,tr).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel6MouseClicked
 
@@ -339,8 +339,8 @@ public class Thongke2_form extends javax.swing.JFrame {
         defaultTable.addColumn("Số người ở");
         defaultTable.addColumn("Trạng thái");
         tr="DANH SÁCH PHÒNG";    
-        a = new NewJFrame(defaultTable,tr); 
-        new NewJFrame(defaultTable,tr).setVisible(true);
+        a = new Table_Thongke(defaultTable,tr); 
+        new Table_Thongke(defaultTable,tr).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel3MouseClicked
 

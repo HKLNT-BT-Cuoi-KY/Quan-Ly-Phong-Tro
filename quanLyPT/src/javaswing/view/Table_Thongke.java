@@ -13,17 +13,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author HP
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class Table_Thongke extends javax.swing.JFrame {
 
    
-    public NewJFrame(DefaultTableModel defaultTable, String a) {
+    public Table_Thongke(DefaultTableModel defaultTable, String a) {
         initComponents();
         this.setLocationRelativeTo(null);
         table1.setModel(defaultTable);
         lb1.setText(a);
     }
 
-    public NewJFrame() {
+    public Table_Thongke() {
     }
     
 
