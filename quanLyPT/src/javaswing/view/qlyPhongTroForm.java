@@ -51,7 +51,6 @@ public class qlyPhongTroForm extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         btnSuaPT = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         btnThemPT = new javax.swing.JButton();
         btnXoaPT = new javax.swing.JButton();
 
@@ -206,8 +205,6 @@ public class qlyPhongTroForm extends javax.swing.JFrame {
                         .addGap(0, 13, Short.MAX_VALUE))))
         );
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         btnThemPT.setText("Thêm phòng trọ");
 
         btnXoaPT.setText("Xoá phòng trọ");
@@ -217,9 +214,7 @@ public class qlyPhongTroForm extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(777, Short.MAX_VALUE)
                 .addComponent(btnThemPT)
                 .addGap(53, 53, 53)
                 .addComponent(btnXoaPT)
@@ -230,7 +225,6 @@ public class qlyPhongTroForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 12, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThemPT)
                     .addComponent(btnXoaPT)))
         );
@@ -327,7 +321,6 @@ public class qlyPhongTroForm extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
