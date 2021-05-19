@@ -50,25 +50,34 @@ public class Them_Phongtro extends javax.swing.JFrame {
         setBackground(new java.awt.Color(153, 255, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("THÊM PHÒNG TRỌ");
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin chi tiết", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Số phòng");
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Diện tích");
 
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Số người ở");
 
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Đối tượng");
 
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Mô tả thêm");
 
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Nam");
 
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Nữ");
 
         jTextArea1.setColumns(20);
@@ -77,10 +86,13 @@ public class Them_Phongtro extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(255, 51, 51));
         jLabel6.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("(*)Thông tin bắt buộc");
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Tình trạng");
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Giá thuê");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn trống", "Đã thuê" }));
@@ -171,10 +183,10 @@ public class Them_Phongtro extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        jButton2.setBackground(new java.awt.Color(51, 255, 51));
+        jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setText("Trở Về");
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Thêm");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -208,19 +220,19 @@ public class Them_Phongtro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
         );
