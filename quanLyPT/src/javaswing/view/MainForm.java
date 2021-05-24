@@ -74,6 +74,10 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jComboBox1 = new javax.swing.JComboBox<>();
         btnSuaPT = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         btnThemPT = new javax.swing.JButton();
         btnXoaPT = new javax.swing.JButton();
@@ -266,7 +270,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(phongTrongLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel23)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         phongTrongLayout.setVerticalGroup(
             phongTrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,7 +314,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(doanhThuLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel26)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         doanhThuLayout.setVerticalGroup(
             doanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +355,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(khachHangLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel28)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         khachHangLayout.setVerticalGroup(
             khachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -441,7 +445,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jTable1.setBackground(new java.awt.Color(0, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -476,7 +480,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Số phòng");
@@ -514,6 +518,18 @@ public class MainForm extends javax.swing.JFrame {
         btnSuaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaPT.setText("Sửa phòng trọ");
 
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Gíá Chỉ Số Nước");
+
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Gíá Chỉ Số Điện");
+
+        jTextField12.setText("2500");
+        jTextField12.setEnabled(false);
+
+        jTextField14.setText("3500");
+        jTextField14.setEnabled(false);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -540,17 +556,24 @@ public class MainForm extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel33))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox1)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCheckBox1)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jCheckBox2)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jCheckBox2))
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(134, 134, 134)))))))
@@ -575,9 +598,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -585,12 +608,20 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jLabel4))))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSuaPT, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -640,7 +671,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Quản lý phòng trọ", jPanel1);
@@ -648,7 +679,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel10.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -832,7 +863,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setText("QUẢN LÍ NGƯỜI THUÊ PHÒNG");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jTable2.setBackground(new java.awt.Color(0, 204, 204));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -995,7 +1026,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel18.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số điện", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số điện", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jTable3.setBackground(new java.awt.Color(0, 204, 204));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -1031,7 +1062,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel20.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số nước", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số nước", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jTable5.setBackground(new java.awt.Color(0, 204, 204));
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
@@ -1305,8 +1336,10 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1349,7 +1382,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
