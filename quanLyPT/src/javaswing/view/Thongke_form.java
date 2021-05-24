@@ -33,7 +33,7 @@ public class Thongke_form extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        donhang = new javax.swing.JPanel();
+        donhangtxt = new javax.swing.JPanel();
         phongTrong = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -108,28 +108,28 @@ public class Thongke_form extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("TỔNG ĐƠN HÀNG");
 
-        donhang.setBackground(new java.awt.Color(0, 204, 204));
-        donhang.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        donhang.addMouseListener(new java.awt.event.MouseAdapter() {
+        donhangtxt.setBackground(new java.awt.Color(0, 204, 204));
+        donhangtxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        donhangtxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donhangMouseClicked(evt);
+                donhangtxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                donhangMouseEntered(evt);
+                donhangtxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                donhangMouseExited(evt);
+                donhangtxtMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout donhangLayout = new javax.swing.GroupLayout(donhang);
-        donhang.setLayout(donhangLayout);
-        donhangLayout.setHorizontalGroup(
-            donhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout donhangtxtLayout = new javax.swing.GroupLayout(donhangtxt);
+        donhangtxt.setLayout(donhangtxtLayout);
+        donhangtxtLayout.setHorizontalGroup(
+            donhangtxtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 119, Short.MAX_VALUE)
         );
-        donhangLayout.setVerticalGroup(
-            donhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        donhangtxtLayout.setVerticalGroup(
+            donhangtxtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 104, Short.MAX_VALUE)
         );
 
@@ -234,7 +234,7 @@ public class Thongke_form extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(donhang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(donhangtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(phongTrong, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +256,7 @@ public class Thongke_form extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(doanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(donhang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(donhangtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
@@ -289,8 +289,8 @@ public class Thongke_form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void donhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseClicked
-        tr="THỐNG KÊ";
+    private void donhangtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangtxtMouseClicked
+        tr="ĐƠN HÀNG";
         defaultTable.addColumn("Phòng");
         defaultTable.addColumn("Tên phòng");
         defaultTable.addColumn("Tiền điện");
@@ -300,8 +300,8 @@ public class Thongke_form extends javax.swing.JFrame {
         a = new Table_Thongke(defaultTable,tr); 
         new Table_Thongke(defaultTable,tr).setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_donhangMouseClicked
-
+    }//GEN-LAST:event_donhangtxtMouseClicked
+    
     private void doanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseClicked
         tr="CHI TIÊT ĐƠN HÀNG";
         defaultTable.addColumn("Phòng");
@@ -337,13 +337,13 @@ public class Thongke_form extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_phongTrongMouseClicked
 
-    private void donhangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseEntered
-        donhang.setBackground(new Color(0,153,153));
-    }//GEN-LAST:event_donhangMouseEntered
+    private void donhangtxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangtxtMouseEntered
+        donhangtxt.setBackground(new Color(0,153,153));
+    }//GEN-LAST:event_donhangtxtMouseEntered
 
-    private void donhangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseExited
-        donhang.setBackground(new Color(0,204,204));
-    }//GEN-LAST:event_donhangMouseExited
+    private void donhangtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangtxtMouseExited
+        donhangtxt.setBackground(new Color(0,204,204));
+    }//GEN-LAST:event_donhangtxtMouseExited
 
     private void doanhThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseEntered
         doanhThu.setBackground(new Color(0,153,153));
@@ -409,7 +409,7 @@ public class Thongke_form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel doanhThu;
-    private javax.swing.JPanel donhang;
+    private javax.swing.JPanel donhangtxt;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
