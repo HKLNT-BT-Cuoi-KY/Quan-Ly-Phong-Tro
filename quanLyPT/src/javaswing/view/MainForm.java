@@ -19,6 +19,7 @@ public class MainForm extends javax.swing.JFrame {
     Table_Thongke a;
     public MainForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
         defaultTable = new DefaultTableModel();
     }
 
@@ -816,7 +817,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("QUẢN LÍ NGƯỜI DÙNG");
+        jLabel1.setText("QUẢN LÍ NGƯỜI THUÊ PHÒNG");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -892,7 +893,7 @@ public class MainForm extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Quản lý người dùng", jPanel2);
+        jTabbedPane1.addTab("Quản lý người thuê phòng", jPanel2);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
