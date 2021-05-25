@@ -23,6 +23,9 @@ public class Them_Phongtro extends javax.swing.JFrame {
     
     public Them_Phongtro() {
         initComponents();
+        ptro=new PhongTro();
+        themPT=new phongTroDao();
+        
     }
 
     /**
@@ -172,6 +175,11 @@ public class Them_Phongtro extends javax.swing.JFrame {
         bttrove.setBackground(new java.awt.Color(0, 102, 102));
         bttrove.setForeground(new java.awt.Color(255, 255, 255));
         bttrove.setText("Trở Về");
+        bttrove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttroveActionPerformed(evt);
+            }
+        });
 
         btthem.setBackground(new java.awt.Color(0, 102, 102));
         btthem.setForeground(new java.awt.Color(255, 255, 255));
@@ -254,6 +262,10 @@ public class Them_Phongtro extends javax.swing.JFrame {
         new MainForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btthemActionPerformed
+
+    private void bttroveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttroveActionPerformed
+        new MainForm().setVisible(true);
+    }//GEN-LAST:event_bttroveActionPerformed
 
     /**
      * @param args the command line arguments
