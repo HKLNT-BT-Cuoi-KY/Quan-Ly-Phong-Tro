@@ -6,8 +6,11 @@
 package javaswing.view;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.util.List;
+import javaswing.Dao.khachThueDao;
 import javaswing.Dao.phongTroDao;
+import javaswing.Model.KhachThue;
 import javaswing.Model.PhongTro;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +26,9 @@ public class MainForm extends javax.swing.JFrame {
     Table_Thongke a;
     phongTroDao phongTro;
     PhongTro pt;
-
+    KhachThue kthue;
+    DefaultTableModel dtmKT;
+    khachThueDao ktDao;
     public MainForm() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -33,9 +38,14 @@ public class MainForm extends javax.swing.JFrame {
         dtmPT = new DefaultTableModel();
         dtmCSD = new DefaultTableModel();
         dtmCSN = new DefaultTableModel();
+        kthue = new KhachThue();
+        ktDao = new khachThueDao();
+        dtmKT = new DefaultTableModel();
         Init_PhongTro();
         Init_ChiSoDien();
         Init_ChiSoNuoc();
+        Init_Nguoithue();
+        
     }
 
     /**
@@ -116,8 +126,8 @@ public class MainForm extends javax.swing.JFrame {
         txtPhongThue = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         txtSDT = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rdNam = new javax.swing.JRadioButton();
+        rdNu = new javax.swing.JRadioButton();
         btnLamMoi = new javax.swing.JButton();
         btnThemND = new javax.swing.JButton();
         btnXoaND = new javax.swing.JButton();
@@ -458,7 +468,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblDSPT.setBackground(new java.awt.Color(0, 204, 204));
         tblDSPT.setModel(new javax.swing.table.DefaultTableModel(
@@ -498,7 +508,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mã phòng");
@@ -587,27 +597,23 @@ public class MainForm extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(51, 51, 51)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addComponent(cbNam)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cbNu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cbtinhtrang, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtgiathue, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnSuaPT)))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(52, Short.MAX_VALUE))))
+                                .addComponent(cbNam)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbNu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbtinhtrang, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtgiathue, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSuaPT)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -637,12 +643,13 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(txtsonguoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel34)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel30)
+                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
@@ -710,7 +717,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel11.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -744,18 +751,33 @@ public class MainForm extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Số điện thoại");
 
-        jRadioButton1.setText("Nam");
+        rdNam.setText("Nam");
 
-        jRadioButton2.setText("Nữ");
+        rdNu.setText("Nữ");
 
         btnLamMoi.setBackground(new java.awt.Color(0, 204, 204));
         btnLamMoi.setText("Làm mới");
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiActionPerformed(evt);
+            }
+        });
 
         btnThemND.setBackground(new java.awt.Color(0, 204, 204));
         btnThemND.setText("Thêm");
+        btnThemND.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemNDActionPerformed(evt);
+            }
+        });
 
         btnXoaND.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaND.setText("Xóa");
+        btnXoaND.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaNDActionPerformed(evt);
+            }
+        });
 
         btnSuaND.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaND.setText("Chỉnh sửa");
@@ -786,9 +808,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(rdNam)
                         .addGap(51, 51, 51)
-                        .addComponent(jRadioButton2))
+                        .addComponent(rdNu))
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtPhongThue, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtQueQuan, javax.swing.GroupLayout.Alignment.LEADING)
@@ -821,8 +843,8 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(txtMaND, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9))
                             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton1)
-                                .addComponent(jRadioButton2)))
+                                .addComponent(rdNam)
+                                .addComponent(rdNu)))
                         .addGap(31, 31, 31)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
@@ -866,7 +888,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setText("QUẢN LÍ NGƯỜI THUÊ PHÒNG");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblTTKH.setBackground(new java.awt.Color(0, 204, 204));
         tblTTKH.setModel(new javax.swing.table.DefaultTableModel(
@@ -1031,7 +1053,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel18.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số điện", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số điện", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblChiSoDien.setBackground(new java.awt.Color(0, 204, 204));
         tblChiSoDien.setModel(new javax.swing.table.DefaultTableModel(
@@ -1067,7 +1089,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel20.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số nước", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số nước", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblChiSoNuoc.setBackground(new java.awt.Color(0, 204, 204));
         tblChiSoNuoc.setModel(new javax.swing.table.DefaultTableModel(
@@ -1188,10 +1210,21 @@ public class MainForm extends javax.swing.JFrame {
         dtmPT.addColumn("Chỉ số điện mới");
         dtmPT.addColumn("Chỉ số nước cũ");
         dtmPT.addColumn("Chỉ số nước mới");
-
         setTableDataSP(phongTro.getInFoPhongTro());
     }
-    
+    private  void Init_Nguoithue()
+    { 
+        tblTTKH.setModel(dtmKT);
+        dtmKT.addColumn("Mã Người Dùng");
+        dtmKT.addColumn("Họ tên");
+        dtmKT.addColumn("Ngày sinh");
+        dtmKT.addColumn(" Nghề nghiệp");
+        dtmKT.addColumn(" Giới tính");
+        dtmKT.addColumn(" Sdt");
+        dtmKT.addColumn(" Quê Quán");
+        dtmKT.addColumn(" Phòng thuê");
+        setTableDataKT(ktDao.getAllUsersKT());
+    }
     private void Init_ChiSoDien(){
         tblChiSoDien.setModel(dtmCSD);
         dtmCSD.addColumn("Mã phòng");
@@ -1357,13 +1390,51 @@ public class MainForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnThemPTActionPerformed
 
+    private void btnThemNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNDActionPerformed
+          new Them_Nguoidung().setVisible(true);
+          this.dispose();
+    }//GEN-LAST:event_btnThemNDActionPerformed
+
+    private void btnXoaNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaNDActionPerformed
+        int row = tblTTKH.getSelectedRow();
+    if(row == -1){
+        JOptionPane.showConfirmDialog(rootPane,"Hãy chọn 1 hàng để xóa");
+    } else{
+        int confirm = JOptionPane.showConfirmDialog(rootPane,"Chắc chắn muốn xóa ?");
+        if(confirm == JOptionPane.YES_OPTION){
+            String MaKT;
+            MaKT = String.valueOf(tblTTKH.getValueAt(row,0));
+            ktDao.DELETENGUOIDUNG(MaKT);
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Khách thuê đã được xóa");
+            dtmKT.setRowCount(0);
+            setTableDataKT(ktDao.getAllUsersKT());
+        }
+    }
+    }//GEN-LAST:event_btnXoaNDActionPerformed
+
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        txtMaND.setText("");
+        txtHoTen.setText("");
+        txtNgaySinh.setText("");
+        txtNgheNghiep.setText("");
+        rdNam.setSelected(true);
+        txtPhongThue.setText("");
+        txtQueQuan.setText("");
+        txtSDT.setText("");
+    }//GEN-LAST:event_btnLamMoiActionPerformed
+
     private void setTableDataSP(List<PhongTro> phongTro) {
         for (PhongTro pt : phongTro) {
             dtmPT.addRow(new Object[]{pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(), pt.getDoiTuong(), pt.getTinhTrang(),
                 pt.getCsDienCu(), pt.getCsDienMoi(), pt.getCsNuocCu(), pt.getCsNuocMoi()});
         }
     }
-
+      private void setTableDataKT(List<KhachThue> kts) {
+        for (KhachThue kthue  : kts) {
+            dtmKT.addRow(new Object[]{kthue.getMaKT(),kthue.getHoTen(),kthue.getNgaySinh(),kthue.getNgheNghiep(),kthue.getGioiTinh(),kthue.getSdt(),kthue.getQueQuan(),kthue.getMaPhong()});
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -1467,8 +1538,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1483,6 +1552,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JPanel khachHang;
     private javax.swing.JPanel phongTrong;
+    private javax.swing.JRadioButton rdNam;
+    private javax.swing.JRadioButton rdNu;
     private javax.swing.JTable tblChiSoDien;
     private javax.swing.JTable tblChiSoNuoc;
     private javax.swing.JTable tblDSPT;

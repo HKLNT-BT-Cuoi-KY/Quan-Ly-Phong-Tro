@@ -11,11 +11,11 @@ import javaswing.Model.KhachThue;
 import javaswing.Dao.khachThueDao;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-public class Quanlinguoidung extends javax.swing.JFrame {
+public class Them_Nguoidung extends javax.swing.JFrame {
     KhachThue kthue;
     DefaultTableModel dtmKT;
     khachThueDao ktDao;
-    public Quanlinguoidung() {
+    public Them_Nguoidung() {
         initComponents();
         kthue = new KhachThue();
         ktDao = new khachThueDao();
@@ -35,7 +35,6 @@ public class Quanlinguoidung extends javax.swing.JFrame {
         dtmKT.addColumn(" Sdt");
         dtmKT.addColumn(" Quê Quán");
         dtmKT.addColumn(" Phòng thuê");
-        tblnguoidung.setModel(dtmKT);
         setTableDataKT(ktDao.getAllUsersKT());
     }
 
@@ -427,21 +426,7 @@ public class Quanlinguoidung extends javax.swing.JFrame {
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void tbnxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnxoaActionPerformed
-          int row = tblnguoidung.getSelectedRow();
-    if(row == -1){
-        JOptionPane.showConfirmDialog(rootPane,"Hãy chọn 1 hàng để xóa");
-    } else{
-        int confirm = JOptionPane.showConfirmDialog(rootPane,"Chắc chắn muốn xóa ?");
-        if(confirm == JOptionPane.YES_OPTION){
-            String MaKT;
-            MaKT = String.valueOf(tblnguoidung.getValueAt(row,0));
-            ktDao.DELETENGUOIDUNG(MaKT);
-            Component frame = null;
-            JOptionPane.showMessageDialog(frame, "Khách thuê đã được xóa");
-            dtmKT.setRowCount(0);
-            setTableDataKT(ktDao.getAllUsersKT());
-        }
-    }
+
     }//GEN-LAST:event_tbnxoaActionPerformed
 
     private void btntrolaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntrolaiActionPerformed
@@ -469,14 +454,18 @@ public class Quanlinguoidung extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Quanlinguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Them_Nguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Quanlinguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Them_Nguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Quanlinguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Them_Nguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Quanlinguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Them_Nguoidung.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -485,7 +474,7 @@ public class Quanlinguoidung extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Quanlinguoidung().setVisible(true);
+                new Them_Nguoidung().setVisible(true);
             }
         });
     }
