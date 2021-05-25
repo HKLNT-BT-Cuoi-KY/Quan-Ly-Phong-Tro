@@ -83,9 +83,9 @@ public class hoaDonDao {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, hoadon.getMaKT());
             ps.setString(2, hoadon.getMaPhong());
-            ps.setString(3, "");
-            ps.setString(4, "");
-            ps.setString(5, "");
+            ps.setString(3, hoadon.getTienDien());
+            ps.setString(4, hoadon.getTienNuoc());
+            ps.setString(5, hoadon.getTienDV());
             ps.executeUpdate();
         } catch (Exception e) {
         }

@@ -23,7 +23,6 @@ public class HoaDon extends javax.swing.JFrame {
 
     public HoaDon() {
         initComponents();
-        Init_tbHoaDon();
     }
 
     /**
@@ -157,18 +156,7 @@ public class HoaDon extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
     }//GEN-LAST:event_jButton2ActionPerformed
-    public void Init_tbHoaDon() {
-        String sql = "select * from tblHoaDon";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                System.out.println("sss");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     /**
      * @param args the command line arguments
