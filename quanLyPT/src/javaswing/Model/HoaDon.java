@@ -10,7 +10,49 @@ package javaswing.Model;
  * @author Tran Khanh
  */
 public class HoaDon {
-    String maHD, maKT, maPhong, tienDien, tienNuoc, tienDV;
+
+    String maHD, maKT, maPhong;
+    Long giaThue, tienDien, tongTien, tienNuoc, tienDV;
+
+    public Long getGiaThue() {
+        return giaThue;
+    }
+
+    public void setGiaThue(Long giaThue) {
+        this.giaThue = giaThue;
+    }
+
+    public Long getTienDien() {
+        return tienDien;
+    }
+
+    public void setTienDien(Long tienDien) {
+        this.tienDien = tienDien;
+    }
+
+    public Long getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(Long tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public Long getTienNuoc() {
+        return tienNuoc;
+    }
+
+    public void setTienNuoc(Long tienNuoc) {
+        this.tienNuoc = tienNuoc;
+    }
+
+    public Long getTienDV() {
+        return tienDV;
+    }
+
+    public void setTienDV(Long tienDV) {
+        this.tienDV = tienDV;
+    }
 
     public String getMaHD() {
         return maHD;
@@ -36,27 +78,4 @@ public class HoaDon {
         this.maPhong = maPhong;
     }
 
-    public String getTienDien() {
-        return tienDien;
-    }
-
-    public void setTienDien(String tienDien) {
-        this.tienDien = tienDien;
-    }
-
-    public String getTienNuoc() {
-        return tienNuoc;
-    }
-
-    public void setTienNuoc(String tienNuoc) {
-        this.tienNuoc = tienNuoc;
-    }
-
-    public String getTienDV() {
-        return tienDV;
-    }
-
-    public void setTienDV(String tienDV) {
-        this.tienDV = tienDV;
-    }
 }

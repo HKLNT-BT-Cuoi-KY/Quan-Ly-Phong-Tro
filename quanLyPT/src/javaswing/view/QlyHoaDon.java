@@ -1,9 +1,11 @@
 package javaswing.view;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.List;
 import javaswing.Dao.ConnectDB;
+import javaswing.Dao.hoaDonDao;
+import javaswing.Model.HoaDon;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,9 +22,12 @@ public class QlyHoaDon extends javax.swing.JFrame {
      * Creates new form HoaDon
      */
     static Connection con = ConnectDB.getConnectDB();
+    DefaultTableModel DefaultTableHoaDonModel;
+    hoaDonDao hoadon;
 
     public QlyHoaDon() {
         initComponents();
+        Init_tbHoaDon();
     }
 
     /**
@@ -38,7 +43,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbHoaDon = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
@@ -57,16 +62,16 @@ public class QlyHoaDon extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText(" Tháng/năm");
 
-        jTable1.setForeground(new java.awt.Color(0, 153, 153));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbHoaDon.setForeground(new java.awt.Color(0, 153, 153));
+        tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Phòng", "Tên Khách", "Tiền Phòng", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng"
+                "Mã Hoá Đơn", "Phòng", "Tên Khách", "Tiền Phòng", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbHoaDon);
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
@@ -149,14 +154,35 @@ public class QlyHoaDon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Init_tbHoaDon() {
+        hoadon = new hoaDonDao();
+        DefaultTableHoaDonModel = (DefaultTableModel) tbHoaDon.getModel();
+        DefaultTableHoaDonModel.setRowCount(0);
+        setDataTableHoaDon(hoadon.getAllHoaHon());
+    }
+
+    private void setDataTableHoaDon(List<HoaDon> hoadon) {
+        DefaultTableHoaDonModel.setRowCount(0);
+        for (HoaDon hd : hoadon) {
+            DefaultTableHoaDonModel.addRow(new Object[]{
+                hd.getMaHD(),
+                hd.getMaPhong(),
+                hd.getMaKT(),
+                hd.getGiaThue(),
+                hd.getTienDien(),
+                hd.getTienNuoc(),
+                hd.getTienDV(),
+                hd.getTongTien()
+            });
+        }
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Them_HoaDon().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,7 +229,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tbHoaDon;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,40 +20,80 @@ public class hoaDonDao {
 
     static Connection con = ConnectDB.getConnectDB();
 
-    public static String getTienDien(String maPhong) {
-        Long tienDien = 0l;
-        long sm, sc;
-        String sql = "select * from tblQlyPhongTro where maPhong = 'PH001'";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                sm = Long.parseLong(rs.getString("chiSoDienMoi"));
-                sc = Long.parseLong(rs.getString("chiSoDienCu"));
-                tienDien = (sm - sc) * 3500;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "" + tienDien;
+    public static Long getTienDien(String maPhong) {
+        return soChuDien(maPhong) * 3500;
     }
 
-    public static String getTienNuoc(String maPhong) {
-        Long tienNuoc = 0l;
-        long sm, sc;
-        String sql = "select * from tblQlyPhongTro where maPhong = 'PH001'";
+    public static Long getTienNuoc(String maPhong) {
+        return soChuNuoc(maPhong) * 2500;
+    }
+
+    public static Long getTienPhong(String maPhong) {
+        String sql = "select giaThue "
+                + "from tblQlyPhongTro "
+                + "where maPhong = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, maPhong);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                sm = Long.parseLong(rs.getString("chiSoNuocMoi"));
-                sc = Long.parseLong(rs.getString("chiSoNuocCu"));
-                tienNuoc = (sm - sc) * 2500;
+                return rs.getLong("giaThue");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "" + tienNuoc;
+        return 0l;
+    }
+
+
+    public static Long soChuDien(String ID) {
+        String sql = "select chiSoDienMoi -  chiSoDienCu  sochu "
+                + "from tblQlyPhongTro "
+                + "where maPhong = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, ID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong("sochu");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+    public static Long soChuNuoc(String ID) {
+        String sql = "select chiSoNuocMoi -  chiSoNuocCu sochu "
+                + "from tblQlyPhongTro "
+                + "where maPhong = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, ID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong("sochu");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+    public static void AllHoaHon() {
+
+        String sql = "select * from tblHoaDon";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                System.out.println(getTienDien(rs.getString("maPhong")));
+                System.out.println(getTienNuoc(rs.getString("maPhong")));
+                System.out.println(getTienPhong(rs.getString("maPhong")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public List<HoaDon> getAllHoaHon() {
@@ -63,40 +103,55 @@ public class hoaDonDao {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                Long tienphong = getTienPhong(rs.getString("maPhong"));
+                Long tiendien = getTienDien(rs.getString("maPhong"));
+                Long tiennuoc = getTienNuoc(rs.getString("maPhong"));
+                Long tiendv = 70000l;
+                Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
                 HoaDon hoadon = new HoaDon();
                 hoadon.setMaHD(rs.getString("maHD"));
                 hoadon.setMaKT(rs.getString("maKT"));
                 hoadon.setMaPhong(rs.getString("maPhong"));
-                hoadon.setTienDien(getTienDien("maPhong"));
-                hoadon.setTienNuoc(getTienNuoc("maPhong"));
+                hoadon.setGiaThue(tienphong);
+                hoadon.setTienDien(tiendien);
+                hoadon.setTienNuoc(tiennuoc);
+                hoadon.setTienDV(tiendv);
+                hoadon.setTongTien(tongtien);
                 list_hoadon.add(hoadon);
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list_hoadon;
     }
 
     public static void Add_HoaDon(HoaDon hoadon) {
-        String sql = "Insert Into tblHoaDon(maKT, maPhong, tienDien, tienNuoc, tienDV)"
-                + "Values (?, ?, ?, ?, ?)";
+        String sql = "Insert Into tblHoaDon(maKT, maPhong, tienPhong, tienDien, tienNuoc, tienDV)"
+                + "Values (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, hoadon.getMaKT());
             ps.setString(2, hoadon.getMaPhong());
-            ps.setString(3, hoadon.getTienDien());
-            ps.setString(4, hoadon.getTienNuoc());
-            ps.setString(5, hoadon.getTienDV());
+            ps.setLong(3, hoadon.getGiaThue());
+            ps.setLong(4, hoadon.getTienDien());
+            ps.setLong(5, hoadon.getTienNuoc());
+            ps.setLong(6, hoadon.getTienDV());
             ps.executeUpdate();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void Del_HoaDon(String maHD) {
+    public static void Del_HoaDon(String maHD) {
         String sql = "delete * from tblHoaDon where maHD = " + maHD + "";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (Exception e) {
         }
+    }
+
+    public static void main(String[] args) {
+//        getAllHoaHon();
     }
 }
