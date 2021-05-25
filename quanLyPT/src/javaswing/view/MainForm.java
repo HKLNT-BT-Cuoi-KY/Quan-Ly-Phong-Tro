@@ -23,6 +23,7 @@ public class MainForm extends javax.swing.JFrame {
     Table_Thongke a;
     phongTroDao phongTro;
     PhongTro pt;
+
     public MainForm() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,7 +31,7 @@ public class MainForm extends javax.swing.JFrame {
         phongTro = new phongTroDao();
         pt = new PhongTro();
         dtmPT = new DefaultTableModel();
-        
+
         Init_PhongTro();
     }
 
@@ -1191,7 +1192,7 @@ public class MainForm extends javax.swing.JFrame {
     private void txtHoTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoTenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoTenActionPerformed
-    private void Init_PhongTro(){
+    private void Init_PhongTro() {
         tblDSPT.setModel(dtmPT);
         dtmPT.addColumn("Mã phòng");
         dtmPT.addColumn("Diện tích");
@@ -1310,15 +1311,15 @@ public class MainForm extends javax.swing.JFrame {
         txtsonguoi.setText(String.valueOf(pt.getSoNguoi()));
         txtgiathue.setText(String.valueOf(pt.getGiaThue()));
         cbtinhtrang.setSelectedItem(pt.getTinhTrang());
-        if(pt.getDoiTuong().equals("nam & nu")){
+        if (pt.getDoiTuong().equals("Nam & Nu")) {
             cbNam.setSelected(true);
             cbNu.setSelected(true);
         }
-        if(pt.getDoiTuong().equals("nam")){
+        if (pt.getDoiTuong().equals("Nam")) {
             cbNam.setSelected(true);
             cbNu.setSelected(false);
         }
-        if(pt.getDoiTuong().equals("nu")){
+        if (pt.getDoiTuong().equals("Nu")) {
             cbNam.setSelected(false);
             cbNu.setSelected(true);
         }
@@ -1327,20 +1328,27 @@ public class MainForm extends javax.swing.JFrame {
     private void btnSuaPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaPTActionPerformed
         pt.setMaPhong(txtmaphong.getText());
         pt.setDienTich(Double.parseDouble(txtdientich.getText()));
-        pt.setSoNguoi(Integer.parseInt(txtdientich.getText()));
+        pt.setSoNguoi(Integer.parseInt(txtsonguoi.getText()));
         pt.setGiaThue(Double.parseDouble(txtgiathue.getText()));
         String dt = "";
-        if(cbNam.isSelected() && cbNu.isSelected()){
+        if (cbNam.isSelected() && cbNu.isSelected()) {
             dt = "Nam & Nu";
+            pt.setDoiTuong(dt);
+        } else {
+            if (cbNam.isSelected()) {
+                dt = "Nam";
+                pt.setDoiTuong(dt);
+            } else {
+                if (cbNu.isSelected()) {
+                    dt = "Nu";
+                    pt.setDoiTuong(dt);
+                }
+            }
+
         }
-        if(cbNam.isSelected()){
-            dt = "Nam";
-        }
-        if(cbNu.isSelected()){
-            dt ="Nu";
-        }
-        pt.setDoiTuong(dt);
+
         pt.setTinhTrang(cbtinhtrang.getSelectedItem().toString());
+        phongTro.updatePhongTro(pt);
         dtmPT.setRowCount(0);
         setTableDataSP(phongTro.getInFoPhongTro());
     }//GEN-LAST:event_btnSuaPTActionPerformed

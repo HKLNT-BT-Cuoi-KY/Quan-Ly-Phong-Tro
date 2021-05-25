@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-       
 package javaswing.view;
+
 import javaswing.Dao.phongTroDao;
 import javaswing.Dao.ConnectDB;
 import javaswing.Model.PhongTro;
@@ -14,18 +14,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author THANHTHAO
  */
-    
-
 public class Them_Phongtro extends javax.swing.JFrame {
+
     PhongTro ptro;
     phongTroDao themPT;
     DefaultTableModel dtmPT;
-    
+
     public Them_Phongtro() {
         initComponents();
-        ptro=new PhongTro();
-        themPT=new phongTroDao();
-        
+        ptro = new PhongTro();
+        themPT = new phongTroDao();
+
     }
 
     /**
@@ -245,18 +244,22 @@ public class Them_Phongtro extends javax.swing.JFrame {
         ptro.setDienTich(Double.parseDouble(txtdientich.getText()));
         ptro.setSoNguoi(Integer.parseInt(txtsonguoi.getText()));
         ptro.setGiaThue(Double.parseDouble(txtgiathue.getText()));
-        
+
         String doituong = "";
-        if(cbNam.isSelected()){
-            doituong = "Nam";
-        }
-        if(cbNu.isSelected()){
-            doituong ="Nu";
-        }
-        if(cbNam.isSelected() && cbNu.isSelected()){
+
+        if (cbNam.isSelected() && cbNu.isSelected()) {
             doituong = "Nam & Nu";
+        } else {
+            if (cbNam.isSelected()) {
+                doituong = "Nam";
+            } else {
+                if (cbNu.isSelected()) {
+                    doituong = "Nu";
+                }
+            }
         }
         ptro.setDoiTuong(doituong);
+        
         ptro.setTinhTrang(cbxtinhtrang.getSelectedItem().toString());
         themPT.addPhongTro(ptro);
         new MainForm().setVisible(true);

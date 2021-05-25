@@ -106,20 +106,15 @@ public class phongTroDao {
     }
 
     public void updatePhongTro(PhongTro pt) {
-        String sql = "update tblQlyPhongTro set  dienTich = ?, soNguoi= ?, giaThue= ?, DoiTuongThue= ?, TinhTrang= ?,chiSoDienMoi= ?,"
-                + "chiSoDienCu= ?,chiSoNuocCu= ?,chiSoNuocMoi = ? where maPhong = ?";
+        String sql = "update tblQlyPhongTro set  dienTich = ?, soNguoi= ?, giaThue= ?, DoiTuongThue= ?, TinhTrang= ? where maPhong = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(10, pt.getMaPhong());
+            ps.setString(6, pt.getMaPhong());
             ps.setDouble(1, pt.getDienTich());
             ps.setInt(2, pt.getSoNguoi());
             ps.setDouble(3, pt.getGiaThue());
             ps.setString(4, pt.getDoiTuong());
             ps.setString(5, pt.getTinhTrang());
-            ps.setInt(6, 0);
-            ps.setInt(7, 0);
-            ps.setInt(8, 0);
-            ps.setInt(9, 0);
             int rs = ps.executeUpdate();
             //laptop.setKq(rs);
         } catch (SQLException ex) {
