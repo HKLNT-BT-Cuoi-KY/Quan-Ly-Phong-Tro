@@ -81,7 +81,6 @@ public class PhongTro {
     public double getDienTich() {
         return dienTich;
     }
-
     public void setDienTich(double dienTich) {
         this.dienTich = dienTich;
     }
@@ -94,5 +93,10 @@ public class PhongTro {
         this.giaThue = giaThue;
     }
     
-    
+    public double tienDien(){
+        return 3500*(getCsDienMoi() - getCsDienCu());
+    }
+    public double tienNuoc(){
+        return 2500*(getCsNuocMoi() - getCsNuocCu());
+    }
 }
