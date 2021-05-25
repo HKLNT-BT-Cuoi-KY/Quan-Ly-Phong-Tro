@@ -5,12 +5,10 @@
  */
 package javaswing.Model;
 public class KhachThue {
-    String maKT,HoTen,NgaySinh,NgheNghiep,GioiTinh,Sdt,QueQuan,maPH;
-
+    String maKT,HoTen,NgaySinh,NgheNghiep,GioiTinh,Sdt,QueQuan,maPhong;
     public KhachThue() {
     }
-    
-    public KhachThue(String maKT, String HoTen, String NgaySinh, String NgheNghiep, String GioiTinh, String Sdt, String QueQuan, String maPH) {
+    public KhachThue(String maKT, String HoTen, String NgaySinh, String NgheNghiep, String GioiTinh, String Sdt, String QueQuan, String maPhong) {
         this.maKT = maKT;
         this.HoTen = HoTen;
         this.NgaySinh = NgaySinh;
@@ -18,9 +16,8 @@ public class KhachThue {
         this.GioiTinh = GioiTinh;
         this.Sdt = Sdt;
         this.QueQuan = QueQuan;
-        this.maPH = maPH;
+        this.maPhong = maPhong;
     }
-
     public String getMaKT() {
         return maKT;
     }
@@ -49,8 +46,8 @@ public class KhachThue {
         return QueQuan;
     }
 
-    public String getMaPH() {
-        return maPH;
+    public String getMaPhong() {
+        return maPhong;
     }
 
     public void setMaKT(String maKT) {
@@ -81,8 +78,8 @@ public class KhachThue {
         this.QueQuan = QueQuan;
     }
 
-    public void setMaPH(String maPH) {
-        this.maPH = maPH;
+    public void setMaPhong(String maPhong) {
+        this.maPhong = maPhong;
     }
     
 }

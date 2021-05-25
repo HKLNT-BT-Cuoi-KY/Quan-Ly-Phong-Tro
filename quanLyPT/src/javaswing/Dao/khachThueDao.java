@@ -19,7 +19,7 @@ public class khachThueDao {
      static Connection con = ConnectDB.getConnectDB();
     public boolean insert(KhachThue nhan) throws Exception
     {
-        String sql = "insert into KhachThue(maKH,HoTen,NgaySinh,NgheNghiep,GioiTinh,Sdt,QueQuan,maPH) values(?,?,?,?,?,?,?,?)"; 
+        String sql = "insert into tblKhachThue(maKT,HoTen,NgaySinh,NgheNghiep,GioiTinh,Sdt,QueQuan,maPhong) values(?,?,?,?,?,?,?,?)"; 
         try(
             PreparedStatement    pstmt = con.prepareStatement(sql); 
                 ){
@@ -30,34 +30,43 @@ public class khachThueDao {
             pstmt.setString(5, nhan.getGioiTinh());
             pstmt.setString(6, nhan.getSdt());
             pstmt.setString(7, nhan.getQueQuan());
-            pstmt.setString(8, nhan.getMaPH());
+            pstmt.setString(8, nhan.getMaPhong());
             return pstmt.executeUpdate()> 0;
         }               
              
 }     
     public List<KhachThue> getAllUsersKT(){
         List<KhachThue> kts = new ArrayList<KhachThue>();
-        String sql  = "select * from KhachThue";
+        String sql  = "select * from tblKhachThue";
         try { 
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 KhachThue kt  = new KhachThue();
-                
                 kt.setMaKT(rs.getString("MaKT"));
-                kt.setHoTen(rs.getString("TenNV"));
+                kt.setHoTen(rs.getString("HoTen"));
                 kt.setNgaySinh(rs.getString("NgaySinh"));
                 kt.setNgheNghiep(rs.getString("NgheNghiep"));
                 kt.setGioiTinh(rs.getString("GioiTinh"));
                 kt.setSdt(rs.getString("Sdt"));
                 kt.setQueQuan(rs.getString("QueQuan"));
-                kt.setMaPH(rs.getString("maPH"));
+                kt.setMaPhong(rs.getString("maPhong"));
                 kts.add(kt);
             }
         } catch (SQLException ex) {
             Logger.getLogger(khachThueDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return kts;
+    }
+       public void DELETENGUOIDUNG (String MaKT)
+    {
+        String sql = "DELETE from tblKhachThue WHERE MaKT = ?";
+        try{
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, MaKT);
+            int rs= pst.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }
