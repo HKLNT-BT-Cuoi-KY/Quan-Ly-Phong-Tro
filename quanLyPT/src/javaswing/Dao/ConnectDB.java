@@ -15,6 +15,7 @@ public class ConnectDB {
             String dbUrl = "jdbc:jtds:sqlserver://"
                     + Name_PC
                     + "/QlyNhaTro";
+//            String dbUrl = "jdbc:jtds:sqlserver://DESKTOP-3H4LPE0/QlyNhaTro";
             con = DriverManager.getConnection(dbUrl);
         } catch (Exception e) {
 //            e.printStackTrace();

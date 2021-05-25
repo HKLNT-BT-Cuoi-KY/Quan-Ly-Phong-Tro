@@ -23,6 +23,7 @@ public class Login_ConnectDB extends javax.swing.JFrame {
     public Login_ConnectDB() {
         initComponents();
         this.setLocationRelativeTo(null);
+        cbTenMay.setSelectedIndex(0);
     }
 
     /**
@@ -46,7 +47,7 @@ public class Login_ConnectDB extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Chọn Tên Máy");
 
-        cbTenMay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hoà", "Khánh", "LONG", "Nga", "Thảo" }));
+        cbTenMay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hoà", "Khánh", "Long", "Nga", "Thảo" }));
         cbTenMay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTenMayActionPerformed(evt);

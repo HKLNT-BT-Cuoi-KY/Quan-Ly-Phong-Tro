@@ -90,7 +90,7 @@
               <StringArray count="5">
                 <StringItem index="0" value="Ho&#xe0;"/>
                 <StringItem index="1" value="Kh&#xe1;nh"/>
-                <StringItem index="2" value="LONG"/>
+                <StringItem index="2" value="Long"/>
                 <StringItem index="3" value="Nga"/>
                 <StringItem index="4" value="Th&#x1ea3;o"/>
               </StringArray>
