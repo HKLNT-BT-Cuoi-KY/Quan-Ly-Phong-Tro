@@ -10,7 +10,6 @@ import javaswing.Dao.ConnectDB;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Tran Khanh
@@ -21,8 +20,10 @@ public class HoaDon extends javax.swing.JFrame {
      * Creates new form HoaDon
      */
     static Connection con = ConnectDB.getConnectDB();
+
     public HoaDon() {
         initComponents();
+        Init_tbHoaDon();
     }
 
     /**
@@ -63,7 +64,7 @@ public class HoaDon extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Phòng", "Tên Khách", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng"
+                "Phòng", "Tên Khách", "Tiền Phòng", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -82,6 +83,11 @@ public class HoaDon extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setText("Xoá");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,18 +153,23 @@ public class HoaDon extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Them_HoaDon().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void Init_tbHoaDon(){
-        String sql ="select * from tblHoaDon";
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+    public void Init_tbHoaDon() {
+        String sql = "select * from tblHoaDon";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                System.out.println("ss");
+            while (rs.next()) {
+                System.out.println("sss");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     /**
      * @param args the command line arguments
      */

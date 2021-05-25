@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import static javaswing.Dao.ConnectDB.con;
 import javaswing.Model.HoaDon;
 
 /**
@@ -21,8 +20,8 @@ public class hoaDonDao {
 
     static Connection con = ConnectDB.getConnectDB();
 
-    public static Long getTien(String maPhong, String loaiChiSoCu, String loaiChiSoMoi) {
-        Long tien = 0l;
+    public static String getTienDien(String maPhong) {
+        Long tienDien = 0l;
         long sm, sc;
         String sql = "select * from tblQlyPhongTro where maPhong = 'PH001'";
         try {
@@ -31,12 +30,30 @@ public class hoaDonDao {
             while (rs.next()) {
                 sm = Long.parseLong(rs.getString("chiSoDienMoi"));
                 sc = Long.parseLong(rs.getString("chiSoDienCu"));
-                tien = sm - sc;
+                tienDien = (sm - sc) * 3500;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return tien;
+        return "" + tienDien;
+    }
+
+    public static String getTienNuoc(String maPhong) {
+        Long tienNuoc = 0l;
+        long sm, sc;
+        String sql = "select * from tblQlyPhongTro where maPhong = 'PH001'";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                sm = Long.parseLong(rs.getString("chiSoNuocMoi"));
+                sc = Long.parseLong(rs.getString("chiSoNuocCu"));
+                tienNuoc = (sm - sc) * 2500;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "" + tienNuoc;
     }
 
     public List<HoaDon> getAllHoaHon() {
@@ -50,11 +67,36 @@ public class hoaDonDao {
                 hoadon.setMaHD(rs.getString("maHD"));
                 hoadon.setMaKT(rs.getString("maKT"));
                 hoadon.setMaPhong(rs.getString("maPhong"));
-                hoadon.setTienDien(sql);
+                hoadon.setTienDien(getTienDien("maPhong"));
+                hoadon.setTienNuoc(getTienNuoc("maPhong"));
+                list_hoadon.add(hoadon);
             }
         } catch (Exception e) {
         }
         return list_hoadon;
     }
 
+    public static void Add_HoaDon(HoaDon hoadon) {
+        String sql = "Insert Into tblHoaDon(maKT, maPhong, tienDien, tienNuoc, tienDV)"
+                + "Values (?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, hoadon.getMaKT());
+            ps.setString(2, hoadon.getMaPhong());
+            ps.setString(3, "");
+            ps.setString(4, "");
+            ps.setString(5, "");
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void Del_HoaDon(String maHD) {
+        String sql = "delete * from tblHoaDon where maHD = " + maHD + "";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 }
