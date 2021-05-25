@@ -18,7 +18,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
     KhachThue kthue;
     DefaultTableModel dtmKT;
     khachThueDao ktDao;
-
+    MainForm main;
     public Them_Nguoidung() {
         initComponents();
         kthue = new KhachThue();
@@ -295,7 +295,9 @@ public class Them_Nguoidung extends javax.swing.JFrame {
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btntrolaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntrolaiActionPerformed
-        new MainForm().setVisible(true);
+        main = new MainForm();
+        main.tabbed.setSelectedIndex(2);
+        main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btntrolaiActionPerformed
     private void setTableDataKT(List<KhachThue> kts) {

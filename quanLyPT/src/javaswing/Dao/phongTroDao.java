@@ -22,7 +22,7 @@ import javaswing.Model.PhongTro;
 public class phongTroDao {
 
     static Connection con = ConnectDB.getConnectDB();
-
+    static int rs=0;
     public List<PhongTro> getInFoPhongTro() {
         List<PhongTro> phongTros = new ArrayList<PhongTro>();
         String sql = "select * from tblQlyPhongTro";

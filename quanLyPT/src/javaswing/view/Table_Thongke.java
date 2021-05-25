@@ -165,7 +165,9 @@ public class Table_Thongke extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        new MainForm().setVisible(true);
+        main = new MainForm();
+        main.tabbed.setSelectedIndex(0);
+        main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backActionPerformed
 
