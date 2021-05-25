@@ -135,7 +135,7 @@ public class Login_ConnectDB extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         connect.getConnectDB();
-        if (connect.Check_conn) {
+        if (connect.Check_conn) {   
             new MainForm().setVisible(true);
         }
         else{
