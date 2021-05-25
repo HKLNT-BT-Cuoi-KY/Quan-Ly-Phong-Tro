@@ -1,5 +1,10 @@
 package javaswing.view;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javaswing.Dao.ConnectDB;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +20,7 @@ public class HoaDon extends javax.swing.JFrame {
     /**
      * Creates new form HoaDon
      */
+    static Connection con = ConnectDB.getConnectDB();
     public HoaDon() {
         initComponents();
     }
@@ -141,7 +147,18 @@ public class HoaDon extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Them_HoaDon().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public void Init_tbHoaDon(){
+        String sql ="select * from tblHoaDon";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                System.out.println("ss");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * @param args the command line arguments
      */
