@@ -179,11 +179,9 @@ public class QlyHoaDon extends javax.swing.JFrame {
         }
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Them_HoaDon().setVisible(true);
-        if (hoadon.rs > 0) {
-                Init_tbHoaDon();
-                hoadon.rs = 0;
-            }
+        Them_HoaDon add = new Them_HoaDon();
+        add.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -47,7 +47,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
         txtName_PH = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtName_KH = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -120,10 +120,10 @@ public class Them_HoaDon extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tên Khách");
 
-        jButton1.setText("Lưu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Lưu");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -136,14 +136,14 @@ public class Them_HoaDon extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtName_PH, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtName_KH, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(215, 215, 215))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
         jPanel3Layout.setVerticalGroup(
@@ -156,7 +156,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtName_PH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
-                .addComponent(jButton1)
+                .addComponent(btnSave)
                 .addContainerGap())
         );
 
@@ -234,7 +234,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         Long tienphong = getTienPhong(txtName_PH.getText());
         Long tiendien = getTienDien(txtName_PH.getText());
         Long tiennuoc = getTienNuoc(txtName_PH.getText());
@@ -247,10 +247,13 @@ public class Them_HoaDon extends javax.swing.JFrame {
         hoadon.setTienNuoc(tiennuoc);
         hoadon.setTienDV(tiendv);
         hoaDonDao.Add_HoaDon(hoadon);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.dispose();
+        new QlyHoaDon().setVisible(true);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseClicked
         this.dispose();
+        new QlyHoaDon().setVisible(true);
     }//GEN-LAST:event_txtCloseMouseClicked
 
     private void txtCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseEntered
@@ -299,7 +302,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
