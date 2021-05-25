@@ -14,14 +14,14 @@ import javaswing.Dao.ConnectDB;
  *
  * @author Tran Khanh
  */
-public class HoaDon extends javax.swing.JFrame {
+public class QlyHoaDon extends javax.swing.JFrame {
 
     /**
      * Creates new form HoaDon
      */
     static Connection con = ConnectDB.getConnectDB();
 
-    public HoaDon() {
+    public QlyHoaDon() {
         initComponents();
     }
 
@@ -175,20 +175,21 @@ public class HoaDon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QlyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QlyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QlyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QlyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HoaDon().setVisible(true);
+                new QlyHoaDon().setVisible(true);
             }
         });
 //        sdasdasdasd
