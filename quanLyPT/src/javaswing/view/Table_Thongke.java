@@ -6,6 +6,10 @@
 package javaswing.view;
 
 import java.awt.Color;
+import java.util.List;
+import javaswing.Dao.hoaDonDao;
+import javaswing.Dao.khachThueDao;
+import javaswing.Model.KhachThue;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -15,17 +19,21 @@ import javax.swing.table.DefaultTableModel;
  * @author HP
  */
 public class Table_Thongke extends javax.swing.JFrame { 
+    Thongke_form tk;
+    khachThueDao khachthuedao;
     public Table_Thongke(DefaultTableModel defaultTable, String a) {
         initComponents();
+        tk = new Thongke_form();
         this.setLocationRelativeTo(null);
         table1.setModel(defaultTable);
         lb1.setText(a);
+        tk.defaultTable = defaultTable;
+        
     }
 
     public Table_Thongke() {
     }
     
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
