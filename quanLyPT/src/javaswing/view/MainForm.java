@@ -22,27 +22,16 @@ public class MainForm extends javax.swing.JFrame {
     DefaultTableModel defaultTable, dtmPT;
     Table_Thongke a;
     phongTroDao phongTro;
-
+    PhongTro pt;
     public MainForm() {
         initComponents();
         this.setLocationRelativeTo(null);
         defaultTable = new DefaultTableModel();
         phongTro = new phongTroDao();
+        pt = new PhongTro();
         dtmPT = new DefaultTableModel();
-
-        tblDSPT.setModel(dtmPT);
-        dtmPT.addColumn("Mã phòng");
-        dtmPT.addColumn("Diện tích");
-        dtmPT.addColumn("Số người");
-        dtmPT.addColumn("Giá thuê");
-        dtmPT.addColumn("Đối tượng thuê");
-        dtmPT.addColumn("Tình trạng");
-        dtmPT.addColumn("Chỉ số điện cũ");
-        dtmPT.addColumn("Chỉ số điện mới");
-        dtmPT.addColumn("Chỉ số nước cũ");
-        dtmPT.addColumn("Chỉ số nước mới");
-
-        setTableDataSP(phongTro.getInFoPhongTro());
+        
+        Init_PhongTro();
     }
 
     /**
@@ -481,6 +470,11 @@ public class MainForm extends javax.swing.JFrame {
             }
         ));
         tblDSPT.setRowHeight(30);
+        tblDSPT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDSPTMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDSPT);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -527,10 +521,15 @@ public class MainForm extends javax.swing.JFrame {
         cbNu.setForeground(new java.awt.Color(255, 255, 255));
         cbNu.setText("Nữ");
 
-        cbtinhtrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn trống ", "Đã thuê" }));
+        cbtinhtrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trong", "Da Thue" }));
 
         btnSuaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaPT.setText("Sửa phòng trọ");
+        btnSuaPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaPTActionPerformed(evt);
+            }
+        });
 
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Gíá Chỉ Số Nước");
@@ -659,6 +658,11 @@ public class MainForm extends javax.swing.JFrame {
 
         btnThemPT.setBackground(new java.awt.Color(0, 204, 204));
         btnThemPT.setText("Thêm phòng trọ");
+        btnThemPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemPTActionPerformed(evt);
+            }
+        });
 
         btnXoaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaPT.setText("Xoá phòng trọ");
@@ -1187,7 +1191,21 @@ public class MainForm extends javax.swing.JFrame {
     private void txtHoTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoTenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoTenActionPerformed
+    private void Init_PhongTro(){
+        tblDSPT.setModel(dtmPT);
+        dtmPT.addColumn("Mã phòng");
+        dtmPT.addColumn("Diện tích");
+        dtmPT.addColumn("Số người");
+        dtmPT.addColumn("Giá thuê");
+        dtmPT.addColumn("Đối tượng thuê");
+        dtmPT.addColumn("Tình trạng");
+        dtmPT.addColumn("Chỉ số điện cũ");
+        dtmPT.addColumn("Chỉ số điện mới");
+        dtmPT.addColumn("Chỉ số nước cũ");
+        dtmPT.addColumn("Chỉ số nước mới");
 
+        setTableDataSP(phongTro.getInFoPhongTro());
+    }
     private void donhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseClicked
         tr = "THỐNG KÊ";
         defaultTable.addColumn("Phòng");
@@ -1282,6 +1300,55 @@ public class MainForm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnXoaPTActionPerformed
+
+    private void tblDSPTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPTMouseClicked
+        int row = tblDSPT.getSelectedRow();
+        String maPhong = String.valueOf(tblDSPT.getValueAt(row, 0));
+        pt = phongTro.getPhongTroByID(maPhong);
+        txtmaphong.setText(pt.getMaPhong());
+        txtdientich.setText(String.valueOf(pt.getDienTich()));
+        txtsonguoi.setText(String.valueOf(pt.getSoNguoi()));
+        txtgiathue.setText(String.valueOf(pt.getGiaThue()));
+        cbtinhtrang.setSelectedItem(pt.getTinhTrang());
+        if(pt.getDoiTuong().equals("nam & nu")){
+            cbNam.setSelected(true);
+            cbNu.setSelected(true);
+        }
+        if(pt.getDoiTuong().equals("nam")){
+            cbNam.setSelected(true);
+            cbNu.setSelected(false);
+        }
+        if(pt.getDoiTuong().equals("nu")){
+            cbNam.setSelected(false);
+            cbNu.setSelected(true);
+        }
+    }//GEN-LAST:event_tblDSPTMouseClicked
+
+    private void btnSuaPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaPTActionPerformed
+        pt.setMaPhong(txtmaphong.getText());
+        pt.setDienTich(Double.parseDouble(txtdientich.getText()));
+        pt.setSoNguoi(Integer.parseInt(txtdientich.getText()));
+        pt.setGiaThue(Double.parseDouble(txtgiathue.getText()));
+        String dt = "";
+        if(cbNam.isSelected() && cbNu.isSelected()){
+            dt = "Nam & Nu";
+        }
+        if(cbNam.isSelected()){
+            dt = "Nam";
+        }
+        if(cbNu.isSelected()){
+            dt ="Nu";
+        }
+        pt.setDoiTuong(dt);
+        pt.setTinhTrang(cbtinhtrang.getSelectedItem().toString());
+        dtmPT.setRowCount(0);
+        setTableDataSP(phongTro.getInFoPhongTro());
+    }//GEN-LAST:event_btnSuaPTActionPerformed
+
+    private void btnThemPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemPTActionPerformed
+        new Them_Phongtro().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnThemPTActionPerformed
 
     private void setTableDataSP(List<PhongTro> phongTro) {
         for (PhongTro pt : phongTro) {

@@ -20,16 +20,19 @@ import javaswing.Model.PhongTro;
  * @author HP
  */
 public class phongTroDao {
+
     static Connection con = ConnectDB.getConnectDB();
-    public List<PhongTro> getInFoPhongTro(){
+
+    public List<PhongTro> getInFoPhongTro() {
         List<PhongTro> phongTros = new ArrayList<PhongTro>();
-        String sql  = "select * from tblQlyPhongTro";
+        String sql = "select * from tblQlyPhongTro";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                PhongTro pt  = new PhongTro();
-                
+            
+            while (rs.next()) {
+                PhongTro pt = new PhongTro();
+
                 pt.setMaPhong(rs.getString("maPhong"));
                 pt.setDienTich(rs.getDouble("dienTich"));
                 pt.setSoNguoi(rs.getInt("soNguoi"));
@@ -45,39 +48,92 @@ public class phongTroDao {
         } catch (SQLException ex) {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return phongTros;
     }
-    
-    public void addPhongTro (PhongTro pt){
-        String sql = "insert into tblQlyPhongTro(maPhong, dienTich, soNguoi, giaThue, DoiTuongThue, TinhTrang,chiSoDienMoi,"
-                + "chiSoDienCu,chiSoNuocCu,chiSoNuocMoi) values(?,?,?,?,?,?,?,?,?,?)";
-       
+
+    public void addPhongTro(PhongTro pt) {
+        String sql = "insert into tblQlyPhongTro( dienTich, soNguoi, giaThue, DoiTuongThue, TinhTrang,chiSoDienMoi,"
+                + "chiSoDienCu,chiSoNuocCu,chiSoNuocMoi) values(?,?,?,?,?,?,?,?,?)";
+
         try {
-             PreparedStatement ps = con.prepareStatement(sql);
-             ps.setString(1, pt.getMaPhong());
-             ps.setDouble(2, pt.getDienTich());
-             ps.setInt(3, pt.getSoNguoi());
-             ps.setDouble(4, pt.getGiaThue());
-             ps.setString(5, pt.getDoiTuong());
-             ps.setString(6, pt.getTinhTrang());
-             ps.setInt(7, 0);
-             ps.setInt(8, 0);
-             ps.setInt(9, 0);
-             ps.setInt(10, 0);
-             int  rs = ps.executeUpdate();
-             //pt.setKq(rs);
+            PreparedStatement ps = con.prepareStatement(sql);
+            //ps.setString(1, pt.getMaPhong());
+            ps.setDouble(1, pt.getDienTich());
+            ps.setInt(2, pt.getSoNguoi());
+            ps.setDouble(3, pt.getGiaThue());
+            ps.setString(4, pt.getDoiTuong());
+            ps.setString(5, pt.getTinhTrang());
+            ps.setInt(6, 0);
+            ps.setInt(7, 0);
+            ps.setInt(8, 0);
+            ps.setInt(9, 0);
+            int rs = ps.executeUpdate();
+            //pt.setKq(rs);
         } catch (SQLException ex) {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void deletePhongTro(String maPhong){
+
+    public PhongTro getPhongTroByID(String maPhong) {
+        String sql = "select * from tblQlyPhongTro where maPhong= ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, maPhong);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                PhongTro pt = new PhongTro();
+
+                pt.setMaPhong(rs.getString("maPhong"));
+                pt.setDienTich(rs.getDouble("dienTich"));
+                pt.setSoNguoi(rs.getInt("soNguoi"));
+                pt.setGiaThue(rs.getDouble("giaThue"));
+                pt.setDoiTuong(rs.getString("DoiTuongThue"));
+                pt.setTinhTrang(rs.getString("TinhTrang"));
+                pt.setCsDienMoi(rs.getInt("chiSoDienMoi"));
+                pt.setCsDienCu(rs.getInt("chiSoDienCu"));
+                pt.setCsNuocCu(rs.getInt("chiSoNuocCu"));
+                pt.setCsNuocMoi(rs.getInt("chiSoNuocMoi"));
+
+                return pt;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
+    public void updatePhongTro(PhongTro pt) {
+        String sql = "update tblQlyPhongTro set  dienTich = ?, soNguoi= ?, giaThue= ?, DoiTuongThue= ?, TinhTrang= ?,chiSoDienMoi= ?,"
+                + "chiSoDienCu= ?,chiSoNuocCu= ?,chiSoNuocMoi = ? where maPhong = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(10, pt.getMaPhong());
+            ps.setDouble(1, pt.getDienTich());
+            ps.setInt(2, pt.getSoNguoi());
+            ps.setDouble(3, pt.getGiaThue());
+            ps.setString(4, pt.getDoiTuong());
+            ps.setString(5, pt.getTinhTrang());
+            ps.setInt(6, 0);
+            ps.setInt(7, 0);
+            ps.setInt(8, 0);
+            ps.setInt(9, 0);
+            int rs = ps.executeUpdate();
+            //laptop.setKq(rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void deletePhongTro(String maPhong) {
         String sql = "delete from tblQlyPhongTro where maPhong = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,maPhong);
-            int  rs = ps.executeUpdate();
+            ps.setString(1, maPhong);
+            int rs = ps.executeUpdate();
             System.out.println(rs);
         } catch (SQLException ex) {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
