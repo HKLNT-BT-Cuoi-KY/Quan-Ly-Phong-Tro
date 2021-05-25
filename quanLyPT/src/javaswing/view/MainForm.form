@@ -984,6 +984,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Xo&#xe1; ph&#xf2;ng tr&#x1ecd;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaPTActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1323,9 +1326,6 @@
                         <Component class="javax.swing.JTextField" name="txtNgaySinh">
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtNgheNghiep">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNgheNghiepActionPerformed"/>
-                          </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtQueQuan">
                         </Component>
