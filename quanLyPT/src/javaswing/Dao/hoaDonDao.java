@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javaswing.Model.HoaDon;
+import javaswing.view.QlyHoaDon;
 
 /**
  *
@@ -19,7 +20,7 @@ import javaswing.Model.HoaDon;
 public class hoaDonDao {
 
     static Connection con = ConnectDB.getConnectDB();
-
+    public static int rs = 0;
     public static Long getTienDien(String maPhong) {
         return soChuDien(maPhong) * 3500;
     }
@@ -44,7 +45,6 @@ public class hoaDonDao {
         }
         return 0l;
     }
-
 
     public static Long soChuDien(String ID) {
         String sql = "select chiSoDienMoi -  chiSoDienCu  sochu "
@@ -126,6 +126,7 @@ public class hoaDonDao {
     }
 
     public static void Add_HoaDon(HoaDon hoadon) {
+        
         String sql = "Insert Into tblHoaDon(maKT, maPhong, tienPhong, tienDien, tienNuoc, tienDV)"
                 + "Values (?, ?, ?, ?, ?, ?)";
         try {
@@ -136,22 +137,26 @@ public class hoaDonDao {
             ps.setLong(4, hoadon.getTienDien());
             ps.setLong(5, hoadon.getTienNuoc());
             ps.setLong(6, hoadon.getTienDV());
-            ps.executeUpdate();
+            rs = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void Del_HoaDon(String maHD) {
-        String sql = "delete * from tblHoaDon where maHD = " + maHD + "";
+        String sql = "delete from tblHoaDon where maHD = '"
+                + maHD
+                + "'";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.executeUpdate();
+            rs = ps.executeUpdate();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-//        getAllHoaHon();
+        //        getAllHoaHon();
+//        Del_HoaDon("HD003");
     }
 }

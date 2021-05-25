@@ -5,6 +5,7 @@ import java.util.List;
 import javaswing.Dao.ConnectDB;
 import javaswing.Dao.hoaDonDao;
 import javaswing.Model.HoaDon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -22,12 +23,13 @@ public class QlyHoaDon extends javax.swing.JFrame {
      * Creates new form HoaDon
      */
     static Connection con = ConnectDB.getConnectDB();
-    DefaultTableModel DefaultTableHoaDonModel;
+    static DefaultTableModel DefaultTableHoaDonModel;
     hoaDonDao hoadon;
 
     public QlyHoaDon() {
         initComponents();
         Init_tbHoaDon();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -161,7 +163,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         setDataTableHoaDon(hoadon.getAllHoaHon());
     }
 
-    private void setDataTableHoaDon(List<HoaDon> hoadon) {
+    private static void setDataTableHoaDon(List<HoaDon> hoadon) {
         DefaultTableHoaDonModel.setRowCount(0);
         for (HoaDon hd : hoadon) {
             DefaultTableHoaDonModel.addRow(new Object[]{
@@ -178,9 +180,24 @@ public class QlyHoaDon extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Them_HoaDon().setVisible(true);
+        if (hoadon.rs > 0) {
+                Init_tbHoaDon();
+                hoadon.rs = 0;
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int choose = JOptionPane.showConfirmDialog(rootPane, "Bạn Có Muốn Xoá Không?", "Xác Nhận", JOptionPane.YES_NO_OPTION);
+        int row = tbHoaDon.getSelectedRow();
+        if (choose == JOptionPane.YES_OPTION) {
+            String maHD = String.valueOf(tbHoaDon.getValueAt(row, 0));
+            hoadon.Del_HoaDon(maHD);
+            if (hoadon.rs > 0) {
+                Init_tbHoaDon();
+                hoadon.rs = 0;
+            }
+            System.out.println(hoadon.rs);
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -230,6 +247,6 @@ public class QlyHoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tbHoaDon;
+    private static javax.swing.JTable tbHoaDon;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,7 +22,6 @@ public class Them_HoaDon extends javax.swing.JFrame {
      * Creates new form Them_HoaDon
      */
     HoaDon hoadon;
-
     public Them_HoaDon() {
         initComponents();
         hoadon = new HoaDon();
