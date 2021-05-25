@@ -41,8 +41,8 @@ public class Thongke_form extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);   
         thongkedao.Count_kh(); thongkedao.Count_dh();thongkedao.Count_Pt_Trong();
-        lb1txt.setText(""+ThongKe.getCount_dh());
-        lb2txt.setText(""+thongke.getCount_kh());
+        lb1txt.setText(""+thongke.getCount_dh());
+        lb4txt.setText(""+thongke.getCount_kh());
         lb3txt.setText(""+thongke.getCount_pt_t());
     }
     @SuppressWarnings("unchecked")
@@ -65,7 +65,7 @@ public class Thongke_form extends javax.swing.JFrame {
         doanhThu = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         khachHang = new javax.swing.JPanel();
-        lb2txt = new javax.swing.JLabel();
+        lb4txt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,9 +161,9 @@ public class Thongke_form extends javax.swing.JFrame {
         donhangtxtLayout.setVerticalGroup(
             donhangtxtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(donhangtxtLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(28, 28, 28)
                 .addComponent(lb1txt, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         phongTrong.setBackground(new java.awt.Color(0, 204, 204));
@@ -182,23 +182,22 @@ public class Thongke_form extends javax.swing.JFrame {
             }
         });
 
+        lb3txt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lb3txt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb3txt.setText("jLabel1");
 
         javax.swing.GroupLayout phongTrongLayout = new javax.swing.GroupLayout(phongTrong);
         phongTrong.setLayout(phongTrongLayout);
         phongTrongLayout.setHorizontalGroup(
             phongTrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(phongTrongLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(lb3txt)
-                .addContainerGap(39, Short.MAX_VALUE))
+            .addComponent(lb3txt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
         );
         phongTrongLayout.setVerticalGroup(
             phongTrongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(phongTrongLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
                 .addComponent(lb3txt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -251,23 +250,22 @@ public class Thongke_form extends javax.swing.JFrame {
             }
         });
 
-        lb2txt.setText("jLabel1");
+        lb4txt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lb4txt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb4txt.setText("jLabel1");
 
         javax.swing.GroupLayout khachHangLayout = new javax.swing.GroupLayout(khachHang);
         khachHang.setLayout(khachHangLayout);
         khachHangLayout.setHorizontalGroup(
             khachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(khachHangLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(lb2txt)
-                .addContainerGap(41, Short.MAX_VALUE))
+            .addComponent(lb4txt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
         );
         khachHangLayout.setVerticalGroup(
             khachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, khachHangLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(lb2txt)
-                .addGap(43, 43, 43))
+            .addGroup(khachHangLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lb4txt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -342,15 +340,25 @@ public class Thongke_form extends javax.swing.JFrame {
     private void donhangtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangtxtMouseClicked
         tr="ĐƠN HÀNG";
         defaultTable.addColumn("Mã Hoá Đơn");
-        defaultTable.addColumn("Khách Thuê");
+        defaultTable.addColumn("Mã Khách Thuê");
         defaultTable.addColumn("Mã Phòng");
-        defaultTable.addColumn("Tiền Điện");
+        defaultTable.addColumn("Tiền phòng");
+        defaultTable.addColumn("Tiền điện");
         defaultTable.addColumn("Tiền nước");
+        defaultTable.addColumn("Tiền dịch vụ");
         a = new Table_Thongke(defaultTable,tr); 
         new Table_Thongke(defaultTable,tr).setVisible(true);
         this.dispose();
+        setallHoaDon(hoadondao.getAllHoaHon());
     }//GEN-LAST:event_donhangtxtMouseClicked
-
+    public void setallHoaDon(List<HoaDon> users){
+        for (HoaDon hd : users){
+            defaultTable.addRow(new Object[]{
+                hd.getMaHD(), hd.getMaKT(), hd.getMaPhong(), hd.getGiaThue(),
+                hd.getTienDien(), hd.getTienNuoc(),hd.getTienDV()
+            });
+        }
+    }
     private void doanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseClicked
         tr="CHI TIÊT ĐƠN HÀNG";
         defaultTable.addColumn("Phòng");
@@ -494,8 +502,8 @@ public class Thongke_form extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel khachHang;
     private javax.swing.JLabel lb1txt;
-    private javax.swing.JLabel lb2txt;
     private javax.swing.JLabel lb3txt;
+    private javax.swing.JLabel lb4txt;
     private javax.swing.JPanel phongTrong;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,13 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author HP
- */
+
 public class Table_Thongke extends javax.swing.JFrame { 
     Thongke_form tk;
     khachThueDao khachthuedao;
+    MainForm main;
     public Table_Thongke(DefaultTableModel defaultTable, String a) {
         initComponents();
         tk = new Thongke_form();
@@ -167,7 +165,7 @@ public class Table_Thongke extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        new Thongke_form().setVisible(true);
+        new MainForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backActionPerformed
 
