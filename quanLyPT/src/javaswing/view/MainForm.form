@@ -1121,19 +1121,17 @@
                                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="rdNam" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Component id="rdNu" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtPhongThue" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtQueQuan" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtSDT" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="txtPhongThue" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtQueQuan" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtSDT" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="btnXoaND" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnSuaND" max="32767" attributes="0"/>
@@ -1282,11 +1280,17 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rdNam">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="buttonGroup1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Nam"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rdNu">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="buttonGroup1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="N&#x1eef;"/>
                           </Properties>
                         </Component>
@@ -1330,6 +1334,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Ch&#x1ec9;nh s&#x1eed;a"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaNDActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1414,6 +1421,9 @@
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblTTKHMouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
