@@ -122,6 +122,23 @@ public class phongTroDao {
         }
 
     }
+    
+    public void updateCSDN(PhongTro pt) {
+        String sql = "update tblQlyPhongTro set  chiSoDienCu = ?, chiSoDienMoi= ?, chiSoNuocCu= ?, chiSoNuocMoi= ? where maPhong = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(5, pt.getMaPhong());
+            ps.setInt(1, pt.getCsDienCu());
+            ps.setInt(2, pt.getCsDienMoi());
+            ps.setInt(3, pt.getCsNuocCu());
+            ps.setInt(4, pt.getCsNuocMoi());
+            int rs = ps.executeUpdate();
+            //laptop.setKq(rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public void deletePhongTro(String maPhong) {
         String sql = "delete from tblQlyPhongTro where maPhong = ?";
@@ -134,4 +151,29 @@ public class phongTroDao {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public List<PhongTro> getCSDienNuoc() {
+        List<PhongTro> phongTros = new ArrayList<PhongTro>();
+        String sql = "select * from tblQlyPhongTro";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                PhongTro pt = new PhongTro();
+
+                pt.setMaPhong(rs.getString("maPhong"));
+                pt.setCsDienMoi(rs.getInt("chiSoDienMoi"));
+                pt.setCsDienCu(rs.getInt("chiSoDienCu"));
+                pt.setCsNuocCu(rs.getInt("chiSoNuocCu"));
+                pt.setCsNuocMoi(rs.getInt("chiSoNuocMoi"));
+                phongTros.add(pt);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return phongTros;
+    }
+
 }
