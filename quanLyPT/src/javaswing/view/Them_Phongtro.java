@@ -3,13 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+       
 package javaswing.view;
+import javaswing.Dao.phongTroDao;
+import javaswing.Dao.ConnectDB;
+import javaswing.Model.PhongTro;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author THANHTHAO
  */
+    
+
 public class Them_Phongtro extends javax.swing.JFrame {
+    PhongTro ptro;
+    phongTroDao themPT;
+    DefaultTableModel dtmPT;
+    
     public Them_Phongtro() {
         initComponents();
     }
@@ -80,11 +91,11 @@ public class Them_Phongtro extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Giá thuê");
 
-        cbxtinhtrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn trống", "Đã thuê" }));
+        cbxtinhtrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trong", "Da thue" }));
 
         cbNam.setText("Nam");
 
-        cbNu.setText("Nữ");
+        cbNu.setText("Nu");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -165,6 +176,11 @@ public class Them_Phongtro extends javax.swing.JFrame {
         btthem.setBackground(new java.awt.Color(0, 102, 102));
         btthem.setForeground(new java.awt.Color(255, 255, 255));
         btthem.setText("Thêm");
+        btthem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btthemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -215,6 +231,29 @@ public class Them_Phongtro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btthemActionPerformed
+        //ptro.setMaPhong(txtmaphong.getText());
+        ptro.setDienTich(Double.parseDouble(txtdientich.getText()));
+        ptro.setSoNguoi(Integer.parseInt(txtsonguoi.getText()));
+        ptro.setGiaThue(Double.parseDouble(txtgiathue.getText()));
+        
+        String doituong = "";
+        if(cbNam.isSelected()){
+            doituong = "Nam";
+        }
+        if(cbNu.isSelected()){
+            doituong ="Nu";
+        }
+        if(cbNam.isSelected() && cbNu.isSelected()){
+            doituong = "Nam & Nu";
+        }
+        ptro.setDoiTuong(doituong);
+        ptro.setTinhTrang(cbxtinhtrang.getSelectedItem().toString());
+        themPT.addPhongTro(ptro);
+        new MainForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btthemActionPerformed
 
     /**
      * @param args the command line arguments
