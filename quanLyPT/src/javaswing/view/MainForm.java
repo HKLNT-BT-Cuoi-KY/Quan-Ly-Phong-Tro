@@ -15,12 +15,28 @@ import javax.swing.table.DefaultTableModel;
 public class MainForm extends javax.swing.JFrame {
 
     String tr="";
-    DefaultTableModel defaultTable;
+    DefaultTableModel defaultTable, dtmPT;
     Table_Thongke a;
     public MainForm() {
         initComponents();
         this.setLocationRelativeTo(null);
         defaultTable = new DefaultTableModel();
+        
+        dtmPT = new DefaultTableModel();
+        
+        tblDSPT.setModel(dtmPT);
+        dtmPT.addColumn("Mã phòng");
+        dtmPT.addColumn("Diện tích");
+        dtmPT.addColumn("Số người");
+        dtmPT.addColumn("Giá thuê");
+        dtmPT.addColumn("Đối tượng thuê");
+        dtmPT.addColumn("Tình trạng");
+        dtmPT.addColumn("Chỉ số điện cũ");
+        dtmPT.addColumn("Chỉ số điện mới");
+        dtmPT.addColumn("Chỉ số nước cũ");
+        dtmPT.addColumn("Chỉ số nước mới");
+                
+        
     }
 
     /**
