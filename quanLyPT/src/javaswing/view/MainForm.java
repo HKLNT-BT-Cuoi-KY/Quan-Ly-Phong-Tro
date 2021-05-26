@@ -58,6 +58,7 @@ public class MainForm extends javax.swing.JFrame {
         Init_Source_TabPhongTro();
         Init_Source_TabQlyNguoiThue();
         Init_Source_TabCSoDien_Nuoc();
+        
     }
 
     /**
