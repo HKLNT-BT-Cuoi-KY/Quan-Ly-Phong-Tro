@@ -2,8 +2,6 @@ package javaswing.view;
 
 import java.awt.Color;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.List;
 import javaswing.Dao.ConnectDB;
@@ -58,6 +56,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         cbxMonth = new javax.swing.JComboBox<>();
         cbxYear = new javax.swing.JComboBox<>();
         btnReset = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +69,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         jLabel1.setText("Chi tiết hóa đơn theo tháng ");
 
         tbHoaDon.setBackground(new java.awt.Color(0, 204, 204));
-        tbHoaDon.setForeground(new java.awt.Color(0, 153, 153));
+        tbHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -136,6 +135,13 @@ public class QlyHoaDon extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Xuất Hoá Đơn");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,16 +149,12 @@ public class QlyHoaDon extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(853, Short.MAX_VALUE)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,6 +166,11 @@ public class QlyHoaDon extends javax.swing.JFrame {
                         .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,8 +195,10 @@ public class QlyHoaDon extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(btnReset))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(jButton3)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,7 +225,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         for (int i = 12; i >= 1; i--) {
             cbxMonth.addItem("" + i);
         }
-        cbxMonth.setSelectedItem(""+month);
+        cbxMonth.setSelectedItem("" + month);
         for (int i = 2021; i >= 2000; i--) {
             cbxYear.addItem("" + i);
         }
@@ -281,8 +290,14 @@ public class QlyHoaDon extends javax.swing.JFrame {
 
     private void txtSearchHD_maPhongFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongFocusLost
         txtSearchHD_maPhong.setText("Tìm Hoá Đơn Theo Phòng");
-        txtSearchHD_maPhong.setForeground( new Color(204,204,204));
+        txtSearchHD_maPhong.setForeground(new Color(204, 204, 204));
     }//GEN-LAST:event_txtSearchHD_maPhongFocusLost
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int row = tbHoaDon.getSelectedRow();
+        String maHD = String.valueOf(tbHoaDon.getValueAt(row, 0));
+        hoadon.Export(hoadon.Search_HD(maHD));
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,6 +343,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxYear;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

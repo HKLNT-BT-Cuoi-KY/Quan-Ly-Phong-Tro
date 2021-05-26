@@ -5,8 +5,6 @@
  */
 package javaswing.Model;
 
-import java.time.LocalDate;
-
 /**
  *
  * @author Tran Khanh
@@ -19,6 +17,11 @@ public class HoaDon {
 
     public String getDate() {
         return date;
+    }
+
+    @Override
+    public String toString() {
+        return  "Mã Hoá Đơn : " + maHD + "\t\tNgày Tạo Hoá Đơn : " + date + "\nMã Khách Thuê : " + maKT + "\nMã Phòng : " + maPhong + "\nGiá Thuê" + giaThue + "\nTiền Điện" + tienDien + "\nTiền Nước : " + tienNuoc + "\nTiền Dịch Vụ" + tienDV + "\nTổng Tiền" + tongTien  ;
     }
 
     public void setDate(String date) {
