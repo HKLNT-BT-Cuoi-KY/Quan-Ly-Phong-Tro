@@ -1681,7 +1681,7 @@ public class MainForm extends javax.swing.JFrame {
     private void btnSuaNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaNDActionPerformed
         int row = tblTTKH.getSelectedRow();
         if (row == -1) {
-            JOptionPane.showMessageDialog(MainForm.this, "Chọn đư liệu trước");
+            JOptionPane.showMessageDialog(MainForm.this, "Chưa Chọn Dữ Liệu");
         } else {
             kthue.setMaKT(txtMaND.getText());
             kthue.setHoTen(txtHoTen.getText());

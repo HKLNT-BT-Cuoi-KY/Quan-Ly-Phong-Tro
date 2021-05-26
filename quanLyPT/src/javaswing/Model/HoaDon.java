@@ -11,7 +11,7 @@ package javaswing.Model;
  */
 public class HoaDon {
 
-    String maHD, maKT, maPhong;
+    String maHD, maKT, maPhong, tenKT;
     Long giaThue, tienDien, tongTien, tienNuoc, tienDV;
     String date;
 
