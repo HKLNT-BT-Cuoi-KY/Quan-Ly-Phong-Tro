@@ -31,13 +31,17 @@ public class MainForm extends javax.swing.JFrame {
 
     String tr = "";
     DefaultTableModel defaultTable, dtmPT, dtmCSD, dtmCSN, dtmKT;
-    Table_Thongke a;
+    
     phongTroDao phongTro;
     PhongTro pt;
+    
     KhachThue kthue;
     khachThueDao ktDao;
+    
     ThongKe thongke;
     thongKeDao thongkedao;
+    Table_Thongke a;
+    
     hoaDonDao hoadondao;
     static Connection con = ConnectDB.getConnectDB();
     static DefaultTableModel DefaultTableHoaDonModel;
@@ -48,17 +52,8 @@ public class MainForm extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         defaultTable = new DefaultTableModel();
-        thongkedao = new thongKeDao();
-        hoadondao = new hoaDonDao();
         defaultTable = new DefaultTableModel();
-        phongTro = new phongTroDao();
-        pt = new PhongTro();
-        dtmPT = new DefaultTableModel();
-        dtmCSD = new DefaultTableModel();
-        dtmCSN = new DefaultTableModel();
-        kthue = new KhachThue();
-        ktDao = new khachThueDao();
-        dtmKT = new DefaultTableModel();
+        thongkedao = new thongKeDao();
         thongkedao.Count_kh();
         thongkedao.Count_dh();
         thongkedao.Count_Pt_Trong();
@@ -68,12 +63,14 @@ public class MainForm extends javax.swing.JFrame {
         txtlb2.setText("" + thongke.getCount_kh_no());
         txtlb4.setText("" + thongke.getCount_kh());
         txtlb3.setText("" + thongke.getCount_pt_t());
-        Init_PhongTro();
-        Init_ChiSoDien();
-        Init_ChiSoNuoc();
-        Init_Nguoithue();
+        
+        hoadondao = new hoaDonDao();
         Init_tbHoaDon();
         Init_cbx();
+        
+        Init_Source_TabPhongTro();
+        Init_Source_TabQlyNguoiThue();
+        Init_Source_TabCSoDien_Nuoc();
     }
 
     /**
@@ -1324,6 +1321,26 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    
+    private void Init_Source_TabPhongTro(){
+        phongTro = new phongTroDao();
+        pt = new PhongTro();
+        dtmPT = new DefaultTableModel();
+        Init_PhongTro();
+    }
+    private void Init_Source_TabQlyNguoiThue(){
+        kthue = new KhachThue();
+        ktDao = new khachThueDao();
+        dtmKT = new DefaultTableModel();
+        Init_Nguoithue();
+    }
+    private void Init_Source_TabCSoDien_Nuoc(){
+        dtmCSD = new DefaultTableModel();
+        dtmCSN = new DefaultTableModel();;
+        Init_ChiSoDien();
+        Init_ChiSoNuoc();
+    }
     private void Init_PhongTro() {
         tblDSPT.setModel(dtmPT);
         dtmPT.addColumn("Mã phòng");
@@ -1332,7 +1349,7 @@ public class MainForm extends javax.swing.JFrame {
         dtmPT.addColumn("Giá thuê");
         dtmPT.addColumn("Đối tượng thuê");
         dtmPT.addColumn("Tình trạng");
-        setTableDataSP(phongTro.getInFoPhongTro());
+        setTableDataPhongTro(phongTro.getInFoPhongTro());
     }
 
     private void Init_Nguoithue() {
@@ -1533,7 +1550,7 @@ public class MainForm extends javax.swing.JFrame {
                 String maPhong = String.valueOf(tblDSPT.getValueAt(row, 0));
                 phongTro.deletePhongTro(maPhong);
                 dtmPT.setRowCount(0);
-                setTableDataSP(phongTro.getInFoPhongTro());
+                setTableDataPhongTro(phongTro.getInFoPhongTro());
             }
         }
     }//GEN-LAST:event_btnXoaPTActionPerformed
@@ -1588,7 +1605,7 @@ public class MainForm extends javax.swing.JFrame {
             pt.setTinhTrang(cbtinhtrang.getSelectedItem().toString());
             phongTro.updatePhongTro(pt);
             dtmPT.setRowCount(0);
-            setTableDataSP(phongTro.getInFoPhongTro());
+            setTableDataPhongTro(phongTro.getInFoPhongTro());
         }
     }//GEN-LAST:event_btnSuaPTActionPerformed
 
@@ -1760,7 +1777,7 @@ public class MainForm extends javax.swing.JFrame {
         hoadon.Export(hoadon.Search_HD(maHD));
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void setTableDataSP(List<PhongTro> phongTro) {
+    private void setTableDataPhongTro(List<PhongTro> phongTro) {
         for (PhongTro pt : phongTro) {
             dtmPT.addRow(new Object[]{pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(), pt.getDoiTuong(), pt.getTinhTrang()});
         }
