@@ -31,17 +31,17 @@ public class MainForm extends javax.swing.JFrame {
 
     String tr = "";
     DefaultTableModel defaultTable, dtmPT, dtmCSD, dtmCSN, dtmKT;
-    
+
     phongTroDao phongTro;
     PhongTro pt;
-    
+
     KhachThue kthue;
     khachThueDao ktDao;
-    
+
     ThongKe thongke;
     thongKeDao thongkedao;
     Table_Thongke a;
-    
+
     hoaDonDao hoadondao;
     static Connection con = ConnectDB.getConnectDB();
     static DefaultTableModel DefaultTableHoaDonModel;
@@ -51,14 +51,13 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        defaultTable = new DefaultTableModel();
 
         Init_Source_TabThongKe();
         Init_Source_TabHoaDon();
         Init_Source_TabPhongTro();
         Init_Source_TabQlyNguoiThue();
         Init_Source_TabCSoDien_Nuoc();
-        
+
     }
 
     /**
@@ -1309,7 +1308,8 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void Init_Source_TabThongKe(){
+    private void Init_Source_TabThongKe() {
+        defaultTable = new DefaultTableModel();
         thongkedao = new thongKeDao();
         thongkedao.Count_kh();
         thongkedao.Count_dh();
@@ -1321,29 +1321,34 @@ public class MainForm extends javax.swing.JFrame {
         txtlb4.setText("" + thongke.getCount_kh());
         txtlb3.setText("" + thongke.getCount_pt_t());
     }
-    private void Init_Source_TabHoaDon(){
+
+    private void Init_Source_TabHoaDon() {
         hoadondao = new hoaDonDao();
         Init_tbHoaDon();
         Init_cbx();
     }
-    private void Init_Source_TabPhongTro(){
+
+    private void Init_Source_TabPhongTro() {
         phongTro = new phongTroDao();
         pt = new PhongTro();
         dtmPT = new DefaultTableModel();
         Init_PhongTro();
     }
-    private void Init_Source_TabQlyNguoiThue(){
+
+    private void Init_Source_TabQlyNguoiThue() {
         kthue = new KhachThue();
         ktDao = new khachThueDao();
         dtmKT = new DefaultTableModel();
         Init_Nguoithue();
     }
-    private void Init_Source_TabCSoDien_Nuoc(){
+
+    private void Init_Source_TabCSoDien_Nuoc() {
         dtmCSD = new DefaultTableModel();
         dtmCSN = new DefaultTableModel();;
         Init_ChiSoDien();
         Init_ChiSoNuoc();
     }
+
     private void Init_PhongTro() {
         tblDSPT.setModel(dtmPT);
         dtmPT.addColumn("Mã phòng");
@@ -1468,7 +1473,7 @@ public class MainForm extends javax.swing.JFrame {
         this.dispose();
         setallPhongTro(thongkedao.getInFoPhongTroIf());
     }//GEN-LAST:event_phongTrongMouseClicked
-    
+
     private void phongTrongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseEntered
         phongTrong.setBackground(new Color(0, 204, 204));
     }//GEN-LAST:event_phongTrongMouseEntered
@@ -1479,7 +1484,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void KhachhangnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhachhangnoMouseClicked
         tr = "THONG TIN KHACH NO PHONG";
-       defaultTable.addColumn("Mã phòng");
+        defaultTable.addColumn("Mã phòng");
         defaultTable.addColumn("Diện tích");
         defaultTable.addColumn("Số người ở");
         defaultTable.addColumn("Giá thuê");
@@ -1527,6 +1532,7 @@ public class MainForm extends javax.swing.JFrame {
             });
         }
     }
+
     public void setallKhachThue(List<KhachThue> users) {
         for (KhachThue kt : users) {
             defaultTable.addRow(new Object[]{
@@ -1767,7 +1773,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void txtSearchHD_maPhongFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongFocusLost
         txtSearchHD_maPhong.setText("Tìm Hoá Đơn Theo Phòng");
-        txtSearchHD_maPhong.setForeground( new Color(204,204,204));
+        txtSearchHD_maPhong.setForeground(new Color(204, 204, 204));
     }//GEN-LAST:event_txtSearchHD_maPhongFocusLost
 
     private void txtSearchHD_maPhongKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongKeyReleased
