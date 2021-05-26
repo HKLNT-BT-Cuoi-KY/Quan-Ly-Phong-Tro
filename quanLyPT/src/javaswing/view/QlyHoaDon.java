@@ -66,6 +66,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Chi tiết hóa đơn theo tháng ");
 
+        tbHoaDon.setBackground(new java.awt.Color(0, 204, 204));
         tbHoaDon.setForeground(new java.awt.Color(0, 153, 153));
         tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,6 +76,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
                 "Mã Hoá Đơn", "Phòng", "Tên Khách", "Tiền Phòng", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng", "Thời Gian"
             }
         ));
+        tbHoaDon.setGridColor(new java.awt.Color(0, 255, 255));
         tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tbHoaDon);
 
