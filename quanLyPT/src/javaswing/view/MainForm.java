@@ -64,10 +64,9 @@ public class MainForm extends javax.swing.JFrame {
         txtlb4.setText("" + thongke.getCount_kh());
         txtlb3.setText("" + thongke.getCount_pt_t());
         
-        hoadondao = new hoaDonDao();
-        Init_tbHoaDon();
-        Init_cbx();
         
+        
+        Init_Source_TabHoaDon();
         Init_Source_TabPhongTro();
         Init_Source_TabQlyNguoiThue();
         Init_Source_TabCSoDien_Nuoc();
@@ -1322,7 +1321,11 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    
+    private void Init_Source_TabHoaDon(){
+        hoadondao = new hoaDonDao();
+        Init_tbHoaDon();
+        Init_cbx();
+    }
     private void Init_Source_TabPhongTro(){
         phongTro = new phongTroDao();
         pt = new PhongTro();
