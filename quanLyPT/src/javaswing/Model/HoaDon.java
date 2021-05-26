@@ -5,6 +5,8 @@
  */
 package javaswing.Model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Tran Khanh
@@ -13,6 +15,16 @@ public class HoaDon {
 
     String maHD, maKT, maPhong;
     Long giaThue, tienDien, tongTien, tienNuoc, tienDV;
+    String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 
     public Long getGiaThue() {
         return giaThue;

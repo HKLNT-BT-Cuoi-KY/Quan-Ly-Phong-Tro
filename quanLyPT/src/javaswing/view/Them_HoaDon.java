@@ -6,6 +6,7 @@
 package javaswing.view;
 
 import java.awt.Color;
+import java.time.LocalDate;
 import javaswing.Dao.hoaDonDao;
 import static javaswing.Dao.hoaDonDao.getTienDien;
 import static javaswing.Dao.hoaDonDao.getTienNuoc;
@@ -240,12 +241,15 @@ public class Them_HoaDon extends javax.swing.JFrame {
         Long tiennuoc = getTienNuoc(txtName_PH.getText());
         Long tiendv = 70000l;
         Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
+        String date = java.time.LocalDate.now().toString();
+        System.out.println(date);
         hoadon.setMaPhong(txtName_PH.getText());
         hoadon.setMaKT(txtName_KH.getText());
         hoadon.setGiaThue(tienphong);
         hoadon.setTienDien(tiendien);
         hoadon.setTienNuoc(tiennuoc);
         hoadon.setTienDV(tiendv);
+        hoadon.setDate(date);
         hoaDonDao.Add_HoaDon(hoadon);
         this.dispose();
         new QlyHoaDon().setVisible(true);
