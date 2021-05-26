@@ -8,6 +8,7 @@ package javaswing.view;
 import java.awt.Color;
 import java.awt.Component;
 import java.sql.Connection;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import javaswing.Dao.khachThueDao;
 import javaswing.Dao.phongTroDao;
@@ -61,7 +62,10 @@ public class MainForm extends javax.swing.JFrame {
         thongkedao.Count_kh();
         thongkedao.Count_dh();
         thongkedao.Count_Pt_Trong();
-        txtlb1.setText("" + thongke.getCount_dh());
+        thongkedao.Count_Phong_No();
+        DecimalFormat decimal = new DecimalFormat("###,###,###");
+        txtlb1.setText("" + decimal.format(thongkedao.Count_DoanhThu()) + " VNĐ");
+        txtlb2.setText("" + thongke.getCount_kh_no());
         txtlb4.setText("" + thongke.getCount_kh());
         txtlb3.setText("" + thongke.getCount_pt_t());
         Init_PhongTro();
@@ -98,7 +102,7 @@ public class MainForm extends javax.swing.JFrame {
         txtlb3 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        doanhThu = new javax.swing.JPanel();
+        Khachhangno = new javax.swing.JPanel();
         txtlb2 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         khachHang = new javax.swing.JPanel();
@@ -273,7 +277,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        txtlb1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtlb1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtlb1.setForeground(new java.awt.Color(255, 255, 255));
         txtlb1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtlb1.setText("jLabel1");
@@ -335,18 +339,18 @@ public class MainForm extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("TỔMG DOANH THU");
 
-        doanhThu.setBackground(new java.awt.Color(0, 153, 153));
-        doanhThu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        doanhThu.setPreferredSize(new java.awt.Dimension(125, 110));
-        doanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
+        Khachhangno.setBackground(new java.awt.Color(0, 153, 153));
+        Khachhangno.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Khachhangno.setPreferredSize(new java.awt.Dimension(125, 110));
+        Khachhangno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                doanhThuMouseClicked(evt);
+                KhachhangnoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                doanhThuMouseEntered(evt);
+                KhachhangnoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                doanhThuMouseExited(evt);
+                KhachhangnoMouseExited(evt);
             }
         });
 
@@ -355,15 +359,15 @@ public class MainForm extends javax.swing.JFrame {
         txtlb2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtlb2.setText("jLabel1");
 
-        javax.swing.GroupLayout doanhThuLayout = new javax.swing.GroupLayout(doanhThu);
-        doanhThu.setLayout(doanhThuLayout);
-        doanhThuLayout.setHorizontalGroup(
-            doanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout KhachhangnoLayout = new javax.swing.GroupLayout(Khachhangno);
+        Khachhangno.setLayout(KhachhangnoLayout);
+        KhachhangnoLayout.setHorizontalGroup(
+            KhachhangnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txtlb2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
         );
-        doanhThuLayout.setVerticalGroup(
-            doanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(doanhThuLayout.createSequentialGroup()
+        KhachhangnoLayout.setVerticalGroup(
+            KhachhangnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KhachhangnoLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(txtlb2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -428,11 +432,11 @@ public class MainForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(khachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(doanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Khachhangno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(29, 29, 29))
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addGap(203, 203, 203)
-                                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                                 .addGap(11, 11, 11))))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,7 +454,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(doanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Khachhangno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(donhang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -489,7 +493,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblDSPT.setBackground(new java.awt.Color(0, 204, 204));
         tblDSPT.setModel(new javax.swing.table.DefaultTableModel(
@@ -529,7 +533,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mã phòng");
@@ -733,7 +737,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel11.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -904,7 +908,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setText("QUẢN LÍ NGƯỜI THUÊ PHÒNG");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblTTKH.setBackground(new java.awt.Color(0, 204, 204));
         tblTTKH.setModel(new javax.swing.table.DefaultTableModel(
@@ -1042,7 +1046,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         ));
         tbHoaDon.setGridColor(new java.awt.Color(0, 255, 255));
-        tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane7.setViewportView(tbHoaDon);
 
         txtSearchHD_maPhong.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1117,7 +1120,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel18.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số điện", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số điện", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblChiSoDien.setBackground(new java.awt.Color(0, 204, 204));
         tblChiSoDien.setModel(new javax.swing.table.DefaultTableModel(
@@ -1176,7 +1179,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel20.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số nước", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉ số nước", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblChiSoNuoc.setBackground(new java.awt.Color(0, 204, 204));
         tblChiSoNuoc.setModel(new javax.swing.table.DefaultTableModel(
@@ -1389,6 +1392,7 @@ public class MainForm extends javax.swing.JFrame {
         defaultTable.addColumn("Tiền điện");
         defaultTable.addColumn("Tiền nước");
         defaultTable.addColumn("Tiền dịch vụ");
+        defaultTable.addColumn("Tổng tiền");
         a = new Table_Thongke(defaultTable, tr);
         new Table_Thongke(defaultTable, tr).setVisible(true);
         this.dispose();
@@ -1398,7 +1402,7 @@ public class MainForm extends javax.swing.JFrame {
         for (HoaDon hd : users) {
             defaultTable.addRow(new Object[]{
                 hd.getMaHD(), hd.getMaKT(), hd.getMaPhong(), hd.getGiaThue(),
-                hd.getTienDien(), hd.getTienNuoc(), hd.getTienDV()
+                hd.getTienDien(), hd.getTienNuoc(), hd.getTienDV(), hd.getTongTien()
             });
         }
     }
@@ -1427,15 +1431,7 @@ public class MainForm extends javax.swing.JFrame {
         this.dispose();
         setallPhongTro(thongkedao.getInFoPhongTroIf());
     }//GEN-LAST:event_phongTrongMouseClicked
-    public void setallPhongTro(List<PhongTro> users) {
-        for (PhongTro pt : users) {
-            defaultTable.addRow(new Object[]{
-                pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(),
-                pt.getDoiTuong(), pt.getTinhTrang(), pt.getCsDienMoi(), pt.getCsDienMoi(),
-                pt.getCsNuocMoi(), pt.getCsNuocCu()
-            });
-        }
-    }
+    
     private void phongTrongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseEntered
         phongTrong.setBackground(new Color(0, 204, 204));
     }//GEN-LAST:event_phongTrongMouseEntered
@@ -1444,22 +1440,31 @@ public class MainForm extends javax.swing.JFrame {
         phongTrong.setBackground(new Color(0, 153, 153));
     }//GEN-LAST:event_phongTrongMouseExited
 
-    private void doanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseClicked
-        tr = "CHI TIÊT ĐƠN HÀNG";
-        defaultTable.addColumn("Phòng");
-        defaultTable.addColumn("Tổng cộng");
+    private void KhachhangnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhachhangnoMouseClicked
+        tr = "THONG TIN KHACH NO PHONG";
+       defaultTable.addColumn("Mã phòng");
+        defaultTable.addColumn("Diện tích");
+        defaultTable.addColumn("Số người ở");
+        defaultTable.addColumn("Giá thuê");
+        defaultTable.addColumn("Đối tượng");
+        defaultTable.addColumn("Trạng thái");
+        defaultTable.addColumn("CS Điện mới");
+        defaultTable.addColumn("CS Điện cũ");
+        defaultTable.addColumn("CS Nước mới");
+        defaultTable.addColumn("CS Nước cũ");
         a = new Table_Thongke(defaultTable, tr);
         new Table_Thongke(defaultTable, tr).setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_doanhThuMouseClicked
+        setallPhongTro(thongkedao.getInFoPhongTroIf2());
+    }//GEN-LAST:event_KhachhangnoMouseClicked
 
-    private void doanhThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseEntered
-        doanhThu.setBackground(new Color(0, 204, 204));
-    }//GEN-LAST:event_doanhThuMouseEntered
+    private void KhachhangnoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhachhangnoMouseEntered
+        Khachhangno.setBackground(new Color(0, 204, 204));
+    }//GEN-LAST:event_KhachhangnoMouseEntered
 
-    private void doanhThuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doanhThuMouseExited
-        doanhThu.setBackground(new Color(0, 153, 153));
-    }//GEN-LAST:event_doanhThuMouseExited
+    private void KhachhangnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhachhangnoMouseExited
+        Khachhangno.setBackground(new Color(0, 153, 153));
+    }//GEN-LAST:event_KhachhangnoMouseExited
 
     private void khachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseClicked
         tr = "DANH SÁCH KHÁCH HÀNG";
@@ -1476,6 +1481,15 @@ public class MainForm extends javax.swing.JFrame {
         this.dispose();
         setallKhachThue(ktDao.getAllUsersKT());
     }//GEN-LAST:event_khachHangMouseClicked
+    public void setallPhongTro(List<PhongTro> users) {
+        for (PhongTro pt : users) {
+            defaultTable.addRow(new Object[]{
+                pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(),
+                pt.getDoiTuong(), pt.getTinhTrang(), pt.getCsDienMoi(), pt.getCsDienMoi(),
+                pt.getCsNuocMoi(), pt.getCsNuocCu()
+            });
+        }
+    }
     public void setallKhachThue(List<KhachThue> users) {
         for (KhachThue kt : users) {
             defaultTable.addRow(new Object[]{
@@ -1784,6 +1798,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Khachhangno;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch_HD;
@@ -1801,7 +1816,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbtinhtrang;
     private javax.swing.JComboBox<String> cbxMonth;
     private javax.swing.JComboBox<String> cbxYear;
-    private javax.swing.JPanel doanhThu;
     private javax.swing.JPanel donhang;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
