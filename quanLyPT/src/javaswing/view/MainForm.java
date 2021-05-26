@@ -52,20 +52,8 @@ public class MainForm extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         defaultTable = new DefaultTableModel();
-        defaultTable = new DefaultTableModel();
-        thongkedao = new thongKeDao();
-        thongkedao.Count_kh();
-        thongkedao.Count_dh();
-        thongkedao.Count_Pt_Trong();
-        thongkedao.Count_Phong_No();
-        DecimalFormat decimal = new DecimalFormat("###,###,###");
-        txtlb1.setText("" + decimal.format(thongkedao.Count_DoanhThu()) + " VNĐ");
-        txtlb2.setText("" + thongke.getCount_kh_no());
-        txtlb4.setText("" + thongke.getCount_kh());
-        txtlb3.setText("" + thongke.getCount_pt_t());
-        
-        
-        
+
+        Init_Source_TabThongKe();
         Init_Source_TabHoaDon();
         Init_Source_TabPhongTro();
         Init_Source_TabQlyNguoiThue();
@@ -1320,7 +1308,18 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    private void Init_Source_TabThongKe(){
+        thongkedao = new thongKeDao();
+        thongkedao.Count_kh();
+        thongkedao.Count_dh();
+        thongkedao.Count_Pt_Trong();
+        thongkedao.Count_Phong_No();
+        DecimalFormat decimal = new DecimalFormat("###,###,###");
+        txtlb1.setText("" + decimal.format(thongkedao.Count_DoanhThu()) + " VNĐ");
+        txtlb2.setText("" + thongke.getCount_kh_no());
+        txtlb4.setText("" + thongke.getCount_kh());
+        txtlb3.setText("" + thongke.getCount_pt_t());
+    }
     private void Init_Source_TabHoaDon(){
         hoadondao = new hoaDonDao();
         Init_tbHoaDon();
