@@ -1431,12 +1431,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel31" alignment="0" pref="762" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="txtTimKiemHD" min="-2" pref="273" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="txtSearchHD_maPhong" min="-2" pref="366" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -1445,7 +1442,6 @@
                               <Component id="cbxYear" min="-2" pref="65" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="btnSearch_HD" min="-2" pref="121" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnReset" min="-2" pref="74" max="-2" attributes="0"/>
@@ -1453,9 +1449,9 @@
                               <Component id="jButton1" min="-2" pref="74" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" pref="61" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane7" alignment="1" pref="762" max="32767" attributes="0"/>
@@ -1467,17 +1463,16 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnSearch_HD" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="cbxMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbxYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSearchHD_maPhong" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="txtTimKiemHD" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnReset" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1487,8 +1482,8 @@
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="187" max="32767" attributes="0"/>
-                          <Component id="jScrollPane7" min="-2" pref="479" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="192" max="32767" attributes="0"/>
+                          <Component id="jScrollPane7" min="-2" pref="474" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1586,17 +1581,6 @@
                 <Property name="text" type="java.lang.String" value="CHI TI&#x1ebe;T HO&#xc1; &#x110;&#x1a0;N THEO TH&#xc1;NG"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtTimKiemHD">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="12" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="T&#xec;m Ho&#xe1; &#x110;&#x1a1;n Theo t&#xea;n Kh&#xe1;ch H&#xe0;ng"/>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane7">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1639,6 +1623,22 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JTextField" name="txtSearchHD_maPhong">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="T&#xec;m Ho&#xe1; &#x110;&#x1a1;n Theo t&#xea;n Kh&#xe1;ch H&#xe0;ng"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSearchHD_maPhongFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSearchHD_maPhongFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchHD_maPhongKeyReleased"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel17">

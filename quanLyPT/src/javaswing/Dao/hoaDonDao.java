@@ -112,40 +112,42 @@ public class hoaDonDao {
         }
         return list_hoadon;
     }
-    
-//    public List<HoaDon> Search_HD(String date) {
-//        List<HoaDon> list_hoadon = new ArrayList<HoaDon>();
-//        String sql = "select * from tblHoaDon where tgian = '"
-//                + date
-//                + "'";
-//        try {
-//            PreparedStatement ps = con.prepareStatement(sql);
-////            ps.setString(1, date);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Long tienphong = getTienPhong(rs.getString("maPhong"));
-//                Long tiendien = getTienDien(rs.getString("maPhong"));
-//                Long tiennuoc = getTienNuoc(rs.getString("maPhong"));
-//                Long tiendv = 70000l;
-//                Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
-//                HoaDon hoadon = new HoaDon();
-//                hoadon.setMaHD(rs.getString("maHD"));
-//                hoadon.setMaKT(rs.getString("maKT"));
-//                hoadon.setMaPhong(rs.getString("maPhong"));
-//                hoadon.setGiaThue(tienphong);
-//                hoadon.setTienDien(tiendien);
-//                hoadon.setTienNuoc(tiennuoc);
-//                hoadon.setTienDV(tiendv);
-//                hoadon.setTongTien(tongtien);
-//                hoadon.setDate(rs.getString("tgian"));
-//                list_hoadon.add(hoadon);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return list_hoadon;
-//    }
-    public List<HoaDon> Search_HD(String month, String year) {
+    public static void setHoaDon(ResultSet rs){
+        try {
+            
+        } catch (Exception e) {
+        }
+    }
+    public List<HoaDon> Search_HD1(String maPhong) {
+        List<HoaDon> list_hoadon = new ArrayList<HoaDon>();
+        String sql = "select * from tblHoaDon where maPhong like '%"+ maPhong+ "%'";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Long tienphong = getTienPhong(rs.getString("maPhong"));
+                Long tiendien = getTienDien(rs.getString("maPhong"));
+                Long tiennuoc = getTienNuoc(rs.getString("maPhong"));
+                Long tiendv = 70000l;
+                Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
+                HoaDon hoadon = new HoaDon();
+                hoadon.setMaHD(rs.getString("maHD"));
+                hoadon.setMaKT(rs.getString("maKT"));
+                hoadon.setMaPhong(rs.getString("maPhong"));
+                hoadon.setGiaThue(tienphong);
+                hoadon.setTienDien(tiendien);
+                hoadon.setTienNuoc(tiennuoc);
+                hoadon.setTienDV(tiendv);
+                hoadon.setTongTien(tongtien);
+                hoadon.setDate(rs.getString("tgian"));
+                list_hoadon.add(hoadon);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list_hoadon;
+    }
+    public List<HoaDon> Search_HD2(String month, String year) {
         String date = year + "-" + month + "-01";
         List<HoaDon> list_hoadon = new ArrayList<HoaDon>();
         String sql = "select * from tblHoaDon where DATEDIFF(MONTH, ?,tgian) = 0";

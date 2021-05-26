@@ -61,7 +61,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="493" max="-2" attributes="0"/>
+                          <Component id="txtSearchHD_maPhong" min="-2" pref="493" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="cbxMonth" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtSearchHD_maPhong" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -217,7 +217,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtSearchHD_maPhong">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -227,6 +227,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="T&#xec;m Ho&#xe1; &#x110;&#x1a1;n Theo t&#xea;n Kh&#xe1;ch H&#xe0;ng"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSearchHD_maPhongFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSearchHD_maPhongFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchHD_maPhongKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>

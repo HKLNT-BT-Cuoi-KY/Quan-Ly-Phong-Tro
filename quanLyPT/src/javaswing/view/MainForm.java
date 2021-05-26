@@ -169,9 +169,9 @@ public class MainForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
-        txtTimKiemHD = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
         tbHoaDon = new javax.swing.JTable();
+        txtSearchHD_maPhong = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -1031,10 +1031,6 @@ public class MainForm extends javax.swing.JFrame {
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("CHI TIẾT HOÁ ĐƠN THEO THÁNG");
 
-        txtTimKiemHD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtTimKiemHD.setForeground(new java.awt.Color(204, 204, 204));
-        txtTimKiemHD.setText("Tìm Hoá Đơn Theo tên Khách Hàng");
-
         tbHoaDon.setBackground(new java.awt.Color(0, 204, 204));
         tbHoaDon.setForeground(new java.awt.Color(0, 153, 153));
         tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
@@ -1049,32 +1045,46 @@ public class MainForm extends javax.swing.JFrame {
         tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane7.setViewportView(tbHoaDon);
 
+        txtSearchHD_maPhong.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtSearchHD_maPhong.setForeground(new java.awt.Color(204, 204, 204));
+        txtSearchHD_maPhong.setText("Tìm Hoá Đơn Theo tên Khách Hàng");
+        txtSearchHD_maPhong.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSearchHD_maPhongFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSearchHD_maPhongFocusLost(evt);
+            }
+        });
+        txtSearchHD_maPhong.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchHD_maPhongKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(txtTimKiemHD, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(cbxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(cbxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)
-                        .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE))
         );
@@ -1083,15 +1093,14 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jLabel31)
-                .addGap(37, 37, 37)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSearch_HD)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(3, 3, 3)
-                .addComponent(txtTimKiemHD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btnReset)
@@ -1099,8 +1108,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(508, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 187, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 192, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         tabbed.addTab("Hoá đơn", jPanel4);
@@ -1674,7 +1683,7 @@ public class MainForm extends javax.swing.JFrame {
     private void btnSearch_HDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch_HDActionPerformed
         String thang = cbxMonth.getSelectedItem().toString();
         String nam = cbxYear.getSelectedItem().toString();
-        setDataTableHoaDon(hoadon.Search_HD(thang, nam));
+        setDataTableHoaDon(hoadon.Search_HD2(thang, nam));
     }//GEN-LAST:event_btnSearch_HDActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1699,6 +1708,20 @@ public class MainForm extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         Init_tbHoaDon();
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void txtSearchHD_maPhongFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongFocusGained
+        txtSearchHD_maPhong.setText("");
+        txtSearchHD_maPhong.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txtSearchHD_maPhongFocusGained
+
+    private void txtSearchHD_maPhongFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongFocusLost
+        txtSearchHD_maPhong.setText("Tìm Hoá Đơn Theo Phòng");
+        txtSearchHD_maPhong.setForeground( new Color(204,204,204));
+    }//GEN-LAST:event_txtSearchHD_maPhongFocusLost
+
+    private void txtSearchHD_maPhongKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongKeyReleased
+        setDataTableHoaDon(hoadon.Search_HD1(txtSearchHD_maPhong.getText()));
+    }//GEN-LAST:event_txtSearchHD_maPhongKeyReleased
 
     private void setTableDataSP(List<PhongTro> phongTro) {
         for (PhongTro pt : phongTro) {
@@ -1855,7 +1878,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhongThue;
     private javax.swing.JTextField txtQueQuan;
     private javax.swing.JTextField txtSDT;
-    private javax.swing.JTextField txtTimKiemHD;
+    private javax.swing.JTextField txtSearchHD_maPhong;
     private javax.swing.JTextField txtdientich;
     private javax.swing.JTextField txtgiathue;
     private javax.swing.JLabel txtlb1;

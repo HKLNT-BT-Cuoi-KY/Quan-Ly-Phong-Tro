@@ -1,6 +1,9 @@
 package javaswing.view;
 
+import java.awt.Color;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.List;
 import javaswing.Dao.ConnectDB;
@@ -48,7 +51,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbHoaDon = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearchHD_maPhong = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnSearch_HD = new javax.swing.JButton();
@@ -80,9 +83,22 @@ public class QlyHoaDon extends javax.swing.JFrame {
         tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tbHoaDon);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Tìm Hoá Đơn Theo tên Khách Hàng");
+        txtSearchHD_maPhong.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtSearchHD_maPhong.setForeground(new java.awt.Color(204, 204, 204));
+        txtSearchHD_maPhong.setText("Tìm Hoá Đơn Theo tên Khách Hàng");
+        txtSearchHD_maPhong.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSearchHD_maPhongFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSearchHD_maPhongFocusLost(evt);
+            }
+        });
+        txtSearchHD_maPhong.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchHD_maPhongKeyReleased(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +155,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cbxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -165,7 +181,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -197,7 +213,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
     }
 
     private void Init_cb() {
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 12; i >= 1; i--) {
             cbxMonth.addItem("" + i);
         }
         cbxMonth.setSelectedItem(""+month);
@@ -246,13 +262,27 @@ public class QlyHoaDon extends javax.swing.JFrame {
     private void btnSearch_HDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch_HDActionPerformed
         String thang = cbxMonth.getSelectedItem().toString();
         String nam = cbxYear.getSelectedItem().toString();
-        setDataTableHoaDon(hoadon.Search_HD(thang, nam));
+        setDataTableHoaDon(hoadon.Search_HD2(thang, nam));
 
     }//GEN-LAST:event_btnSearch_HDActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         Init_tbHoaDon();
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void txtSearchHD_maPhongKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongKeyReleased
+        setDataTableHoaDon(hoadon.Search_HD1(txtSearchHD_maPhong.getText()));
+    }//GEN-LAST:event_txtSearchHD_maPhongKeyReleased
+
+    private void txtSearchHD_maPhongFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongFocusGained
+        txtSearchHD_maPhong.setText("");
+        txtSearchHD_maPhong.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txtSearchHD_maPhongFocusGained
+
+    private void txtSearchHD_maPhongFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchHD_maPhongFocusLost
+        txtSearchHD_maPhong.setText("Tìm Hoá Đơn Theo Phòng");
+        txtSearchHD_maPhong.setForeground( new Color(204,204,204));
+    }//GEN-LAST:event_txtSearchHD_maPhongFocusLost
 
     /**
      * @param args the command line arguments
@@ -301,7 +331,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private static javax.swing.JTable tbHoaDon;
+    private javax.swing.JTextField txtSearchHD_maPhong;
     // End of variables declaration//GEN-END:variables
 }
