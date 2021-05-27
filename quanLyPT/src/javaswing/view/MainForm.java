@@ -153,8 +153,6 @@ public class MainForm extends javax.swing.JFrame {
         cbxMonth = new javax.swing.JComboBox<>();
         cbxYear = new javax.swing.JComboBox<>();
         btnSearch_HD = new javax.swing.JButton();
-        btnDel = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -987,24 +985,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnDel.setBackground(new java.awt.Color(0, 153, 153));
-        btnDel.setForeground(new java.awt.Color(255, 255, 255));
-        btnDel.setText("Xoá");
-        btnDel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelActionPerformed(evt);
-            }
-        });
-
-        btnAdd.setBackground(new java.awt.Color(0, 153, 153));
-        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Thêm");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
         btnReset.setBackground(new java.awt.Color(0, 153, 153));
         btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("Tải Lại");
@@ -1079,12 +1059,7 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(cbxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)))
@@ -1105,10 +1080,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(cbxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnReset)
-                    .addComponent(btnDel))
+                .addComponent(btnReset)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 465, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18))
@@ -1851,8 +1823,6 @@ public class MainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Khachhangno;
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDel;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch_HD;
