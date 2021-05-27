@@ -6,12 +6,13 @@
 package javaswing.view;
 
 import java.awt.Color;
-import java.time.LocalDate;
 import javaswing.Dao.hoaDonDao;
 import static javaswing.Dao.hoaDonDao.getTienDien;
 import static javaswing.Dao.hoaDonDao.getTienNuoc;
 import static javaswing.Dao.hoaDonDao.getTienPhong;
 import javaswing.Model.HoaDon;
+import static javaswing.view.QlyHoaDon.DefaultTableHoaDonModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,10 +24,12 @@ public class Them_HoaDon extends javax.swing.JFrame {
      * Creates new form Them_HoaDon
      */
     HoaDon hoadon;
+
     public Them_HoaDon() {
         initComponents();
         hoadon = new HoaDon();
         this.setLocationRelativeTo(null);
+        DefaultTableHoaDonModel = (DefaultTableModel) tbHoaDon.getModel();
     }
 
     /**
@@ -51,7 +54,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbHoaDon = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -115,11 +118,17 @@ public class Them_HoaDon extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tên Phòng");
 
+        txtName_PH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tên Khách");
+
+        txtName_KH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         btnSave.setText("Lưu");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -133,12 +142,12 @@ public class Them_HoaDon extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtName_PH, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtName_KH, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(215, 215, 215))
@@ -163,36 +172,37 @@ public class Them_HoaDon extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
-        jTable1.setBackground(new java.awt.Color(0, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Phòng", "Tên Khách", "Tiền Phòng", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng"
+                "Phòng", "Tên Khách", "Tiền Phòng", "Tiền Điện", "Tiền Nước", "Tiền Dịch Vụ", "Tổng Cộng", "Thời Gian"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbHoaDon.setGridColor(new java.awt.Color(0, 255, 255));
+        tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(tbHoaDon);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 788, Short.MAX_VALUE)
+            .addGap(0, 792, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addContainerGap()))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 229, Short.MAX_VALUE)
+            .addGap(0, 323, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(16, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -244,15 +254,27 @@ public class Them_HoaDon extends javax.swing.JFrame {
         String date = java.time.LocalDate.now().toString();
         System.out.println(date);
         hoadon.setMaPhong(txtName_PH.getText());
-        hoadon.setMaKT(txtName_KH.getText());
+        hoadon.setMaKT(hoaDonDao.getmaKT(txtName_KH.getText(), txtName_PH.getText()));
+        hoadon.setTenKT(txtName_KH.getText());
         hoadon.setGiaThue(tienphong);
         hoadon.setTienDien(tiendien);
         hoadon.setTienNuoc(tiennuoc);
         hoadon.setTienDV(tiendv);
         hoadon.setDate(date);
+        hoadon.setTongTien(tongtien);
         hoaDonDao.Add_HoaDon(hoadon);
-        this.dispose();
-        new QlyHoaDon().setVisible(true);
+        DefaultTableHoaDonModel.addRow(new Object[]{
+            hoadon.getMaPhong(),
+            hoadon.getTenKT(),
+            hoadon.getGiaThue(),
+            hoadon.getTienDien(),
+            hoadon.getTienNuoc(),
+            hoadon.getTienDV(),
+            hoadon.getTongTien(),
+            hoadon.getDate()
+        });
+//        this.dispose();
+//        new QlyHoaDon().setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseClicked
@@ -316,7 +338,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbHoaDon;
     private javax.swing.JLabel txtClose;
     private javax.swing.JTextField txtName_KH;
     private javax.swing.JTextField txtName_PH;

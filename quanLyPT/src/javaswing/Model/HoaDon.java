@@ -12,6 +12,14 @@ package javaswing.Model;
 public class HoaDon {
 
     String maHD, maKT, maPhong, tenKT;
+
+    public String getTenKT() {
+        return tenKT;
+    }
+
+    public void setTenKT(String tenKT) {
+        this.tenKT = tenKT;
+    }
     Long giaThue, tienDien, tongTien, tienNuoc, tienDV;
     String date;
 

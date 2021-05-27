@@ -22,6 +22,9 @@ public class hoaDonDao {
 
     static Connection con = ConnectDB.getConnectDB();
     public static int rs = 0;
+    String Query = "select maHD, HoTen, h.maPhong, tgian "
+            + "from tblHoaDon h, tblKhachThue k, tblQlyPhongTro p "
+            + "where h.maKT = k.maKT and h.maPhong = p.maPhong ";
 
     public static void Export(List<HoaDon> listhoadon) {
         try {
@@ -40,7 +43,7 @@ public class hoaDonDao {
 
     public List<HoaDon> Search_HD(String maHD) {
         List<HoaDon> listhoadon = new ArrayList<HoaDon>();
-        String sql = "select * from tblHoaDon where maHD = '" + maHD + "'";
+        String sql = Query + "and " + "maHD = '" + maHD + "'";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -116,9 +119,9 @@ public class hoaDonDao {
 
     public List<HoaDon> getAllHoaHon() {
         List<HoaDon> list_hoadon = new ArrayList<HoaDon>();
-        String sql = "select * from tblHoaDon";
+//        String sql = "select maHD, HoTen, h.maPhong, tgian from tblHoaDon h, tblKhachThue k, tblQlyPhongTro p where h.maKT = k.maKT and h.maPhong = p.maPhong";
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(Query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 HoaDon hoadon = new HoaDon();
@@ -139,7 +142,7 @@ public class hoaDonDao {
             Long tiendv = 70000l;
             Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
             hoadon.setMaHD(rs.getString("maHD"));
-            hoadon.setMaKT(rs.getString("maKT"));
+            hoadon.setTenKT(rs.getString("HoTen"));
             hoadon.setMaPhong(rs.getString("maPhong"));
             hoadon.setGiaThue(tienphong);
             hoadon.setTienDien(tiendien);
@@ -148,12 +151,14 @@ public class hoaDonDao {
             hoadon.setTongTien(tongtien);
             hoadon.setDate(rs.getString("tgian"));
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public List<HoaDon> Search_HD1(String maPhong) {
         List<HoaDon> list_hoadon = new ArrayList<HoaDon>();
-        String sql = "select * from tblHoaDon where maPhong like '%" + maPhong + "%'";
+        String sql = Query
+                + " and h.maPhong like '%" + maPhong + "%'";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -171,7 +176,8 @@ public class hoaDonDao {
     public List<HoaDon> Search_HD2(String month, String year) {
         String date = year + "-" + month + "-01";
         List<HoaDon> list_hoadon = new ArrayList<HoaDon>();
-        String sql = "select * from tblHoaDon where DATEDIFF(MONTH, ?,tgian) = 0";
+        String sql = Query
+                + " and DATEDIFF(MONTH, ?,tgian) = 0";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, date);
@@ -187,6 +193,20 @@ public class hoaDonDao {
         return list_hoadon;
     }
 
+    public static String getmaKT(String name, String maPhong){
+        String sql = "select maKT from tblKhachThue where HoTen = ? and maPhong = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, maPhong);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getString("maKT");
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
     public static void Add_HoaDon(HoaDon hoadon) {
 
         String sql = "Insert Into tblHoaDon(maKT, maPhong, tienPhong, tienDien, tienNuoc, tienDV, tgian)"
