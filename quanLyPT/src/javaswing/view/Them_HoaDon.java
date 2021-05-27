@@ -25,7 +25,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
      * Creates new form Them_HoaDon
      */
     HoaDon hoadon;
-
+    MainForm main;
     public Them_HoaDon() {
         initComponents();
         hoadon = new HoaDon();
@@ -283,8 +283,11 @@ public class Them_HoaDon extends javax.swing.JFrame {
 
 
     private void txtCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseClicked
+        
+        main  = new MainForm();
+        main.tabbed.setSelectedIndex(3);
+        main.setVisible(true);
         this.dispose();
-        new MainForm().setVisible(true);
     }//GEN-LAST:event_txtCloseMouseClicked
 
     private void txtCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseEntered
