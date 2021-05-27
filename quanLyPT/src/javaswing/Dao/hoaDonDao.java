@@ -258,5 +258,7 @@ public class hoaDonDao {
         }
         return true;
     }
-
+    public static void Init_NameKH(){
+        String sql = "select * "
+    }
 }
