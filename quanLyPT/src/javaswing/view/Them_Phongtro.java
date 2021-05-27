@@ -8,6 +8,7 @@ package javaswing.view;
 import javaswing.Dao.phongTroDao;
 import javaswing.Dao.ConnectDB;
 import javaswing.Model.PhongTro;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +20,7 @@ public class Them_Phongtro extends javax.swing.JFrame {
     PhongTro ptro;
     phongTroDao themPT;
     DefaultTableModel dtmPT;
-
+    MainForm main;
     public Them_Phongtro() {
         initComponents();
         ptro = new PhongTro();
@@ -123,12 +124,9 @@ public class Them_Phongtro extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(cbNam)
                         .addGap(18, 18, 18)
-                        .addComponent(cbNu)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addComponent(cbxtinhtrang, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65))))
+                        .addComponent(cbNu))
+                    .addComponent(cbxtinhtrang, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,16 +182,15 @@ public class Them_Phongtro extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(bttrove, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(btthem, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addContainerGap(359, Short.MAX_VALUE)
+                .addComponent(bttrove, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btthem, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,35 +226,55 @@ public class Them_Phongtro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean ktrNhap_PT(){
+        if(txtdientich.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Phongtro.this, "Chua nhap dien tich", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtsonguoi.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Phongtro.this, "Chua nhap so nguoi o", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtgiathue.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Phongtro.this, "Chua nhap gia thue", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(!cbNam.isSelected() && !cbNu.isSelected()){
+            JOptionPane.showMessageDialog(Them_Phongtro.this, "Chua chon gioi tinh", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
     private void btthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btthemActionPerformed
-        //ptro.setMaPhong(txtmaphong.getText());
-        ptro.setDienTich(Double.parseDouble(txtdientich.getText()));
-        ptro.setSoNguoi(Integer.parseInt(txtsonguoi.getText()));
-        ptro.setGiaThue(Double.parseDouble(txtgiathue.getText()));
+        if (ktrNhap_PT()) {
+            ptro.setDienTich(Double.parseDouble(txtdientich.getText()));
+            ptro.setSoNguoi(Integer.parseInt(txtsonguoi.getText()));
+            ptro.setGiaThue(Double.parseDouble(txtgiathue.getText()));
 
-        String doituong = "";
+            String doituong = "";
 
-        if (cbNam.isSelected() && cbNu.isSelected()) {
-            doituong = "Nam & Nu";
-        } else {
-            if (cbNam.isSelected()) {
-                doituong = "Nam";
+            if (cbNam.isSelected() && cbNu.isSelected()) {
+                doituong = "Nam & Nu";
             } else {
-                if (cbNu.isSelected()) {
-                    doituong = "Nu";
+                if (cbNam.isSelected()) {
+                    doituong = "Nam";
+                } else {
+                    if (cbNu.isSelected()) {
+                        doituong = "Nu";
+                    }
                 }
             }
+            ptro.setDoiTuong(doituong);
+
+            ptro.setTinhTrang(cbxtinhtrang.getSelectedItem().toString());
+            themPT.addPhongTro(ptro);
+            JOptionPane.showMessageDialog(Them_Phongtro.this, "Them thanh cong","Thong bao",JOptionPane.INFORMATION_MESSAGE);
         }
-        ptro.setDoiTuong(doituong);
-        
-        ptro.setTinhTrang(cbxtinhtrang.getSelectedItem().toString());
-        themPT.addPhongTro(ptro);
-        new MainForm().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btthemActionPerformed
 
     private void bttroveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttroveActionPerformed
-        new MainForm().setVisible(true);
+        main = new MainForm();
+        main.tabbed.setSelectedIndex(1);
+        main.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bttroveActionPerformed
 
     /**

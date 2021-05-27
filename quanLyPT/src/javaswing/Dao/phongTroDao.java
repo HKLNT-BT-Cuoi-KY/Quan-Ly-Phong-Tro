@@ -22,14 +22,15 @@ import javaswing.Model.PhongTro;
 public class phongTroDao {
 
     static Connection con = ConnectDB.getConnectDB();
-    static int rs=0;
+    static int rs = 0;
+
     public List<PhongTro> getInFoPhongTro() {
         List<PhongTro> phongTros = new ArrayList<PhongTro>();
         String sql = "select * from tblQlyPhongTro";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
                 PhongTro pt = new PhongTro();
 
@@ -122,7 +123,7 @@ public class phongTroDao {
         }
 
     }
-    
+
     public void updateCSDN(PhongTro pt) {
         String sql = "update tblQlyPhongTro set  chiSoDienCu = ?, chiSoDienMoi= ?, chiSoNuocCu= ?, chiSoNuocMoi= ? where maPhong = ?";
         try {
@@ -151,14 +152,14 @@ public class phongTroDao {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public List<PhongTro> getCSDienNuoc() {
         List<PhongTro> phongTros = new ArrayList<PhongTro>();
         String sql = "select * from tblQlyPhongTro";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
                 PhongTro pt = new PhongTro();
 
@@ -175,5 +176,4 @@ public class phongTroDao {
 
         return phongTros;
     }
-
 }

@@ -19,6 +19,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
     DefaultTableModel dtmKT;
     khachThueDao ktDao;
     MainForm main;
+
     public Them_Nguoidung() {
         initComponents();
         kthue = new KhachThue();
@@ -89,12 +90,6 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Phòng thuê");
 
-        txthoten.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txthotenActionPerformed(evt);
-            }
-        });
-
         rdnam.setForeground(new java.awt.Color(255, 255, 255));
         rdnam.setSelected(true);
         rdnam.setText("Nam");
@@ -104,12 +99,6 @@ public class Them_Nguoidung extends javax.swing.JFrame {
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Sdt");
-
-        txtsdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsdtActionPerformed(evt);
-            }
-        });
 
         btnthem.setBackground(new java.awt.Color(0, 153, 153));
         btnthem.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,17 +141,15 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtsdt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtphongthue, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtquequan, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(rdnam)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(rdnu, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)))
-                        .addGap(1, 1, 1))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtsdt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtphongthue, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtquequan, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(rdnam)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                            .addComponent(rdnu, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(16, 16, 16)))
                     .addComponent(txtnghenghiep, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtngaysinh, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,39 +246,54 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txthotenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthotenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txthotenActionPerformed
-
-    private void txtsdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsdtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtsdtActionPerformed
-
+    private boolean ktrNhap_ND(){
+        if(txthoten.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap ho tne", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtngaysinh.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap ngay sinh", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtnghenghiep.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap nghe nghiep", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtsdt.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap so dien thoai", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtquequan.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap que quan", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(txtphongthue.getText().equals("")){
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap phong thue", "Loi", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else 
+        return true;
+    }
+    
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
 
-        try {
-            KhachThue khach = new KhachThue();
-            khach.setHoTen(txthoten.getText());
-            khach.setNgaySinh(txtngaysinh.getText());
-            khach.setNgheNghiep(txtnghenghiep.getText());
-            if (rdnam.isSelected()) {
-                khach.setGioiTinh("Nam");
+        if (ktrNhap_ND()){
+            try {
+                KhachThue khach = new KhachThue();
+                khach.setHoTen(txthoten.getText());
+                khach.setNgaySinh(txtngaysinh.getText());
+                khach.setNgheNghiep(txtnghenghiep.getText());
+                if (rdnam.isSelected()) {
+                    khach.setGioiTinh("Nam");
+                }
+                if (rdnu.isSelected()) {
+                    khach.setGioiTinh("Nữ");
+                }
+                khach.setSdt(txtsdt.getText());
+                khach.setQueQuan(txtquequan.getText());
+                khach.setMaPhong(txtphongthue.getText());
+                khachThueDao dao = new khachThueDao();
+                dao.insert(khach);
+                JOptionPane.showConfirmDialog(this, "Khách thuê mới đã được thêm vào");
+            } catch (Exception e) {
+                JOptionPane.showConfirmDialog(this, "Error:" + e.getMessage());
+                e.printStackTrace();
             }
-            if (rdnu.isSelected()) {
-                khach.setGioiTinh("Nữ");
-            }
-            khach.setSdt(txtsdt.getText());
-            khach.setQueQuan(txtquequan.getText());
-            khach.setMaPhong(txtphongthue.getText());
-            khachThueDao dao = new khachThueDao();
-            dao.insert(khach);
-            JOptionPane.showConfirmDialog(this, "Khách thuê mới đã được thêm vào");
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(this, "Error:" + e.getMessage());
-            e.printStackTrace();
         }
-        
-
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btntrolaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntrolaiActionPerformed

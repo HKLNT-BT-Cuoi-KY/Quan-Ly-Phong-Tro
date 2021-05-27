@@ -237,9 +237,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txthoten">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txthotenActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtngaysinh">
                 </Component>
@@ -275,9 +272,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtsdt">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsdtActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnthem">
                   <Properties>
