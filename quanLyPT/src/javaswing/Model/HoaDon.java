@@ -29,13 +29,12 @@ public class HoaDon {
 
     @Override
     public String toString() {
-        return  "Mã Hoá Đơn : " + maHD + "\t\tNgày Tạo Hoá Đơn : " + date + "\nMã Khách Thuê : " + maKT + "\nMã Phòng : " + maPhong + "\nGiá Thuê" + giaThue + "\nTiền Điện" + tienDien + "\nTiền Nước : " + tienNuoc + "\nTiền Dịch Vụ" + tienDV + "\nTổng Tiền" + tongTien  ;
+        return "Mã Hoá Đơn : " + maHD + "\t\tNgày Tạo Hoá Đơn : " + date + "\nMã Khách Thuê : " + maKT + "\t\tTên Khách Thuê : " + tenKT + "\nMã Phòng : " + maPhong + "\nGiá Phòng : " + giaThue + "\nTiền Điện : " + tienDien + "\nTiền Nước : " + tienNuoc + "\nTiền Dịch Vụ : " + tienDV + "\nTổng Tiền : " + tongTien;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
-
 
     public Long getGiaThue() {
         return giaThue;

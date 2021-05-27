@@ -26,7 +26,7 @@ public class hoaDonDao {
 
     static Connection con = ConnectDB.getConnectDB();
     public static int rs = 0;
-    String Query = "select maHD, HoTen, h.maPhong, tgian "
+    String Query = "select * "
             + "from tblHoaDon h, tblKhachThue k, tblQlyPhongTro p "
             + "where h.maKT = k.maKT and h.maPhong = p.maPhong ";
 
@@ -147,6 +147,8 @@ public class hoaDonDao {
             Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
             hoadon.setMaHD(rs.getString("maHD"));
             hoadon.setTenKT(rs.getString("HoTen"));
+            hoadon.setMaKT(rs.getString("maKT"));
+            System.out.println(hoadon.getMaKT());
             hoadon.setMaPhong(rs.getString("maPhong"));
             hoadon.setGiaThue(tienphong);
             hoadon.setTienDien(tiendien);
