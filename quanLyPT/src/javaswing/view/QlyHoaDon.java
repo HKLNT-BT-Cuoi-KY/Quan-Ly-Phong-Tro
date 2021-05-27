@@ -135,6 +135,9 @@ public class QlyHoaDon extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(0, 153, 153));
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Xuất Hoá Đơn");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
