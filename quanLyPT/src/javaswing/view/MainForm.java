@@ -1516,7 +1516,7 @@ public class MainForm extends javax.swing.JFrame {
             DefaultTableHoaDonModel.addRow(new Object[]{
                 hd.getMaHD(),
                 hd.getMaPhong(),
-                hd.getMaKT(),
+                hd.getTenKT(),
                 hd.getGiaThue(),
                 hd.getTienDien(),
                 hd.getTienNuoc(),

@@ -12,6 +12,7 @@ import static javaswing.Dao.hoaDonDao.getTienNuoc;
 import static javaswing.Dao.hoaDonDao.getTienPhong;
 import javaswing.Model.HoaDon;
 import static javaswing.view.QlyHoaDon.DefaultTableHoaDonModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -246,37 +247,40 @@ public class Them_HoaDon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        Long tienphong = getTienPhong(txtName_PH.getText());
-        Long tiendien = getTienDien(txtName_PH.getText());
-        Long tiennuoc = getTienNuoc(txtName_PH.getText());
-        Long tiendv = 70000l;
-        Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
-        String date = java.time.LocalDate.now().toString();
-        System.out.println(date);
-        hoadon.setMaPhong(txtName_PH.getText());
-        hoadon.setMaKT(hoaDonDao.getmaKT(txtName_KH.getText(), txtName_PH.getText()));
-        hoadon.setTenKT(txtName_KH.getText());
-        hoadon.setGiaThue(tienphong);
-        hoadon.setTienDien(tiendien);
-        hoadon.setTienNuoc(tiennuoc);
-        hoadon.setTienDV(tiendv);
-        hoadon.setDate(date);
-        hoadon.setTongTien(tongtien);
-        hoaDonDao.Add_HoaDon(hoadon);
-        DefaultTableHoaDonModel.addRow(new Object[]{
-            hoadon.getMaPhong(),
-            hoadon.getTenKT(),
-            hoadon.getGiaThue(),
-            hoadon.getTienDien(),
-            hoadon.getTienNuoc(),
-            hoadon.getTienDV(),
-            hoadon.getTongTien(),
-            hoadon.getDate()
-        });
+//        if (hoaDonDao.KtraNhap(txtName_PH, txtName_KH)) {
+            Long tienphong = getTienPhong(txtName_PH.getText());
+            Long tiendien = getTienDien(txtName_PH.getText());
+            Long tiennuoc = getTienNuoc(txtName_PH.getText());
+            Long tiendv = 70000l;
+            Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
+            String date = java.time.LocalDate.now().toString();
+            hoadon.setMaPhong(txtName_PH.getText());
+            hoadon.setMaKT(hoaDonDao.getmaKT(txtName_KH.getText(), txtName_PH.getText()));
+            hoadon.setTenKT(txtName_KH.getText());
+            hoadon.setGiaThue(tienphong);
+            hoadon.setTienDien(tiendien);
+            hoadon.setTienNuoc(tiennuoc);
+            hoadon.setTienDV(tiendv);
+            hoadon.setDate(date);
+            hoadon.setTongTien(tongtien);
+            hoaDonDao.Add_HoaDon(hoadon);
+            DefaultTableHoaDonModel.addRow(new Object[]{
+                hoadon.getMaPhong(),
+                hoadon.getTenKT(),
+                hoadon.getGiaThue(),
+                hoadon.getTienDien(),
+                hoadon.getTienNuoc(),
+                hoadon.getTienDV(),
+                hoadon.getTongTien(),
+                hoadon.getDate()
+            });
+//        }
     }//GEN-LAST:event_btnSaveActionPerformed
+
 
     private void txtCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseClicked
         this.dispose();
+//        new QlyHoaDon().setVisible(true);
         new MainForm().setVisible(true);
     }//GEN-LAST:event_txtCloseMouseClicked
 
@@ -335,9 +339,15 @@ public class Them_HoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbHoaDon;
+    private static javax.swing.JTable tbHoaDon;
     private javax.swing.JLabel txtClose;
+    private javax.swing.JLabel txtClose1;
+    private javax.swing.JLabel txtClose2;
+    private javax.swing.JLabel txtClose3;
     private javax.swing.JTextField txtName_KH;
     private javax.swing.JTextField txtName_PH;
     // End of variables declaration//GEN-END:variables

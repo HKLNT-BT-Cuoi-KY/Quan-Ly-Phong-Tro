@@ -13,6 +13,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javaswing.Model.HoaDon;
+import javaswing.view.Them_HoaDon;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -193,22 +196,23 @@ public class hoaDonDao {
         return list_hoadon;
     }
 
-    public static String getmaKT(String name, String maPhong){
+    public static String getmaKT(String name, String maPhong) {
         String sql = "select maKT from tblKhachThue where HoTen = ? and maPhong = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, maPhong);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return rs.getString("maKT");
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
-    public static void Add_HoaDon(HoaDon hoadon) {
 
+    public static void Add_HoaDon(HoaDon hoadon) {
         String sql = "Insert Into tblHoaDon(maKT, maPhong, tienPhong, tienDien, tienNuoc, tienDV, tgian)"
                 + "Values (?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -221,6 +225,9 @@ public class hoaDonDao {
             ps.setLong(6, hoadon.getTienDV());
             ps.setString(7, "" + hoadon.getDate());
             rs = ps.executeUpdate();
+            if(rs > 0){
+                System.out.println("adad");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -236,6 +243,20 @@ public class hoaDonDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean KtraNhap(JTextField Phong, JTextField Khach) {
+        Them_HoaDon hoadon = new Them_HoaDon();
+        if (Phong.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(hoadon, "Chưa Nhập Tên Phòng");
+            Phong.requestFocus();
+            return false;
+        } else if (Khach.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(hoadon, "Chưa Nhập Tên Khách Thuê");
+            Khach.requestFocus();
+            return false;
+        }
+        return true;
     }
 
 }
