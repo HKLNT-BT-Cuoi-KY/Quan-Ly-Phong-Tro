@@ -166,16 +166,8 @@ public class thongKeDao {
                 Long tiennuoc = getTienNuoc(rs.getString("maPhong"));
                 Long tiendv = 70000l;
                 Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
-                HoaDon hoadon = new HoaDon();
-                hoadon.setMaHD(rs.getString("maHD"));
-                hoadon.setMaKT(rs.getString("maKT"));
-                hoadon.setMaPhong(rs.getString("maPhong"));
-                hoadon.setGiaThue(tienphong);
-                hoadon.setTienDien(tiendien);
-                hoadon.setTienNuoc(tiennuoc);
-                hoadon.setTienDV(tiendv);
+                HoaDon hoadon = new HoaDon();       
                 hoadon.setTongTien(tongtien);
-//                hoadon.setDate(rs.getString("tgian"));
                 list_hoadon.add(hoadon);
                 tong += hoadon.getTongTien();
             }
