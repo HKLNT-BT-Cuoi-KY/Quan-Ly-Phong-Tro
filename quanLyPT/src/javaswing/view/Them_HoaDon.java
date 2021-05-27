@@ -273,13 +273,11 @@ public class Them_HoaDon extends javax.swing.JFrame {
             hoadon.getTongTien(),
             hoadon.getDate()
         });
-//        this.dispose();
-//        new QlyHoaDon().setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseClicked
         this.dispose();
-        new QlyHoaDon().setVisible(true);
+        new MainForm().setVisible(true);
     }//GEN-LAST:event_txtCloseMouseClicked
 
     private void txtCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseEntered

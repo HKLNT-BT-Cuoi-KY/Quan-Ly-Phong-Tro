@@ -816,7 +816,6 @@ public class MainForm extends javax.swing.JFrame {
         btnLamMoi.setBackground(new java.awt.Color(0, 153, 153));
         btnLamMoi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnLamMoi.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\QLPhongTro\\quanLyPT\\src\\javaswing\\image\\Refresh.png")); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -827,7 +826,6 @@ public class MainForm extends javax.swing.JFrame {
         btnThemND.setBackground(new java.awt.Color(0, 153, 153));
         btnThemND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnThemND.setForeground(new java.awt.Color(255, 255, 255));
-        btnThemND.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\QLPhongTro\\quanLyPT\\src\\javaswing\\image\\Create.png")); // NOI18N
         btnThemND.setText("Thêm");
         btnThemND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -838,7 +836,6 @@ public class MainForm extends javax.swing.JFrame {
         btnXoaND.setBackground(new java.awt.Color(0, 153, 153));
         btnXoaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnXoaND.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoaND.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\QLPhongTro\\quanLyPT\\src\\javaswing\\image\\Delete.png")); // NOI18N
         btnXoaND.setText("Xóa");
         btnXoaND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -849,7 +846,6 @@ public class MainForm extends javax.swing.JFrame {
         btnSuaND.setBackground(new java.awt.Color(0, 153, 153));
         btnSuaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSuaND.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuaND.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\QLPhongTro\\quanLyPT\\src\\javaswing\\image\\Edit.png")); // NOI18N
         btnSuaND.setText("Chỉnh sửa");
         btnSuaND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1124,6 +1120,7 @@ public class MainForm extends javax.swing.JFrame {
         btnAdd.setBackground(new java.awt.Color(0, 153, 153));
         btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Create.png"))); // NOI18N
         btnAdd.setText("Thêm");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1166,9 +1163,9 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator1)
-                                    .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1177,9 +1174,9 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)

@@ -234,7 +234,6 @@ public class QlyHoaDon extends javax.swing.JFrame {
         }
         cbxYear.setSelectedIndex(0);
     }
-
     private static void setDataTableHoaDon(List<HoaDon> hoadon) {
         DefaultTableHoaDonModel.setRowCount(0);
         for (HoaDon hd : hoadon) {
