@@ -159,6 +159,8 @@ public class MainForm extends javax.swing.JFrame {
         tbHoaDon = new javax.swing.JTable();
         txtSearchHD_maPhong = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnDel = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -1040,6 +1042,24 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        btnAdd.setBackground(new java.awt.Color(0, 153, 153));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Thêm");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnDel.setBackground(new java.awt.Color(0, 153, 153));
+        btnDel.setForeground(new java.awt.Color(255, 255, 255));
+        btnDel.setText("Xoá");
+        btnDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1059,7 +1079,13 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(cbxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)))
@@ -1080,7 +1106,11 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(cbxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(btnReset)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReset)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAdd)
+                        .addComponent(btnDel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 465, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18))
@@ -1718,7 +1748,7 @@ public class MainForm extends javax.swing.JFrame {
         setDataTableHoaDon(hoadon.Search_HD2(thang, nam));
     }//GEN-LAST:event_btnSearch_HDActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
         int choose = JOptionPane.showConfirmDialog(rootPane, "Bạn Có Muốn Xoá Không?", "Xác Nhận", JOptionPane.YES_NO_OPTION);
         int row = tbHoaDon.getSelectedRow();
         if (choose == JOptionPane.YES_OPTION) {
@@ -1729,13 +1759,13 @@ public class MainForm extends javax.swing.JFrame {
                 hoadon.rs = 0;
             }
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnDelActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Them_HoaDon add = new Them_HoaDon();
         add.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         Init_tbHoaDon();
@@ -1823,6 +1853,8 @@ public class MainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Khachhangno;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDel;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch_HD;
