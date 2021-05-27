@@ -33,7 +33,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         initComponents();
         Init_tbHoaDon();
         this.setLocationRelativeTo(null);
-        Init_cb();
+        Init_cbx();
     }
 
     /**
@@ -224,7 +224,7 @@ public class QlyHoaDon extends javax.swing.JFrame {
         setDataTableHoaDon(hoadon.getAllHoaHon());
     }
 
-    private void Init_cb() {
+    private void Init_cbx() {
         for (int i = 12; i >= 1; i--) {
             cbxMonth.addItem("" + i);
         }
@@ -233,7 +233,9 @@ public class QlyHoaDon extends javax.swing.JFrame {
             cbxYear.addItem("" + i);
         }
         cbxYear.setSelectedIndex(0);
+        
     }
+    
     private static void setDataTableHoaDon(List<HoaDon> hoadon) {
         DefaultTableHoaDonModel.setRowCount(0);
         for (HoaDon hd : hoadon) {

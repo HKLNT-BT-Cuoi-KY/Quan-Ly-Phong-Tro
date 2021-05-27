@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javaswing.Model.HoaDon;
 import javaswing.view.Them_HoaDon;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -226,7 +227,7 @@ public class hoaDonDao {
             ps.setString(7, "" + hoadon.getDate());
             rs = ps.executeUpdate();
             if(rs > 0){
-                System.out.println("adad");
+                System.out.println("asda");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -235,8 +236,7 @@ public class hoaDonDao {
 
     public static void Del_HoaDon(String maHD) {
         String sql = "delete from tblHoaDon where maHD = '"
-                + maHD
-                + "'";
+                + maHD + "'";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             rs = ps.executeUpdate();
@@ -245,20 +245,24 @@ public class hoaDonDao {
         }
     }
 
-    public static boolean KtraNhap(JTextField Phong, JTextField Khach) {
-        Them_HoaDon hoadon = new Them_HoaDon();
+    public static boolean KtraNhap(JTextField Phong) {
         if (Phong.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(hoadon, "Chưa Nhập Tên Phòng");
+            JOptionPane.showMessageDialog(new Them_HoaDon(), "Chưa Nhập Tên Phòng");
             Phong.requestFocus();
-            return false;
-        } else if (Khach.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(hoadon, "Chưa Nhập Tên Khách Thuê");
-            Khach.requestFocus();
             return false;
         }
         return true;
     }
-    public static void Init_NameKH(){
-        String sql = "select * "
+    public static void Init_NameKH(String maPhong, JComboBox cbx ){
+        String sql = "select HoTen from tblKhachThue where maPhong = '" + maPhong + "'";
+        try {
+            cbx.removeAllItems();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                cbx.addItem(rs.getString("HoTen"));
+            }
+        } catch (Exception e) {
+        }
     }
 }

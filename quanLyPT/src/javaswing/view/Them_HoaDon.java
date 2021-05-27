@@ -51,7 +51,6 @@ public class Them_HoaDon extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtName_PH = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtName_KH = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         cbxName_KH = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
@@ -125,12 +124,20 @@ public class Them_HoaDon extends javax.swing.JFrame {
         jLabel2.setText("Tên Phòng");
 
         txtName_PH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtName_PH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtName_PHActionPerformed(evt);
+            }
+        });
+        txtName_PH.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtName_PHKeyReleased(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tên Khách");
-
-        txtName_KH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         btnSave.setText("Lưu");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -148,11 +155,9 @@ public class Them_HoaDon extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtName_PH, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtName_KH, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(cbxName_KH, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(149, 149, 149))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -165,7 +170,6 @@ public class Them_HoaDon extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName_KH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(txtName_PH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,7 +255,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        if (hoaDonDao.KtraNhap(txtName_PH, txtName_KH)) {
+        if (hoaDonDao.KtraNhap(txtName_PH)) {
             Long tienphong = getTienPhong(txtName_PH.getText());
             Long tiendien = getTienDien(txtName_PH.getText());
             Long tiennuoc = getTienNuoc(txtName_PH.getText());
@@ -259,8 +263,8 @@ public class Them_HoaDon extends javax.swing.JFrame {
             Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
             String date = java.time.LocalDate.now().toString();
             hoadon.setMaPhong(txtName_PH.getText());
-            hoadon.setMaKT(hoaDonDao.getmaKT(txtName_KH.getText(), txtName_PH.getText()));
-            hoadon.setTenKT(txtName_KH.getText());
+            hoadon.setTenKT(cbxName_KH.getSelectedItem().toString());
+            hoadon.setMaKT(hoaDonDao.getmaKT(hoadon.getTenKT(), txtName_PH.getText()));
             hoadon.setGiaThue(tienphong);
             hoadon.setTienDien(tiendien);
             hoadon.setTienNuoc(tiennuoc);
@@ -299,6 +303,14 @@ public class Them_HoaDon extends javax.swing.JFrame {
         jPanel5.setBackground(Color.WHITE);
         txtClose.setForeground(Color.black);
     }//GEN-LAST:event_txtCloseMouseExited
+
+    private void txtName_PHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName_PHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtName_PHActionPerformed
+
+    private void txtName_PHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName_PHKeyReleased
+        hoaDonDao.Init_NameKH(txtName_PH.getText().trim(), cbxName_KH);
+    }//GEN-LAST:event_txtName_PHKeyReleased
 
     /**
      * @param args the command line arguments
@@ -346,16 +358,9 @@ public class Them_HoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable tbHoaDon;
     private javax.swing.JLabel txtClose;
-    private javax.swing.JLabel txtClose1;
-    private javax.swing.JLabel txtClose2;
-    private javax.swing.JLabel txtClose3;
-    private javax.swing.JTextField txtName_KH;
     private javax.swing.JTextField txtName_PH;
     // End of variables declaration//GEN-END:variables
 }
