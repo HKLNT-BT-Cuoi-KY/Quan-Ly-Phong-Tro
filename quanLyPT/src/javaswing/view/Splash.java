@@ -68,7 +68,7 @@ public class Splash extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("DEPARTMENT STORE");
+        jLabel2.setText("Nhaf Troj");
 
         txtLoadingValue.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtLoadingValue.setForeground(new java.awt.Color(255, 255, 255));
