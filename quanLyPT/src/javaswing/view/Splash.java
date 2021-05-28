@@ -48,12 +48,12 @@ public class Splash extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(54, 33, 89));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MY");
+        jLabel1.setText("My");
 
         Bar_Loading.setBackground(new java.awt.Color(255, 255, 255));
         Bar_Loading.setForeground(new java.awt.Color(255, 0, 0));
@@ -62,13 +62,13 @@ public class Splash extends javax.swing.JFrame {
         LoadingLabel.setForeground(new java.awt.Color(255, 255, 255));
         LoadingLabel.setText("Loading...");
 
+        jLabel3.setBackground(new java.awt.Color(0, 204, 204));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\KY220\\JAVA_SWING\\GIAO_TRINH\\JAVA2\\Fast Food\\src\\icon\\cart-44-128.png")); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Nhaf Troj");
+        jLabel2.setText("Boarding House");
 
         txtLoadingValue.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtLoadingValue.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +100,7 @@ public class Splash extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LoadingLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
