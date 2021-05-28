@@ -53,7 +53,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(54, 33, 89));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel7.setBackground(new java.awt.Color(255, 102, 0));
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
