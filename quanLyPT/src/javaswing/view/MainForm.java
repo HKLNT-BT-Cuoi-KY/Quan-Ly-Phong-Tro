@@ -519,7 +519,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa phòng trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -547,6 +547,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel7.setText("Tình trạng");
 
         txtmaphong.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtmaphong.setEnabled(false);
 
         txtdientich.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -754,7 +755,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel11.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -787,6 +788,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel15.setText("Phòng thuê");
 
         txtMaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtMaND.setEnabled(false);
 
         txtHoTen.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -964,7 +966,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setText("QUẢN LÍ NGƯỜI THUÊ PHÒNG");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblTTKH.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblTTKH.setModel(new javax.swing.table.DefaultTableModel(
@@ -1821,7 +1823,7 @@ public class MainForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnTinhTienDienActionPerformed
-
+    
     private void btnTinhTienNuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienNuocActionPerformed
         int row = tblChiSoNuoc.getSelectedRow();
         if (row == -1) {

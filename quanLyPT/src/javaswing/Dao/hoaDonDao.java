@@ -148,7 +148,6 @@ public class hoaDonDao {
             hoadon.setMaHD(rs.getString("maHD"));
             hoadon.setTenKT(rs.getString("HoTen"));
             hoadon.setMaKT(rs.getString("maKT"));
-            System.out.println(hoadon.getMaKT());
             hoadon.setMaPhong(rs.getString("maPhong"));
             hoadon.setGiaThue(tienphong);
             hoadon.setTienDien(tiendien);
