@@ -1641,10 +1641,10 @@ public class MainForm extends javax.swing.JFrame {
         defaultTable.addColumn("Giá thuê");
         defaultTable.addColumn("Đối tượng");
         defaultTable.addColumn("Trạng thái");
-        defaultTable.addColumn("CS Điện mới");
         defaultTable.addColumn("CS Điện cũ");
-        defaultTable.addColumn("CS Nước mới");
+        defaultTable.addColumn("CS Điện mới");
         defaultTable.addColumn("CS Nước cũ");
+        defaultTable.addColumn("CS Nước mới");
         a = new Table_Thongke(defaultTable, tr);
         new Table_Thongke(defaultTable, tr).setVisible(true);
         this.dispose();
@@ -1667,10 +1667,10 @@ public class MainForm extends javax.swing.JFrame {
         defaultTable.addColumn("Giá thuê");
         defaultTable.addColumn("Đối tượng");
         defaultTable.addColumn("Trạng thái");
-        defaultTable.addColumn("CS Điện mới");
         defaultTable.addColumn("CS Điện cũ");
-        defaultTable.addColumn("CS Nước mới");
+        defaultTable.addColumn("CS Điện mới");
         defaultTable.addColumn("CS Nước cũ");
+        defaultTable.addColumn("CS Nước mới");
         a = new Table_Thongke(defaultTable, tr);
         new Table_Thongke(defaultTable, tr).setVisible(true);
         this.dispose();
@@ -1704,8 +1704,8 @@ public class MainForm extends javax.swing.JFrame {
         for (PhongTro pt : users) {
             defaultTable.addRow(new Object[]{
                 pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(),
-                pt.getDoiTuong(), pt.getTinhTrang(), pt.getCsDienMoi(), pt.getCsDienMoi(),
-                pt.getCsNuocMoi(), pt.getCsNuocCu()
+                pt.getDoiTuong(), pt.getTinhTrang(), pt.getCsDienCu(), pt.getCsDienMoi(),
+                pt.getCsNuocCu(), pt.getCsNuocMoi()
             });
         }
     }
