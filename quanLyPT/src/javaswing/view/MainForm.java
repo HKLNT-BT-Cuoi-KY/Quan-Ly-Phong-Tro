@@ -626,17 +626,15 @@ public class MainForm extends javax.swing.JFrame {
         txtgiathue.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         cbNam.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbNam.setForeground(new java.awt.Color(255, 255, 255));
         cbNam.setText("Nam");
 
         cbNu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbNu.setForeground(new java.awt.Color(255, 255, 255));
         cbNu.setText("Nữ");
 
         cbtinhtrang.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbtinhtrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trong", "Da Thue" }));
 
-        btnSuaPT.setBackground(new java.awt.Color(0, 153, 153));
+        btnSuaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSuaPT.setText("Sửa phòng trọ");
         btnSuaPT.addActionListener(new java.awt.event.ActionListener() {
@@ -768,7 +766,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("QUẢN LÝ PHÒNG TRỌ");
 
-        btnThemPT.setBackground(new java.awt.Color(0, 153, 153));
+        btnThemPT.setBackground(new java.awt.Color(0, 204, 204));
         btnThemPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnThemPT.setText("Thêm phòng trọ");
         btnThemPT.addActionListener(new java.awt.event.ActionListener() {
@@ -777,7 +775,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnXoaPT.setBackground(new java.awt.Color(0, 153, 153));
+        btnXoaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnXoaPT.setText("Xoá phòng trọ");
         btnXoaPT.addActionListener(new java.awt.event.ActionListener() {
@@ -876,17 +874,17 @@ public class MainForm extends javax.swing.JFrame {
 
         txtSDT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        rdNam.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdNam);
         rdNam.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        rdNam.setForeground(new java.awt.Color(255, 255, 255));
         rdNam.setText("Nam");
 
+        rdNu.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdNu);
         rdNu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        rdNu.setForeground(new java.awt.Color(255, 255, 255));
         rdNu.setText("Nu");
 
-        btnLamMoi.setBackground(new java.awt.Color(0, 153, 153));
+        btnLamMoi.setBackground(new java.awt.Color(0, 204, 204));
         btnLamMoi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
         btnLamMoi.setText("Làm mới");
@@ -897,7 +895,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnThemND.setBackground(new java.awt.Color(0, 153, 153));
+        btnThemND.setBackground(new java.awt.Color(0, 204, 204));
         btnThemND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnThemND.setForeground(new java.awt.Color(255, 255, 255));
         btnThemND.setText("Thêm");
@@ -908,7 +906,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnXoaND.setBackground(new java.awt.Color(0, 153, 153));
+        btnXoaND.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnXoaND.setForeground(new java.awt.Color(255, 255, 255));
         btnXoaND.setText("Xóa");
@@ -919,7 +917,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnSuaND.setBackground(new java.awt.Color(0, 153, 153));
+        btnSuaND.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSuaND.setForeground(new java.awt.Color(255, 255, 255));
         btnSuaND.setText("Chỉnh sửa");
@@ -1321,7 +1319,7 @@ public class MainForm extends javax.swing.JFrame {
         tblChiSoDien.setRowMargin(10);
         jScrollPane4.setViewportView(tblChiSoDien);
 
-        btnTinhTienDien.setBackground(new java.awt.Color(0, 153, 153));
+        btnTinhTienDien.setBackground(new java.awt.Color(0, 204, 204));
         btnTinhTienDien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnTinhTienDien.setText("Tính tiền điện");
         btnTinhTienDien.setAutoscrolls(true);
@@ -1381,7 +1379,7 @@ public class MainForm extends javax.swing.JFrame {
         tblChiSoNuoc.setRowMargin(10);
         jScrollPane6.setViewportView(tblChiSoNuoc);
 
-        btnTinhTienNuoc.setBackground(new java.awt.Color(0, 153, 153));
+        btnTinhTienNuoc.setBackground(new java.awt.Color(0, 204, 204));
         btnTinhTienNuoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnTinhTienNuoc.setText("Tính tiền nước");
         btnTinhTienNuoc.setAutoscrolls(true);
