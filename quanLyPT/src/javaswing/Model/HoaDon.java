@@ -12,6 +12,45 @@ package javaswing.Model;
 public class HoaDon {
 
     String maHD, maKT, maPhong, tenKT;
+    Long sdc, sdm, snc, snm;
+    Long giaThue, tienDien, tongTien, tienNuoc, tienDV;
+    String date;
+
+    public Long getSdc() {
+        return sdc;
+    }
+
+    public void setSdc(Long sdc) {
+        this.sdc = sdc;
+    }
+
+    public Long getSdm() {
+        return sdm;
+    }
+
+    public void setSdm(Long sdm) {
+        this.sdm = sdm;
+    }
+
+    public Long getSnc() {
+        return snc;
+    }
+
+    public void setSnc(Long snc) {
+        this.snc = snc;
+    }
+
+    public Long getSnm() {
+        return snm;
+    }
+
+    public void setSnm(Long snm) {
+        this.snm = snm;
+    }
+
+    public String getDate() {
+        return date;
+    }
 
     public String getTenKT() {
         return tenKT;
@@ -20,16 +59,23 @@ public class HoaDon {
     public void setTenKT(String tenKT) {
         this.tenKT = tenKT;
     }
-    Long giaThue, tienDien, tongTien, tienNuoc, tienDV;
-    String date;
-
-    public String getDate() {
-        return date;
-    }
 
     @Override
     public String toString() {
-        return "Mã Hoá Đơn : " + maHD + "\t\tNgày Tạo Hoá Đơn : " + date + "\nMã Khách Thuê : " + maKT + "\t\tTên Khách Thuê : " + tenKT + "\nMã Phòng : " + maPhong + "\nGiá Phòng : " + giaThue + "\nTiền Điện : " + tienDien + "\nTiền Nước : " + tienNuoc + "\nTiền Dịch Vụ : " + tienDV + "\nTổng Tiền : " + tongTien;
+        return "Mã Hoá Đơn : " + maHD 
+                + "\t\tNgày Tạo Hoá Đơn : " + date 
+                + "\nMã Khách Thuê : " + maKT 
+                + "\t\tTên Khách Thuê : " + tenKT 
+                + "\nMã Phòng : " + maPhong 
+                + "\nGiá Phòng : " + giaThue 
+                + "\nSố Chữ Điện Cũ : " + sdc 
+                +"\t\tSố Chữ Điện Mới : " + sdm 
+                +"\nTổng Tiền Điện : " + tienDien 
+                + "\nSố Chữ Nước Cũ : " + snc 
+                +"\t\tSố Chữ Nước Mới : " + snm 
+                + "\nTổng Tiền Nước : " + tienNuoc 
+                + "\nTiền Dịch Vụ : " + tienDV 
+                + "\nTổng Tiền : " + tongTien;
     }
 
     public void setDate(String date) {

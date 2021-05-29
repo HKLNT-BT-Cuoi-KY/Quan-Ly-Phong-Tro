@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javaswing.Model.HoaDon;
+import javaswing.view.MainForm;
 import javaswing.view.Them_HoaDon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -63,11 +64,13 @@ public class hoaDonDao {
     }
 
     public static Long getTienDien(String maPhong) {
+        Long soChuDien = soChu("chiSoDienMoi", maPhong) - soChu("chiSoDienCu", maPhong);
         return soChuDien(maPhong) * 3500;
     }
 
     public static Long getTienNuoc(String maPhong) {
-        return soChuNuoc(maPhong) * 2500;
+        Long soChuNuoc = soChu("chiSoNuocMoi", maPhong) - soChu("chiSoNuocCu", maPhong);
+        return soChuNuoc * 2500;
     }
 
     public static Long getTienPhong(String maPhong) {
@@ -97,6 +100,24 @@ public class hoaDonDao {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return rs.getLong("sochu");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+    public static Long soChu(String s, String ID) {
+        String sql = "select "
+                + s
+                + " from tblQlyPhongTro where maPhong = '"
+                + ID
+                + "'";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getLong(s);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,11 +161,16 @@ public class hoaDonDao {
 
     public static void setHoaDon(ResultSet rs, HoaDon hoadon) {
         try {
+            String maPhong = rs.getString("maPhong");
             Long tienphong = getTienPhong(rs.getString("maPhong"));
             Long tiendien = getTienDien(rs.getString("maPhong"));
             Long tiennuoc = getTienNuoc(rs.getString("maPhong"));
             Long tiendv = 70000l;
             Long tongtien = tienphong + tiendien + tiennuoc + tiendv;
+            hoadon.setSdc(soChu("chiSoDienCu", maPhong));
+            hoadon.setSdm(soChu("chiSoDienMoi", maPhong));
+            hoadon.setSnc(soChu("chiSoNuocCu", maPhong));
+            hoadon.setSnm(soChu("chiSoNuocMoi", maPhong));
             hoadon.setMaHD(rs.getString("maHD"));
             hoadon.setTenKT(rs.getString("HoTen"));
             hoadon.setMaKT(rs.getString("maKT"));
@@ -215,20 +241,16 @@ public class hoaDonDao {
     }
 
     public static void Add_HoaDon(HoaDon hoadon) {
-        String sql = "Insert Into tblHoaDon(maKT, maPhong, tienPhong, tienDien, tienNuoc, tienDV, tgian)"
-                + "Values (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "Insert Into tblHoaDon(maKT, maPhong, tgian)"
+                + "Values (?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, hoadon.getMaKT());
             ps.setString(2, hoadon.getMaPhong());
-            ps.setLong(3, hoadon.getGiaThue());
-            ps.setLong(4, hoadon.getTienDien());
-            ps.setLong(5, hoadon.getTienNuoc());
-            ps.setLong(6, hoadon.getTienDV());
-            ps.setString(7, "" + hoadon.getDate());
+            ps.setString(3, "" + hoadon.getDate());
             rs = ps.executeUpdate();
-            if(rs > 0){
-                System.out.println("asda");
+            if (rs > 0) {
+                JOptionPane.showMessageDialog(new MainForm(), "thanhcong");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -254,16 +276,22 @@ public class hoaDonDao {
         }
         return true;
     }
-    public static void Init_NameKH(String maPhong, JComboBox cbx ){
+
+    public static void Init_NameKH(String maPhong, JComboBox cbx) {
         String sql = "select HoTen from tblKhachThue where maPhong = '" + maPhong + "'";
         try {
             cbx.removeAllItems();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 cbx.addItem(rs.getString("HoTen"));
             }
         } catch (Exception e) {
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(soChu("chiSoNuocCu", "PH003"));
+        System.out.println(soChu("chiSoNuocMoi", "PH003"));
     }
 }
