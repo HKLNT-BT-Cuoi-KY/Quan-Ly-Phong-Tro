@@ -108,7 +108,7 @@ public class Table_Thongke extends javax.swing.JFrame {
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
-        back.setBackground(new java.awt.Color(0, 102, 102));
+        back.setBackground(new java.awt.Color(0, 204, 204));
         back.setText("Quay lại");
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
