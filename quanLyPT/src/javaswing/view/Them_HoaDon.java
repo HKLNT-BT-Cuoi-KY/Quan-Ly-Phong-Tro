@@ -287,7 +287,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
     private void txtCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCloseMouseClicked
 
         main = new MainForm();
-        main.tabbed.setSelectedIndex(3);
+        main.tabbed.setSelectedIndex(4);
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_txtCloseMouseClicked
