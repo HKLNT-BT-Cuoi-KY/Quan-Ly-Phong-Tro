@@ -1630,7 +1630,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_donhangMouseEntered
 
     private void donhangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseExited
-        donhang.setBackground(new Color(0, 153, 153));
+        donhang.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_donhangMouseExited
 
     private void phongTrongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseClicked
@@ -1656,7 +1656,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_phongTrongMouseEntered
 
     private void phongTrongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseExited
-        phongTrong.setBackground(new Color(0, 153, 153));
+        phongTrong.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_phongTrongMouseExited
 
     private void KhachhangnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhachhangnoMouseClicked
@@ -1682,7 +1682,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_KhachhangnoMouseEntered
 
     private void KhachhangnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KhachhangnoMouseExited
-        Khachhangno.setBackground(new Color(0, 153, 153));
+        Khachhangno.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_KhachhangnoMouseExited
 
     private void khachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseClicked
@@ -1724,7 +1724,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_khachHangMouseEntered
 
     private void khachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseExited
-        khachHang.setBackground(new Color(0, 153, 153));
+        khachHang.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_khachHangMouseExited
 
     private void btnXoaPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaPTActionPerformed

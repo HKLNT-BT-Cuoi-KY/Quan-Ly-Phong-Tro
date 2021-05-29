@@ -22,6 +22,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
 
     public Them_Nguoidung() {
         initComponents();
+        this.setLocationRelativeTo(null);
         kthue = new KhachThue();
         ktDao = new khachThueDao();
 
@@ -96,11 +97,9 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Phòng thuê");
 
-        rdnam.setForeground(new java.awt.Color(255, 255, 255));
         rdnam.setSelected(true);
         rdnam.setText("Nam");
 
-        rdnu.setForeground(new java.awt.Color(255, 255, 255));
         rdnu.setText("Nữ");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -195,7 +194,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtphongthue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnthem)
                     .addComponent(btntrolai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(82, Short.MAX_VALUE))
@@ -255,7 +254,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
 
     private boolean ktrNhap_ND(){
         if(txthoten.getText().equals("")){
-            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap ho tne", "Loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap ho ten", "Loi", JOptionPane.ERROR_MESSAGE);
             return false;
         }else if(txtngaysinh.getText().equals("")){
             JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap ngay sinh", "Loi", JOptionPane.ERROR_MESSAGE);
@@ -295,9 +294,9 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 khach.setMaPhong(txtphongthue.getText());
                 khachThueDao dao = new khachThueDao();
                 dao.insert(khach);
-                JOptionPane.showConfirmDialog(this, "Khách thuê mới đã được thêm vào");
+                JOptionPane.showMessageDialog(this, "Khách thuê mới đã được thêm vào");
             } catch (Exception e) {
-                JOptionPane.showConfirmDialog(this, "Error:" + e.getMessage());
+                JOptionPane.showMessageDialog(this, "Error:" + e.getMessage());
                 e.printStackTrace();
             }
         }

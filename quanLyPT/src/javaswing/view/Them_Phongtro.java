@@ -23,6 +23,7 @@ public class Them_Phongtro extends javax.swing.JFrame {
     MainForm main;
     public Them_Phongtro() {
         initComponents();
+        this.setLocationRelativeTo(null);
         ptro = new PhongTro();
         themPT = new phongTroDao();
 
@@ -157,7 +158,7 @@ public class Them_Phongtro extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
-        bttrove.setBackground(new java.awt.Color(0, 102, 102));
+        bttrove.setBackground(new java.awt.Color(0, 204, 204));
         bttrove.setForeground(new java.awt.Color(255, 255, 255));
         bttrove.setText("Trở Về");
         bttrove.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +167,7 @@ public class Them_Phongtro extends javax.swing.JFrame {
             }
         });
 
-        btthem.setBackground(new java.awt.Color(0, 102, 102));
+        btthem.setBackground(new java.awt.Color(0, 204, 204));
         btthem.setForeground(new java.awt.Color(255, 255, 255));
         btthem.setText("Thêm");
         btthem.addActionListener(new java.awt.event.ActionListener() {
