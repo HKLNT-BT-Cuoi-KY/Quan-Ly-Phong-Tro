@@ -1605,12 +1605,12 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void Init_Source_TabThongKe() {
-        defaultTable = new DefaultTableModel(){
+        defaultTable = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; 
+                return false;
             }
-            
+
         };
         thongkedao = new thongKeDao();
         thongkedao.Count_kh();
@@ -1633,12 +1633,12 @@ public class MainForm extends javax.swing.JFrame {
     private void Init_Source_TabPhongTro() {
         phongTro = new phongTroDao();
         pt = new PhongTro();
-        dtmPT = new DefaultTableModel(){
+        dtmPT = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; //To change body of generated methods, choose Tools | Templates.
             }
-            
+
         };
         Init_PhongTro();
     }
@@ -1646,12 +1646,12 @@ public class MainForm extends javax.swing.JFrame {
     private void Init_Source_TabQlyNguoiThue() {
         kthue = new KhachThue();
         ktDao = new khachThueDao();
-        dtmKT = new DefaultTableModel(){
+        dtmKT = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; //To change body of generated methods, choose Tools | Templates.
             }
-            
+
         };
         Init_Nguoithue();
     }
@@ -1707,12 +1707,12 @@ public class MainForm extends javax.swing.JFrame {
 
     public void Init_tbHoaDon() {
         hoadon = new hoaDonDao();
-        DefaultTableHoaDonModel = new DefaultTableModel(){
+        DefaultTableHoaDonModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; //To change body of generated methods, choose Tools | Templates.
             }
-            
+
         };
         tbHoaDon.setModel(DefaultTableHoaDonModel);
         DefaultTableHoaDonModel.addColumn("Mã Hoá Đơn");
@@ -1756,7 +1756,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     private void donhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseClicked
-        
+
     }//GEN-LAST:event_donhangMouseClicked
     public void setallHoaDon(List<HoaDon> users) {
         for (HoaDon hd : users) {
@@ -1766,21 +1766,22 @@ public class MainForm extends javax.swing.JFrame {
             });
         }
     }
-    
-    private void setColor(JPanel pn, JLabel txt){
+
+    private void setColor(JPanel pn, JLabel txt) {
         pn.setBackground(new Color(204, 255, 255));
         txt.setForeground(new Color(0, 153, 153));
     }
-    private void resetColor(JPanel pn, JLabel txt){
+
+    private void resetColor(JPanel pn, JLabel txt) {
         pn.setBackground(new Color(255, 255, 255));
-        txt.setForeground(new Color(0,102,102));
+        txt.setForeground(new Color(0, 102, 102));
     }
     private void donhangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseEntered
-        
+
     }//GEN-LAST:event_donhangMouseEntered
 
     private void donhangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseExited
-        
+
     }//GEN-LAST:event_donhangMouseExited
 
     private void phongTrongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phongTrongMouseClicked
@@ -1836,7 +1837,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_KhachhangnoMouseExited
 
     private void khachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseClicked
-        
+
     }//GEN-LAST:event_khachHangMouseClicked
     public void setallPhongTro(List<PhongTro> users) {
         for (PhongTro pt : users) {
@@ -2019,25 +2020,46 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaNDActionPerformed
 
     private void btnTinhTienDienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienDienActionPerformed
-        int row = tblChiSoDien.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(MainForm.this, "Chua chon du lieu", "Loi", JOptionPane.ERROR_MESSAGE);
-        } else {
+        int row, max = dtmCSD.getRowCount();
+        String s = null;
+        try{
+            for (row = 0; row < max; row++) {
             String maPhong = String.valueOf(tblChiSoDien.getValueAt(row, 0));
             pt = phongTro.getPhongTroByID(maPhong);
             String csc = String.valueOf(tblChiSoDien.getValueAt(row, 1));
             String csm = String.valueOf(tblChiSoDien.getValueAt(row, 2));
+            System.out.println(csc + "-" + csm );
             if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
-                JOptionPane.showMessageDialog(MainForm.this, "Chi so moi khong duoc nho hon chi so cu", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else {
-                pt.setCsDienCu(Integer.parseInt(csc));
-                pt.setCsDienMoi(Integer.parseInt(csm));
-                phongTro.updateCSDN(pt);
-                dtmCSD.setRowCount(0);
-                setTableDataCSD(phongTro.getCSDienNuoc());
+                s += row;
+                row++;
             }
-
+            pt.setCsDienCu(Integer.parseInt(csc));
+            pt.setCsDienMoi(Integer.parseInt(csm));
+            phongTro.updateCSDN(pt);
         }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        dtmCSD.setRowCount(0);
+        setTableDataCSD(phongTro.getCSDienNuoc());
+//        int row = tblChiSoDien.getSelectedRow();
+//        if (row == -1) {
+//            JOptionPane.showMessageDialog(MainForm.this, "Chua chon du lieu", "Loi", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            String maPhong = String.valueOf(tblChiSoDien.getValueAt(row, 0));
+//            pt = phongTro.getPhongTroByID(maPhong);
+//            String csc = String.valueOf(tblChiSoDien.getValueAt(row, 1));
+//            String csm = String.valueOf(tblChiSoDien.getValueAt(row, 2));
+//            if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
+//                JOptionPane.showMessageDialog(MainForm.this, "Chi so moi khong duoc nho hon chi so cu", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            } else {
+//                pt.setCsDienCu(Integer.parseInt(csc));
+//                pt.setCsDienMoi(Integer.parseInt(csm));
+//                phongTro.updateCSDN(pt);
+//                dtmCSD.setRowCount(0);
+//                setTableDataCSD(phongTro.getCSDienNuoc());
+//            }
+//        }
 
     }//GEN-LAST:event_btnTinhTienDienActionPerformed
 
@@ -2178,7 +2200,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtlb3MouseClicked
 
     private void txtlb2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtlb2MouseClicked
-       tr = "THÔNG TIN KHÁCH NỢ PHÒNG";
+        tr = "THÔNG TIN KHÁCH NỢ PHÒNG";
         defaultTable.addColumn("Mã phòng");
         defaultTable.addColumn("Diện tích");
         defaultTable.addColumn("Số người ở");
