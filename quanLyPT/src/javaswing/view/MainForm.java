@@ -1889,15 +1889,20 @@ public class MainForm extends javax.swing.JFrame {
             pt = phongTro.getPhongTroByID(maPhong);
             String csc = String.valueOf(tblChiSoDien.getValueAt(row, 1));
             String csm = String.valueOf(tblChiSoDien.getValueAt(row, 2));
-            pt.setCsDienCu(Integer.parseInt(csc));
-            pt.setCsDienMoi(Integer.parseInt(csm));
-            phongTro.updateCSDN(pt);
-            dtmCSD.setRowCount(0);
-            setTableDataCSD(phongTro.getCSDienNuoc());
+            if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
+                JOptionPane.showMessageDialog(MainForm.this, "Chi so moi khong duoc nho hon chi so cu", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                pt.setCsDienCu(Integer.parseInt(csc));
+                pt.setCsDienMoi(Integer.parseInt(csm));
+                phongTro.updateCSDN(pt);
+                dtmCSD.setRowCount(0);
+                setTableDataCSD(phongTro.getCSDienNuoc());
+            }
+
         }
 
     }//GEN-LAST:event_btnTinhTienDienActionPerformed
-    
+
     private void btnTinhTienNuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienNuocActionPerformed
         int row = tblChiSoNuoc.getSelectedRow();
         if (row == -1) {
@@ -1907,11 +1912,15 @@ public class MainForm extends javax.swing.JFrame {
             pt = phongTro.getPhongTroByID(maPhong);
             String csc = String.valueOf(tblChiSoNuoc.getValueAt(row, 1));
             String csm = String.valueOf(tblChiSoNuoc.getValueAt(row, 2));
-            pt.setCsNuocCu(Integer.parseInt(csc));
-            pt.setCsNuocMoi(Integer.parseInt(csm));
-            phongTro.updateCSDN(pt);
-            dtmCSN.setRowCount(0);
-            setTableDataCSN(phongTro.getCSDienNuoc());
+            if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
+                JOptionPane.showMessageDialog(MainForm.this, "Chi so moi khong duoc nho hon chi so cu", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                pt.setCsNuocCu(Integer.parseInt(csc));
+                pt.setCsNuocMoi(Integer.parseInt(csm));
+                phongTro.updateCSDN(pt);
+                dtmCSN.setRowCount(0);
+                setTableDataCSN(phongTro.getCSDienNuoc());
+            }
         }
     }//GEN-LAST:event_btnTinhTienNuocActionPerformed
 
