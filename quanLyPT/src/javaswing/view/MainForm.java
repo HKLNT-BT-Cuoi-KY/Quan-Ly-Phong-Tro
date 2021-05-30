@@ -199,11 +199,11 @@ public class MainForm extends javax.swing.JFrame {
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
+            .addGap(0, 179, Short.MAX_VALUE)
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 107, Short.MAX_VALUE)
+            .addGap(0, 131, Short.MAX_VALUE)
         );
 
         jPanel14.setBackground(new java.awt.Color(0, 153, 153));
@@ -220,14 +220,14 @@ public class MainForm extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel20)
                 .addGap(27, 27, 27))
         );
@@ -237,19 +237,20 @@ public class MainForm extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
@@ -500,7 +501,7 @@ public class MainForm extends javax.swing.JFrame {
                                 .addGap(275, 275, 275)
                                 .addComponent(khachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(Khachhangno, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,7 +531,7 @@ public class MainForm extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -636,6 +637,7 @@ public class MainForm extends javax.swing.JFrame {
 
         btnSuaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSuaPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Edit.png"))); // NOI18N
         btnSuaPT.setText("Sửa phòng trọ");
         btnSuaPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -692,7 +694,7 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(txtdientich, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtmaphong, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtsonguoi, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 155, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -768,6 +770,7 @@ public class MainForm extends javax.swing.JFrame {
 
         btnThemPT.setBackground(new java.awt.Color(0, 204, 204));
         btnThemPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnThemPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnThemPT.setText("Thêm phòng trọ");
         btnThemPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -777,6 +780,7 @@ public class MainForm extends javax.swing.JFrame {
 
         btnXoaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnXoaPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Delete.png"))); // NOI18N
         btnXoaPT.setText("Xoá phòng trọ");
         btnXoaPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -797,8 +801,8 @@ public class MainForm extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnThemPT)
                         .addGap(64, 64, 64)
-                        .addComponent(btnXoaPT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
+                        .addComponent(btnXoaPT)
+                        .addGap(26, 26, 26))
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -815,7 +819,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Quản lý phòng trọ", jPanel1);
@@ -887,6 +891,7 @@ public class MainForm extends javax.swing.JFrame {
         btnLamMoi.setBackground(new java.awt.Color(0, 204, 204));
         btnLamMoi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnLamMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Refresh.png"))); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
@@ -898,6 +903,7 @@ public class MainForm extends javax.swing.JFrame {
         btnThemND.setBackground(new java.awt.Color(0, 204, 204));
         btnThemND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnThemND.setForeground(new java.awt.Color(255, 255, 255));
+        btnThemND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnThemND.setText("Thêm");
         btnThemND.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnThemND.addActionListener(new java.awt.event.ActionListener() {
@@ -909,6 +915,7 @@ public class MainForm extends javax.swing.JFrame {
         btnXoaND.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnXoaND.setForeground(new java.awt.Color(255, 255, 255));
+        btnXoaND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Delete.png"))); // NOI18N
         btnXoaND.setText("Xóa");
         btnXoaND.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnXoaND.addActionListener(new java.awt.event.ActionListener() {
@@ -920,6 +927,7 @@ public class MainForm extends javax.swing.JFrame {
         btnSuaND.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSuaND.setForeground(new java.awt.Color(255, 255, 255));
+        btnSuaND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Edit.png"))); // NOI18N
         btnSuaND.setText("Chỉnh sửa");
         btnSuaND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -932,7 +940,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
+                .addContainerGap(110, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1148,6 +1156,7 @@ public class MainForm extends javax.swing.JFrame {
 
         btnTinhTienDien.setBackground(new java.awt.Color(0, 204, 204));
         btnTinhTienDien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnTinhTienDien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Price list.png"))); // NOI18N
         btnTinhTienDien.setText("Tính tiền điện");
         btnTinhTienDien.setAutoscrolls(true);
         btnTinhTienDien.addActionListener(new java.awt.event.ActionListener() {
@@ -1162,7 +1171,7 @@ public class MainForm extends javax.swing.JFrame {
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1175,7 +1184,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnTinhTienDien, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(btnTinhTienDien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1208,6 +1217,7 @@ public class MainForm extends javax.swing.JFrame {
 
         btnTinhTienNuoc.setBackground(new java.awt.Color(0, 204, 204));
         btnTinhTienNuoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnTinhTienNuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Price list.png"))); // NOI18N
         btnTinhTienNuoc.setText("Tính tiền nước");
         btnTinhTienNuoc.setAutoscrolls(true);
         btnTinhTienNuoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1249,7 +1259,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
+            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1264,7 +1274,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel29)
                 .addGap(36, 36, 36)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1280,6 +1290,7 @@ public class MainForm extends javax.swing.JFrame {
         btnSearch_HD.setBackground(new java.awt.Color(0, 153, 153));
         btnSearch_HD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSearch_HD.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch_HD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Search.png"))); // NOI18N
         btnSearch_HD.setText("Tìm Hoá Đơn");
         btnSearch_HD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1290,6 +1301,7 @@ public class MainForm extends javax.swing.JFrame {
         btnReset.setBackground(new java.awt.Color(0, 153, 153));
         btnReset.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Refresh.png"))); // NOI18N
         btnReset.setText("Tải Lại");
         btnReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -1339,6 +1351,7 @@ public class MainForm extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 153, 153));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Price list.png"))); // NOI18N
         jButton3.setText("Xuất Hoá Đơn");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1349,6 +1362,7 @@ public class MainForm extends javax.swing.JFrame {
         btnAdd.setBackground(new java.awt.Color(0, 153, 153));
         btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnAdd.setText("Thêm");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1359,6 +1373,7 @@ public class MainForm extends javax.swing.JFrame {
         btnDel.setBackground(new java.awt.Color(0, 153, 153));
         btnDel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnDel.setForeground(new java.awt.Color(255, 255, 255));
+        btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Delete.png"))); // NOI18N
         btnDel.setText("Xoá");
         btnDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1383,12 +1398,6 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(315, 315, 315)
-                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1397,18 +1406,24 @@ public class MainForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cbxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
-                .addComponent(btnAdd)
-                .addGap(50, 50, 50)
-                .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch_HD, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(273, 273, 273)
+                        .addComponent(btnReset)))
+                .addGap(38, 38, 38)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(29, 29, 29))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1432,7 +1447,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 482, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 471, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1456,7 +1471,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
