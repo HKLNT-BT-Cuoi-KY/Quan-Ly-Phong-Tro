@@ -11,7 +11,6 @@ import static javaswing.Dao.hoaDonDao.getTienDien;
 import static javaswing.Dao.hoaDonDao.getTienNuoc;
 import static javaswing.Dao.hoaDonDao.getTienPhong;
 import javaswing.Model.HoaDon;
-import static javaswing.view.QlyHoaDon.DefaultTableHoaDonModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,7 +25,7 @@ public class Them_HoaDon extends javax.swing.JFrame {
      */
     HoaDon hoadon;
     MainForm main;
-
+    DefaultTableModel DefaultTableHoaDonModel;
     public Them_HoaDon() {
         initComponents();
         hoadon = new HoaDon();
