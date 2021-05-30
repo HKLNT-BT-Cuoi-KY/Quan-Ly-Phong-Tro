@@ -1605,7 +1605,13 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void Init_Source_TabThongKe() {
-        defaultTable = new DefaultTableModel();
+        defaultTable = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; 
+            }
+            
+        };
         thongkedao = new thongKeDao();
         thongkedao.Count_kh();
         thongkedao.Count_dh();
@@ -1627,20 +1633,32 @@ public class MainForm extends javax.swing.JFrame {
     private void Init_Source_TabPhongTro() {
         phongTro = new phongTroDao();
         pt = new PhongTro();
-        dtmPT = new DefaultTableModel();
+        dtmPT = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        };
         Init_PhongTro();
     }
 
     private void Init_Source_TabQlyNguoiThue() {
         kthue = new KhachThue();
         ktDao = new khachThueDao();
-        dtmKT = new DefaultTableModel();
+        dtmKT = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        };
         Init_Nguoithue();
     }
 
     private void Init_Source_TabCSoDien_Nuoc() {
         dtmCSD = new DefaultTableModel();
-        dtmCSN = new DefaultTableModel();;
+        dtmCSN = new DefaultTableModel();
         Init_ChiSoDien();
         Init_ChiSoNuoc();
     }
@@ -1689,7 +1707,23 @@ public class MainForm extends javax.swing.JFrame {
 
     public void Init_tbHoaDon() {
         hoadon = new hoaDonDao();
-        DefaultTableHoaDonModel = (DefaultTableModel) tbHoaDon.getModel();
+        DefaultTableHoaDonModel = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        };
+        tbHoaDon.setModel(DefaultTableHoaDonModel);
+        DefaultTableHoaDonModel.addColumn("Mã Hoá Đơn");
+        DefaultTableHoaDonModel.addColumn("Phòng");
+        DefaultTableHoaDonModel.addColumn("Tên Khách");
+        DefaultTableHoaDonModel.addColumn("Tiền Phòng");
+        DefaultTableHoaDonModel.addColumn("Tiền Điện");
+        DefaultTableHoaDonModel.addColumn("Tiền Nước");
+        DefaultTableHoaDonModel.addColumn("Tiền Dịch Vụ");
+        DefaultTableHoaDonModel.addColumn("Tổng Cộng");
+        DefaultTableHoaDonModel.addColumn("Ngày Tạo");
         setDataTableHoaDon(hoadon.getAllHoaHon());
     }
 
