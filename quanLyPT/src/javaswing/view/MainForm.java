@@ -1238,17 +1238,17 @@ public class MainForm extends javax.swing.JFrame {
         tblChiSoDien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblChiSoDien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "STT", "Title 2", "Title 3", "Title 3", "Title 5"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                true, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1300,17 +1300,17 @@ public class MainForm extends javax.swing.JFrame {
         tblChiSoNuoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblChiSoNuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "STT", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                true, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1692,6 +1692,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void Init_ChiSoDien() {
         tblChiSoDien.setModel(dtmCSD);
+        dtmCSD.addColumn("STT");
         dtmCSD.addColumn("Mã phòng");
         dtmCSD.addColumn("Chỉ số điện cũ");
         dtmCSD.addColumn("Chỉ số điện mới");
@@ -1701,6 +1702,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void Init_ChiSoNuoc() {
         tblChiSoNuoc.setModel(dtmCSN);
+        dtmCSN.addColumn("STT");
         dtmCSN.addColumn("Mã phòng");
         dtmCSN.addColumn("Chỉ số nước cũ");
         dtmCSN.addColumn("Chỉ số nước mới");
@@ -2025,23 +2027,24 @@ public class MainForm extends javax.swing.JFrame {
     private void btnTinhTienDienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienDienActionPerformed
         int row, max = dtmCSD.getRowCount();
         String checkResult = "", checkRow = "";
+
         try {
             for (row = 0; row < max; row++) {
-                String maPhong = String.valueOf(tblChiSoDien.getValueAt(row, 0));
+                String maPhong = String.valueOf(tblChiSoDien.getValueAt(row, 1));
                 pt = phongTro.getPhongTroByID(maPhong);
-                String csc = String.valueOf(tblChiSoDien.getValueAt(row, 1));
-                String csm = String.valueOf(tblChiSoDien.getValueAt(row, 2));
+                String csc = String.valueOf(tblChiSoDien.getValueAt(row, 2));
+                String csm = String.valueOf(tblChiSoDien.getValueAt(row, 3));
                 if (Integer.parseInt(csm) >= 0 && Integer.parseInt(csc) >= 0) {
                     if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
-                        checkResult += row;
+                        checkResult += (row + 1) + " ";
                         continue;
                     } else {
                         pt.setCsDienCu(Integer.parseInt(csc));
                         pt.setCsDienMoi(Integer.parseInt(csm));
                         phongTro.updateCSDN(pt);
                     }
-                } else{
-                    checkRow += row;
+                } else {
+                    checkRow += (row + 1) + " ";
                 }
 
             }
@@ -2050,8 +2053,11 @@ public class MainForm extends javax.swing.JFrame {
         }
         dtmCSD.setRowCount(0);
         setTableDataCSD(phongTro.getCSDienNuoc());
-        if(!checkRow.isEmpty()){
-            JOptionPane.showConfirmDialog(rootPane, checkRow);
+        if (!checkRow.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Lỗi Nhập Giá Trị Âm Tại Hàng " + checkRow);
+        }
+        if (!checkResult.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Lỗi Giá Trị Kết Quả Âm Tại Hàng " + checkResult);
         }
 //        int row = tblChiSoDien.getSelectedRow();
 //        if (row == -1) {
@@ -2076,26 +2082,34 @@ public class MainForm extends javax.swing.JFrame {
 
     private void btnTinhTienNuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienNuocActionPerformed
         int row, max = dtmCSN.getRowCount();
-        String s = null;
+        String checkResult = "", checkRow = "";
         for (row = 0; row < max; row++) {
-            String maPhong = String.valueOf(tblChiSoNuoc.getValueAt(row, 0));
+            String maPhong = String.valueOf(tblChiSoNuoc.getValueAt(row, 1));
             pt = phongTro.getPhongTroByID(maPhong);
-            String csc = String.valueOf(tblChiSoNuoc.getValueAt(row, 1));
-            String csm = String.valueOf(tblChiSoNuoc.getValueAt(row, 2));
-
-            if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
-                s += row;
-                row++;
+            String csc = String.valueOf(tblChiSoNuoc.getValueAt(row, 2));
+            String csm = String.valueOf(tblChiSoNuoc.getValueAt(row, 3));
+            if (Integer.parseInt(csm) >= 0 && Integer.parseInt(csc) >= 0) {
+                if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
+                    checkResult += (row + 1);
+                    continue;
+                } else {
+                    pt.setCsNuocCu(Integer.parseInt(csc));
+                    pt.setCsNuocMoi(Integer.parseInt(csm));
+                    phongTro.updateCSDN(pt);
+                }
             } else {
-                pt.setCsNuocCu(Integer.parseInt(csc));
-                pt.setCsNuocMoi(Integer.parseInt(csm));
-                phongTro.updateCSDN(pt);
+                checkResult += (row + 1) +" ";
             }
 
         }
         dtmCSN.setRowCount(0);
         setTableDataCSN(phongTro.getCSDienNuoc());
-       
+        if (!checkRow.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Lỗi Giá Trị Âm Tại Hàng " + checkRow);
+        }
+        if (!checkResult.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Lỗi Giá Trị Kết Quả Âm Tại Hàng " + checkResult);
+        }
 //        int row = tblChiSoNuoc.getSelectedRow();
 //        if (row == -1) {
 //            JOptionPane.showMessageDialog(MainForm.this, "Chua chon du lieu", "Loi", JOptionPane.ERROR_MESSAGE);
@@ -2278,14 +2292,19 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     private void setTableDataCSD(List<PhongTro> phongTro) {
+        int i = 1;
         for (PhongTro pt : phongTro) {
-            dtmCSD.addRow(new Object[]{pt.getMaPhong(), pt.getCsDienCu(), pt.getCsDienMoi(), pt.tienDien()});
+            dtmCSD.addRow(new Object[]{i, pt.getMaPhong(), pt.getCsDienCu(), pt.getCsDienMoi(), pt.tienDien()});
+            i++;
         }
     }
 
     private void setTableDataCSN(List<PhongTro> phongTro) {
+        int i = 1;
         for (PhongTro pt : phongTro) {
-            dtmCSN.addRow(new Object[]{pt.getMaPhong(), pt.getCsNuocCu(), pt.getCsNuocMoi(), pt.tienNuoc()});
+            dtmCSN.addRow(new Object[]{
+                i, pt.getMaPhong(), pt.getCsNuocCu(), pt.getCsNuocMoi(), pt.tienNuoc()});
+            i++;
         }
     }
 
