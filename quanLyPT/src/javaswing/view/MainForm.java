@@ -637,7 +637,6 @@ public class MainForm extends javax.swing.JFrame {
 
         btnSuaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnSuaPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Edit.png"))); // NOI18N
         btnSuaPT.setText("Sửa phòng trọ");
         btnSuaPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -770,7 +769,6 @@ public class MainForm extends javax.swing.JFrame {
 
         btnThemPT.setBackground(new java.awt.Color(0, 204, 204));
         btnThemPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnThemPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnThemPT.setText("Thêm phòng trọ");
         btnThemPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -780,7 +778,6 @@ public class MainForm extends javax.swing.JFrame {
 
         btnXoaPT.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaPT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnXoaPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Delete.png"))); // NOI18N
         btnXoaPT.setText("Xoá phòng trọ");
         btnXoaPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -827,7 +824,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel11.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -891,7 +888,6 @@ public class MainForm extends javax.swing.JFrame {
         btnLamMoi.setBackground(new java.awt.Color(0, 204, 204));
         btnLamMoi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
-        btnLamMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Refresh.png"))); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
@@ -903,7 +899,6 @@ public class MainForm extends javax.swing.JFrame {
         btnThemND.setBackground(new java.awt.Color(0, 204, 204));
         btnThemND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnThemND.setForeground(new java.awt.Color(255, 255, 255));
-        btnThemND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnThemND.setText("Thêm");
         btnThemND.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnThemND.addActionListener(new java.awt.event.ActionListener() {
@@ -915,7 +910,6 @@ public class MainForm extends javax.swing.JFrame {
         btnXoaND.setBackground(new java.awt.Color(0, 204, 204));
         btnXoaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnXoaND.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoaND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Delete.png"))); // NOI18N
         btnXoaND.setText("Xóa");
         btnXoaND.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnXoaND.addActionListener(new java.awt.event.ActionListener() {
@@ -927,7 +921,6 @@ public class MainForm extends javax.swing.JFrame {
         btnSuaND.setBackground(new java.awt.Color(0, 204, 204));
         btnSuaND.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSuaND.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuaND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Edit.png"))); // NOI18N
         btnSuaND.setText("Chỉnh sửa");
         btnSuaND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -940,7 +933,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(138, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1045,7 +1038,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setText("QUẢN LÍ NGƯỜI THUÊ PHÒNG");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
 
         tblTTKH.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblTTKH.setModel(new javax.swing.table.DefaultTableModel(
@@ -1156,7 +1149,6 @@ public class MainForm extends javax.swing.JFrame {
 
         btnTinhTienDien.setBackground(new java.awt.Color(0, 204, 204));
         btnTinhTienDien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnTinhTienDien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Price list.png"))); // NOI18N
         btnTinhTienDien.setText("Tính tiền điện");
         btnTinhTienDien.setAutoscrolls(true);
         btnTinhTienDien.addActionListener(new java.awt.event.ActionListener() {
@@ -1217,7 +1209,6 @@ public class MainForm extends javax.swing.JFrame {
 
         btnTinhTienNuoc.setBackground(new java.awt.Color(0, 204, 204));
         btnTinhTienNuoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnTinhTienNuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Price list.png"))); // NOI18N
         btnTinhTienNuoc.setText("Tính tiền nước");
         btnTinhTienNuoc.setAutoscrolls(true);
         btnTinhTienNuoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1274,7 +1265,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel29)
                 .addGap(36, 36, 36)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1290,7 +1281,6 @@ public class MainForm extends javax.swing.JFrame {
         btnSearch_HD.setBackground(new java.awt.Color(0, 153, 153));
         btnSearch_HD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSearch_HD.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearch_HD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Search.png"))); // NOI18N
         btnSearch_HD.setText("Tìm Hoá Đơn");
         btnSearch_HD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1301,7 +1291,6 @@ public class MainForm extends javax.swing.JFrame {
         btnReset.setBackground(new java.awt.Color(0, 153, 153));
         btnReset.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnReset.setForeground(new java.awt.Color(255, 255, 255));
-        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Refresh.png"))); // NOI18N
         btnReset.setText("Tải Lại");
         btnReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -1351,7 +1340,6 @@ public class MainForm extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 153, 153));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Price list.png"))); // NOI18N
         jButton3.setText("Xuất Hoá Đơn");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1362,7 +1350,6 @@ public class MainForm extends javax.swing.JFrame {
         btnAdd.setBackground(new java.awt.Color(0, 153, 153));
         btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnAdd.setText("Thêm");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1373,7 +1360,6 @@ public class MainForm extends javax.swing.JFrame {
         btnDel.setBackground(new java.awt.Color(0, 153, 153));
         btnDel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnDel.setForeground(new java.awt.Color(255, 255, 255));
-        btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Delete.png"))); // NOI18N
         btnDel.setText("Xoá");
         btnDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1447,7 +1433,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(txtSearchHD_maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 471, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 481, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
