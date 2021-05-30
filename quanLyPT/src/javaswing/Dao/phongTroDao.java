@@ -85,7 +85,6 @@ public class phongTroDao {
 
             while (rs.next()) {
                 PhongTro pt = new PhongTro();
-
                 pt.setMaPhong(rs.getString("maPhong"));
                 pt.setDienTich(rs.getDouble("dienTich"));
                 pt.setSoNguoi(rs.getInt("soNguoi"));
@@ -96,7 +95,6 @@ public class phongTroDao {
                 pt.setCsDienCu(rs.getInt("chiSoDienCu"));
                 pt.setCsNuocCu(rs.getInt("chiSoNuocCu"));
                 pt.setCsNuocMoi(rs.getInt("chiSoNuocMoi"));
-
                 return pt;
             }
         } catch (SQLException ex) {
@@ -159,10 +157,9 @@ public class phongTroDao {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
+            int i = 1;
             while (rs.next()) {
                 PhongTro pt = new PhongTro();
-
                 pt.setMaPhong(rs.getString("maPhong"));
                 pt.setCsDienMoi(rs.getInt("chiSoDienMoi"));
                 pt.setCsDienCu(rs.getInt("chiSoDienCu"));
