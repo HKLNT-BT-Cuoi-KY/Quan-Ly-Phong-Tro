@@ -2022,22 +2022,21 @@ public class MainForm extends javax.swing.JFrame {
     private void btnTinhTienDienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienDienActionPerformed
         int row, max = dtmCSD.getRowCount();
         String s = null;
-        try{
+        try {
             for (row = 0; row < max; row++) {
-            String maPhong = String.valueOf(tblChiSoDien.getValueAt(row, 0));
-            pt = phongTro.getPhongTroByID(maPhong);
-            String csc = String.valueOf(tblChiSoDien.getValueAt(row, 1));
-            String csm = String.valueOf(tblChiSoDien.getValueAt(row, 2));
-            System.out.println(csc + "-" + csm );
-            if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
-                s += row;
-                row++;
+                String maPhong = String.valueOf(tblChiSoDien.getValueAt(row, 0));
+                pt = phongTro.getPhongTroByID(maPhong);
+                String csc = String.valueOf(tblChiSoDien.getValueAt(row, 1));
+                String csm = String.valueOf(tblChiSoDien.getValueAt(row, 2));
+                if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
+                    s += row;
+                    row++;
+                }
+                pt.setCsDienCu(Integer.parseInt(csc));
+                pt.setCsDienMoi(Integer.parseInt(csm));
+                phongTro.updateCSDN(pt);
             }
-            pt.setCsDienCu(Integer.parseInt(csc));
-            pt.setCsDienMoi(Integer.parseInt(csm));
-            phongTro.updateCSDN(pt);
-        }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         dtmCSD.setRowCount(0);
@@ -2064,24 +2063,42 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTinhTienDienActionPerformed
 
     private void btnTinhTienNuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTinhTienNuocActionPerformed
-        int row = tblChiSoNuoc.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(MainForm.this, "Chua chon du lieu", "Loi", JOptionPane.ERROR_MESSAGE);
-        } else {
+        int row, max = dtmCSN.getRowCount();
+        String s = null;
+        for (row = 0; row < max; row++) {
             String maPhong = String.valueOf(tblChiSoNuoc.getValueAt(row, 0));
             pt = phongTro.getPhongTroByID(maPhong);
             String csc = String.valueOf(tblChiSoNuoc.getValueAt(row, 1));
             String csm = String.valueOf(tblChiSoNuoc.getValueAt(row, 2));
             if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
-                JOptionPane.showMessageDialog(MainForm.this, "Chi so moi khong duoc nho hon chi so cu", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else {
-                pt.setCsNuocCu(Integer.parseInt(csc));
-                pt.setCsNuocMoi(Integer.parseInt(csm));
-                phongTro.updateCSDN(pt);
-                dtmCSN.setRowCount(0);
-                setTableDataCSN(phongTro.getCSDienNuoc());
+                s += row;
+                row++;
             }
+            pt.setCsNuocCu(Integer.parseInt(csc));
+            pt.setCsNuocMoi(Integer.parseInt(csm));
+            phongTro.updateCSDN(pt);
         }
+        dtmCSN.setRowCount(0);
+        setTableDataCSN(phongTro.getCSDienNuoc());
+
+//        int row = tblChiSoNuoc.getSelectedRow();
+//        if (row == -1) {
+//            JOptionPane.showMessageDialog(MainForm.this, "Chua chon du lieu", "Loi", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            String maPhong = String.valueOf(tblChiSoNuoc.getValueAt(row, 0));
+//            pt = phongTro.getPhongTroByID(maPhong);
+//            String csc = String.valueOf(tblChiSoNuoc.getValueAt(row, 1));
+//            String csm = String.valueOf(tblChiSoNuoc.getValueAt(row, 2));
+//            if (Integer.parseInt(csm) < Integer.parseInt(csc)) {
+//                JOptionPane.showMessageDialog(MainForm.this, "Chi so moi khong duoc nho hon chi so cu", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            } else {
+//                pt.setCsNuocCu(Integer.parseInt(csc));
+//                pt.setCsNuocMoi(Integer.parseInt(csm));
+//                phongTro.updateCSDN(pt);
+//                dtmCSN.setRowCount(0);
+//                setTableDataCSN(phongTro.getCSDienNuoc());
+//            }
+//        }
     }//GEN-LAST:event_btnTinhTienNuocActionPerformed
 
     private void btnSearch_HDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch_HDActionPerformed
