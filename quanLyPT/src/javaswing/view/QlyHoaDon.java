@@ -223,7 +223,14 @@ public class QlyHoaDon extends javax.swing.JFrame {
         DefaultTableHoaDonModel = (DefaultTableModel) tbHoaDon.getModel();
         setDataTableHoaDon(hoadon.getAllHoaHon());
     }
-
+//    public statiac void Init_Hoadon(){
+//        String sql = "select * from tblHoaDon";
+//            try {
+//                PreparedStatement ps = con.prepareStatement(sql);
+//                
+//            } catch (Exception e) {
+//            }
+//    }
     private void Init_cbx() {
         for (int i = 12; i >= 1; i--) {
             cbxMonth.addItem("" + i);

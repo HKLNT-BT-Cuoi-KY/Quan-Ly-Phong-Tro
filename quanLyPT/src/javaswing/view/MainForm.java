@@ -317,6 +317,9 @@ public class MainForm extends javax.swing.JFrame {
         txtlb1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtlb1.setText("jLabel1");
         txtlb1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtlb1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtlb1MouseEntered(evt);
             }
@@ -386,6 +389,9 @@ public class MainForm extends javax.swing.JFrame {
         txtlb3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtlb3.setText("jLabel1");
         txtlb3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtlb3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtlb3MouseEntered(evt);
             }
@@ -454,6 +460,9 @@ public class MainForm extends javax.swing.JFrame {
         txtlb2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtlb2.setText("jLabel1");
         txtlb2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtlb2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtlb2MouseEntered(evt);
             }
@@ -523,6 +532,9 @@ public class MainForm extends javax.swing.JFrame {
         txtlb4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtlb4.setText("jLabel1");
         txtlb4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtlb4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtlb4MouseEntered(evt);
             }
@@ -536,8 +548,9 @@ public class MainForm extends javax.swing.JFrame {
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtlb4, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(txtlb4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1709,19 +1722,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     private void donhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donhangMouseClicked
-        tr = "THỐNG KÊ";
-        defaultTable.addColumn("Mã Hoá Đơn");
-        defaultTable.addColumn("Mã Khách Thuê");
-        defaultTable.addColumn("Mã Phòng");
-        defaultTable.addColumn("Tiền phòng");
-        defaultTable.addColumn("Tiền điện");
-        defaultTable.addColumn("Tiền nước");
-        defaultTable.addColumn("Tiền dịch vụ");
-        defaultTable.addColumn("Tổng tiền");
-        a = new Table_Thongke(defaultTable, tr);
-        new Table_Thongke(defaultTable, tr).setVisible(true);
-        this.dispose();
-        setallHoaDon(hoadondao.getAllHoaHon());
+        
     }//GEN-LAST:event_donhangMouseClicked
     public void setallHoaDon(List<HoaDon> users) {
         for (HoaDon hd : users) {
@@ -1801,19 +1802,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_KhachhangnoMouseExited
 
     private void khachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khachHangMouseClicked
-        tr = "DANH SÁCH KHÁCH HÀNG";
-        defaultTable.addColumn("Mã Khách thuê");
-        defaultTable.addColumn("Họ tên");
-        defaultTable.addColumn("Ngày sinh");
-        defaultTable.addColumn("Nghề nghiệp");
-        defaultTable.addColumn("Giới tính");
-        defaultTable.addColumn("SĐT");
-        defaultTable.addColumn("Quê quán");
-        defaultTable.addColumn("Mã Phòng");
-        a = new Table_Thongke(defaultTable, tr);
-        new Table_Thongke(defaultTable, tr).setVisible(true);
-        this.dispose();
-        setallKhachThue(ktDao.getAllUsersKT());
+        
     }//GEN-LAST:event_khachHangMouseClicked
     public void setallPhongTro(List<PhongTro> users) {
         for (PhongTro pt : users) {
@@ -2120,6 +2109,74 @@ public class MainForm extends javax.swing.JFrame {
         resetColor(jPanel28, txtlb4);
     }//GEN-LAST:event_txtlb4MouseExited
 
+    private void txtlb1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtlb1MouseClicked
+        tr = "THỐNG KÊ";
+        defaultTable.addColumn("Mã Hoá Đơn");
+        defaultTable.addColumn("Mã Khách Thuê");
+        defaultTable.addColumn("Mã Phòng");
+        defaultTable.addColumn("Tiền phòng");
+        defaultTable.addColumn("Tiền điện");
+        defaultTable.addColumn("Tiền nước");
+        defaultTable.addColumn("Tiền dịch vụ");
+        defaultTable.addColumn("Tổng tiền");
+        a = new Table_Thongke(defaultTable, tr);
+        new Table_Thongke(defaultTable, tr).setVisible(true);
+        this.dispose();
+        setallHoaDon(hoadondao.getAllHoaHon());
+    }//GEN-LAST:event_txtlb1MouseClicked
+
+    private void txtlb3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtlb3MouseClicked
+        tr = "DANH SÁCH PHÒNG";
+        defaultTable.addColumn("Mã phòng");
+        defaultTable.addColumn("Diện tích");
+        defaultTable.addColumn("Số người ở");
+        defaultTable.addColumn("Giá thuê");
+        defaultTable.addColumn("Đối tượng");
+        defaultTable.addColumn("Trạng thái");
+        defaultTable.addColumn("CS Điện cũ");
+        defaultTable.addColumn("CS Điện mới");
+        defaultTable.addColumn("CS Nước cũ");
+        defaultTable.addColumn("CS Nước mới");
+        a = new Table_Thongke(defaultTable, tr);
+        new Table_Thongke(defaultTable, tr).setVisible(true);
+        this.dispose();
+        setallPhongTro(thongkedao.getInFoPhongTroIf());
+    }//GEN-LAST:event_txtlb3MouseClicked
+
+    private void txtlb2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtlb2MouseClicked
+       tr = "THÔNG TIN KHÁCH NỢ PHÒNG";
+        defaultTable.addColumn("Mã phòng");
+        defaultTable.addColumn("Diện tích");
+        defaultTable.addColumn("Số người ở");
+        defaultTable.addColumn("Giá thuê");
+        defaultTable.addColumn("Đối tượng");
+        defaultTable.addColumn("Trạng thái");
+        defaultTable.addColumn("CS Điện cũ");
+        defaultTable.addColumn("CS Điện mới");
+        defaultTable.addColumn("CS Nước cũ");
+        defaultTable.addColumn("CS Nước mới");
+        a = new Table_Thongke(defaultTable, tr);
+        new Table_Thongke(defaultTable, tr).setVisible(true);
+        this.dispose();
+        setallPhongTro(thongkedao.getInFoPhongTroIf2());
+    }//GEN-LAST:event_txtlb2MouseClicked
+
+    private void txtlb4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtlb4MouseClicked
+        tr = "DANH SÁCH KHÁCH HÀNG";
+        defaultTable.addColumn("Mã Khách thuê");
+        defaultTable.addColumn("Họ tên");
+        defaultTable.addColumn("Ngày sinh");
+        defaultTable.addColumn("Nghề nghiệp");
+        defaultTable.addColumn("Giới tính");
+        defaultTable.addColumn("SĐT");
+        defaultTable.addColumn("Quê quán");
+        defaultTable.addColumn("Mã Phòng");
+        a = new Table_Thongke(defaultTable, tr);
+        new Table_Thongke(defaultTable, tr).setVisible(true);
+        this.dispose();
+        setallKhachThue(ktDao.getAllUsersKT());
+    }//GEN-LAST:event_txtlb4MouseClicked
+
     private void setTableDataPhongTro(List<PhongTro> phongTro) {
         for (PhongTro pt : phongTro) {
             dtmPT.addRow(new Object[]{pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(), pt.getDoiTuong(), pt.getTinhTrang()});
@@ -2250,8 +2307,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
@@ -2297,8 +2352,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel txtlb2;
     private javax.swing.JLabel txtlb3;
     private javax.swing.JLabel txtlb4;
-    private javax.swing.JLabel txtlb5;
-    private javax.swing.JLabel txtlb6;
     private javax.swing.JTextField txtmaphong;
     private javax.swing.JTextField txtsonguoi;
     // End of variables declaration//GEN-END:variables
