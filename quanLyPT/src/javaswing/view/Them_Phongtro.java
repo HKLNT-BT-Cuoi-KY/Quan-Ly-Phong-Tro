@@ -160,7 +160,6 @@ public class Them_Phongtro extends javax.swing.JFrame {
 
         bttrove.setBackground(new java.awt.Color(0, 204, 204));
         bttrove.setForeground(new java.awt.Color(255, 255, 255));
-        bttrove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Refresh.png"))); // NOI18N
         bttrove.setText("Trở Về");
         bttrove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +169,6 @@ public class Them_Phongtro extends javax.swing.JFrame {
 
         btthem.setBackground(new java.awt.Color(0, 204, 204));
         btthem.setForeground(new java.awt.Color(255, 255, 255));
-        btthem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btthem.setText("Thêm");
         btthem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,7 +216,7 @@ public class Them_Phongtro extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())

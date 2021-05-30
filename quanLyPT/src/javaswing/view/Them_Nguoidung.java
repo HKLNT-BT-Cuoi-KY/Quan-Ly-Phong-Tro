@@ -109,7 +109,6 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         btnthem.setBackground(new java.awt.Color(0, 204, 204));
         btnthem.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnthem.setForeground(new java.awt.Color(255, 255, 255));
-        btnthem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Add.png"))); // NOI18N
         btnthem.setText("Thêm");
         btnthem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +119,6 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         btntrolai.setBackground(new java.awt.Color(0, 204, 204));
         btntrolai.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btntrolai.setForeground(new java.awt.Color(255, 255, 255));
-        btntrolai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswing/image/Refresh.png"))); // NOI18N
         btntrolai.setText("Trở lại");
         btntrolai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +159,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                         .addComponent(btnthem)
                         .addGap(35, 35, 35)
                         .addComponent(btntrolai)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,10 +194,10 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtphongthue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnthem)
-                    .addComponent(btntrolai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addComponent(btntrolai))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
