@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import static javaswing.Dao.phongTroDao.con;
 import javaswing.Model.KhachThue;
 import javaswing.Model.PhongTro;
+import javax.swing.JComboBox;
 
 public class khachThueDao {
 
@@ -119,5 +120,17 @@ public class khachThueDao {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public static void Init_MaPhong(JComboBox cbx) {
+        String sql = "select maPhong from tblQlyPhongTro";
+        try {
+            cbx.removeAllItems();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cbx.addItem(rs.getString("maPhong"));
+            }
+        } catch (Exception e) {
+        }
     }
 }

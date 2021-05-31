@@ -32,6 +32,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 return false;
             }
         };*/
+        ktDao.Init_MaPhong(jComboBox1);
     }
 
     /**
@@ -58,11 +59,11 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         rdnam = new javax.swing.JRadioButton();
         rdnu = new javax.swing.JRadioButton();
         txtquequan = new javax.swing.JTextField();
-        txtphongthue = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtsdt = new javax.swing.JTextField();
         btnthem = new javax.swing.JButton();
         btntrolai = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,8 +143,8 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(rdnam, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
@@ -152,13 +153,13 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                         .addComponent(txtngaysinh)
                         .addComponent(txtnghenghiep)
                         .addComponent(txtsdt)
-                        .addComponent(txtquequan)
-                        .addComponent(txtphongthue))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtquequan))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(btnthem)
                         .addGap(35, 35, 35)
-                        .addComponent(btntrolai)))
+                        .addComponent(btntrolai))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -189,11 +190,11 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtquequan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtphongthue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnthem)
                     .addComponent(btntrolai))
@@ -268,7 +269,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
         }else if(txtquequan.getText().equals("")){
             JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap que quan", "Loi", JOptionPane.ERROR_MESSAGE);
             return false;
-        }else if(txtphongthue.getText().equals("")){
+        }else if(jComboBox1.getSelectedItem().equals("")){
             JOptionPane.showMessageDialog(Them_Nguoidung.this, "Chua nhap phong thue", "Loi", JOptionPane.ERROR_MESSAGE);
             return false;
         }else 
@@ -291,7 +292,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 }
                 khach.setSdt(txtsdt.getText());
                 khach.setQueQuan(txtquequan.getText());
-                khach.setMaPhong(txtphongthue.getText());
+                khach.setMaPhong(jComboBox1.getSelectedItem().toString());
                 khachThueDao dao = new khachThueDao();
                 dao.insert(khach);
                 JOptionPane.showMessageDialog(this, "Khách thuê mới đã được thêm vào");
@@ -359,6 +360,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnthem;
     private javax.swing.JButton btntrolai;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -375,7 +377,6 @@ public class Them_Nguoidung extends javax.swing.JFrame {
     private javax.swing.JTextField txthoten;
     private javax.swing.JTextField txtngaysinh;
     private javax.swing.JTextField txtnghenghiep;
-    private javax.swing.JTextField txtphongthue;
     private javax.swing.JTextField txtquequan;
     private javax.swing.JTextField txtsdt;
     // End of variables declaration//GEN-END:variables
