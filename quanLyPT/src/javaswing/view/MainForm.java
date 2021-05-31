@@ -1997,6 +1997,7 @@ public class MainForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnThemNDActionPerformed
 
+
     private void btnXoaNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaNDActionPerformed
         int row = tblTTKH.getSelectedRow();
         if (row == -1) {
@@ -2004,9 +2005,10 @@ public class MainForm extends javax.swing.JFrame {
         } else {
             int confirm = JOptionPane.showConfirmDialog(rootPane, "Chắc chắn muốn xóa ?");
             if (confirm == JOptionPane.YES_OPTION) {
-                String MaKT;
+                String MaKT, maPhong;
                 MaKT = String.valueOf(tblTTKH.getValueAt(row, 0));
-                ktDao.DELETENGUOIDUNG(MaKT);
+                maPhong = String.valueOf(tblTTKH.getValueAt(row, 7));
+                ktDao.DELETENGUOIDUNG(MaKT, maPhong);
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame, "Khách thuê đã được xóa");
                 dtmKT.setRowCount(0);

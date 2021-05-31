@@ -290,8 +290,4 @@ public class hoaDonDao {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(soChu("chiSoNuocCu", "PH003"));
-        System.out.println(soChu("chiSoNuocMoi", "PH003"));
-    }
 }

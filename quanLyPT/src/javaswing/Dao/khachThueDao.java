@@ -13,20 +13,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaswing.Dao.phongTroDao.con;
 import javaswing.Model.KhachThue;
-import javaswing.Model.PhongTro;
+import javaswing.view.Them_Nguoidung;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 public class khachThueDao {
 
     static Connection con = ConnectDB.getConnectDB();
 
-    public boolean insert(KhachThue nhan) throws Exception {
-        String sql = "insert into tblKhachThue(HoTen,NgaySinh,NgheNghiep,GioiTinh,Sdt,QueQuan,maPhong) values(?,?,?,?,?,?,?)";
-        try (
-                PreparedStatement pstmt = con.prepareStatement(sql);) {
+    public void update_TinhTrangPhong(String maPhong, String txt) {
+        String sql = "update tblQlyPhongTro set TinhTrang = '"
+                + txt + "' where maPhong = '" + maPhong + "'";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public int soluongNguoiThue(String maPhong) {
+        String sql = "select soNguoi from tblQlyPhongTro ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("soNguoi");
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public int insert(KhachThue nhan) {
+        String sql = "insert into tblKhachThue(HoTen,NgaySinh,NgheNghiep,GioiTinh,Sdt,QueQuan,maPhong) values(?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, nhan.getHoTen());
             pstmt.setString(2, nhan.getNgaySinh());
             pstmt.setString(3, nhan.getNgheNghiep());
@@ -34,9 +57,19 @@ public class khachThueDao {
             pstmt.setString(5, nhan.getSdt());
             pstmt.setString(6, nhan.getQueQuan());
             pstmt.setString(7, nhan.getMaPhong());
-            return pstmt.executeUpdate() > 0;
+            if (soluongNguoiThue(nhan.getMaPhong()) > getCountKhachThue(nhan.getMaPhong())) {
+                int rs = pstmt.executeUpdate();
+                if (rs > 0) {
+                    update_TinhTrangPhong(nhan.getMaPhong(), "Da Thue");
+                    return rs;
+                }
+            }else {
+                JOptionPane.showMessageDialog(new Them_Nguoidung(), "So Luong Khach Thue Da Du");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
+        return 0;
     }
 
     public List<KhachThue> getAllUsersKT() {
@@ -63,12 +96,29 @@ public class khachThueDao {
         return kts;
     }
 
-    public void DELETENGUOIDUNG(String MaKT) {
+    private static int getCountKhachThue(String maPhong) {
+        String sql = "select COUNT(maKT) soluong from tblKhachThue where maPhong = '"
+                + maPhong + "'";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return Integer.parseInt(rs.getString("soluong"));
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public void DELETENGUOIDUNG(String MaKT, String maPhong) {
         String sql = "DELETE from tblKhachThue WHERE MaKT = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, MaKT);
             int rs = pst.executeUpdate();
+            if (getCountKhachThue(maPhong) == 0) {
+                update_TinhTrangPhong(maPhong, "Trong");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,6 +171,7 @@ public class khachThueDao {
         }
 
     }
+
     public static void Init_MaPhong(JComboBox cbx) {
         String sql = "select maPhong from tblQlyPhongTro";
         try {
@@ -133,4 +184,5 @@ public class khachThueDao {
         } catch (Exception e) {
         }
     }
+
 }
