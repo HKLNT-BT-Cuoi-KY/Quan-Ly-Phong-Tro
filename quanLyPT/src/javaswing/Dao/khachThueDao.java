@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javaswing.Model.KhachThue;
+import javaswing.view.MainForm;
 import javaswing.view.Them_Nguoidung;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -22,7 +23,7 @@ public class khachThueDao {
 
     static Connection con = ConnectDB.getConnectDB();
 
-    public void update_TinhTrangPhong(String maPhong, String txt) {
+    public static void update_TinhTrangPhong(String maPhong, String txt) {
         String sql = "update tblQlyPhongTro set TinhTrang = '"
                 + txt + "' where maPhong = '" + maPhong + "'";
         try {
@@ -32,8 +33,7 @@ public class khachThueDao {
             e.printStackTrace();
         }
     }
-
-    public int soluongNguoiThue(String maPhong) {
+    public static int soluongNguoiThue(String maPhong) {
         String sql = "select soNguoi from tblQlyPhongTro ";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -61,6 +61,7 @@ public class khachThueDao {
                 int rs = pstmt.executeUpdate();
                 if (rs > 0) {
                     update_TinhTrangPhong(nhan.getMaPhong(), "Da Thue");
+                    new MainForm().Init_PhongTro();
                     return rs;
                 }
             }else {
@@ -96,7 +97,7 @@ public class khachThueDao {
         return kts;
     }
 
-    private static int getCountKhachThue(String maPhong) {
+    public static int getCountKhachThue(String maPhong) {
         String sql = "select COUNT(maKT) soluong from tblKhachThue where maPhong = '"
                 + maPhong + "'";
         try {
@@ -154,6 +155,7 @@ public class khachThueDao {
 
     public void updateKhachThue(KhachThue nhan) {
         String sql = "update tblKhachThue set HoTen= ?,NgaySinh= ?,NgheNghiep= ?,GioiTinh= ?,Sdt= ?,QueQuan= ?,maPhong= ? where MaKT = ?";
+//        String sql = "update tblKhachThue set HoTen= ?,NgaySinh= ?,NgheNghiep= ?,GioiTinh= ?,Sdt= ?,QueQuan= ? where MaKT = ?";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(8, nhan.getMaKT());
@@ -184,5 +186,19 @@ public class khachThueDao {
         } catch (Exception e) {
         }
     }
-
+    public static boolean getIdbyAll(String sdt, String ten){
+        String sql = "select * from tblKhachThue where Sdt = ? and HoTen = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, sdt);
+            ps.setString(2, ten);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
