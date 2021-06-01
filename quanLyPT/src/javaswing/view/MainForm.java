@@ -34,7 +34,6 @@ import javaswing.Dao.ConnectDB;
 import javaswing.Dao.hoaDonDao;
 import static javaswing.Dao.khachThueDao.Init_MaPhong;
 import static javaswing.Dao.khachThueDao.getCountKhachThue;
-import static javaswing.Dao.khachThueDao.update_TinhTrangPhong;
 import javaswing.Model.HoaDon;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -1459,12 +1458,10 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnTinhTienNuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNuocMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnResetTienNuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2)))
-                .addGap(59, 59, 59))
+                    .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNuocMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnResetTienNuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(61, 61, 61))
         );
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -1818,7 +1815,7 @@ public class MainForm extends javax.swing.JFrame {
         dtmPT.addColumn("Giá thuê");
         dtmPT.addColumn("Đối tượng thuê");
         dtmPT.addColumn("Tình trạng");
-        dtmPT.setRowCount(0);
+        
         setTableDataPhongTro(phongTro.getInFoPhongTro());
     }
 
@@ -2112,7 +2109,7 @@ public class MainForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(frame, "Khách thuê đã được xóa");
                 dtmKT.setRowCount(0);
                 setTableDataKT(ktDao.getAllUsersKT());
-                Init_PhongTro();
+                setTableDataPhongTro(phongTro.getInFoPhongTro());
                 Clear_tabKhachThue();
             }
         }
@@ -2136,8 +2133,6 @@ public class MainForm extends javax.swing.JFrame {
                 txtNgheNghiep.setEnabled(true);
                 rdNam.setEnabled(true);
                 cbxPhong.setEnabled(true);
-//                txtPhongThue.setEnabled(true);
-                cbxPhong.setSelectedIndex(0);
                 txtQueQuan.setEnabled(true);
                 txtSDT.setEnabled(true);
                 btnSuaKT.setVisible(false);
@@ -2150,7 +2145,7 @@ public class MainForm extends javax.swing.JFrame {
                 txtNgheNghiep.setEnabled(false);
                 rdNam.setEnabled(false);
                 cbxPhong.setEnabled(false);
-//                txtPhongThue.setEnabled(false);
+                cbxPhong.setSelectedIndex(0);
                 txtQueQuan.setEnabled(false);
                 txtSDT.setEnabled(false);
                 btnSuaKT.setVisible(true);
@@ -2160,6 +2155,8 @@ public class MainForm extends javax.swing.JFrame {
     }
     private void btnSaveKTKTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveKTKTActionPerformed
         String dob = ((JTextField) jDate_DoB.getDateEditor().getUiComponent()).getText();
+        int row = tblTTKH.getSelectedRow();
+        String maPhong  = String.valueOf(tblTTKH.getValueAt(row, 7));
         kthue.setMaKT(txtMaND.getText());
         kthue.setHoTen(txtHoTen.getText());
         kthue.setNgaySinh(dob);
@@ -2175,18 +2172,24 @@ public class MainForm extends javax.swing.JFrame {
         }
         if (khachThueDao.soluongNguoiThue(cbxPhong.getSelectedItem().toString()) > khachThueDao.getCountKhachThue(cbxPhong.getSelectedItem().toString())) {
             ktDao.updateKhachThue(kthue);
+            Clear_tabKhachThue();
+            JOptionPane.showMessageDialog(rootPane, "Chỉnh Sửa Thành Công");
+            setTableDataKT(ktDao.getAllUsersKT());
+            System.out.println(cbxPhong.getSelectedItem().toString());
+            System.out.println(getCountKhachThue(cbxPhong.getSelectedItem().toString()));
+            if (getCountKhachThue(maPhong) == 0) {
+                khachThueDao.update_TinhTrangPhong(maPhong, "Trong");
+            }
+            
+            if (getCountKhachThue(cbxPhong.getSelectedItem().toString()) > 0) {
+                khachThueDao.update_TinhTrangPhong(cbxPhong.getSelectedItem().toString(), "Da Thue");
+            }
+            
+            setTableDataPhongTro(phongTro.getInFoPhongTro());
+            setEnable_Disable("D");
         } else {
             JOptionPane.showMessageDialog(rootPane, "Phòng Đã Đủ Người");
         }
-        if (getCountKhachThue(cbxPhong.getSelectedItem().toString()) == 0) {
-            update_TinhTrangPhong(cbxPhong.getSelectedItem().toString(), "Trong");
-        }
-        dtmKT.setRowCount(0);
-        Clear_tabKhachThue();
-        setTableDataKT(ktDao.getAllUsersKT());
-        Init_PhongTro();
-        JOptionPane.showMessageDialog(rootPane, "Chỉnh Sửa Thành Công");
-        setEnable_Disable("D");
     }//GEN-LAST:event_btnSaveKTKTActionPerformed
 
     private void tblTTKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTTKHMouseClicked
@@ -2545,13 +2548,15 @@ public class MainForm extends javax.swing.JFrame {
         SetEorD_tabNuoc("E");
     }//GEN-LAST:event_btnResetTienNuocActionPerformed
 
-    private static void setTableDataPhongTro(List<PhongTro> phongTro) {
+    public static void setTableDataPhongTro(List<PhongTro> phongTro) {
+        dtmPT.setRowCount(0);
         for (PhongTro pt : phongTro) {
             dtmPT.addRow(new Object[]{pt.getMaPhong(), pt.getDienTich(), pt.getSoNguoi(), pt.getGiaThue(), pt.getDoiTuong(), pt.getTinhTrang()});
         }
     }
 
     private void setTableDataKT(List<KhachThue> kts) {
+        dtmKT.setRowCount(0);
         for (KhachThue kthue : kts) {
             dtmKT.addRow(new Object[]{kthue.getMaKT(), kthue.getHoTen(), kthue.getNgaySinh(), kthue.getNgheNghiep(), kthue.getGioiTinh(), kthue.getSdt(), kthue.getQueQuan(), kthue.getMaPhong()});
         }

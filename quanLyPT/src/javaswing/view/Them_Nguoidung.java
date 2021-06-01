@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.util.List;
 import javaswing.Model.KhachThue;
 import javaswing.Dao.khachThueDao;
+import static javaswing.view.MainForm.phongTro;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -229,12 +230,12 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(label_dob)
                         .addGap(0, 0, 0)
-                        .addComponent(jDate_DoB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jDate_DoB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,6 +387,7 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 khachThueDao khachthue = new khachThueDao();
                 if (khachthue.insert(khach) > 0) {
                     JOptionPane.showMessageDialog(this, "Khách thuê  đã được thêm");
+                    new MainForm().setTableDataPhongTro(phongTro.getInFoPhongTro());
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error:" + e.getMessage());

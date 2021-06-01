@@ -61,7 +61,6 @@ public class khachThueDao {
                 int rs = pstmt.executeUpdate();
                 if (rs > 0) {
                     update_TinhTrangPhong(nhan.getMaPhong(), "Da Thue");
-                    new MainForm().Init_PhongTro();
                     return rs;
                 }
             }else {
