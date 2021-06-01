@@ -2517,7 +2517,7 @@ public class MainForm extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            setDataTableHoaDon(hoadon.Search_HD("HD002"));
+            setDataTableHoaDon(hoadon.Search_HD(txtSearchHD_ma.getText()));
         }
     }//GEN-LAST:event_btnSearch_HD1ActionPerformed
 
