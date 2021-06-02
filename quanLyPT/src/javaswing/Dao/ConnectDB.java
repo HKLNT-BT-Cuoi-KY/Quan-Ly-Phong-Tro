@@ -10,7 +10,7 @@ public class ConnectDB {
 
     static Connection con_DB = null;
     static Connection con_Server = null;
-    private static String nameDB = "QlyNhaTro13";
+    private static String nameDB = "QlyNhaTro";
 
     public static Connection getConnectServer() {
         try {
@@ -35,12 +35,10 @@ public class ConnectDB {
     }
 
     public static void Init_DB() {
-        System.out.println(getConnectDB());
-        if (getConnectDB() != null) {
-            DropDB();
+        if (getConnectDB() == null) {
+            CreateDB();
+            Init_Table();
         }
-        CreateDB();
-        Init_Table();
     }
 
     public static void Init_Table() {
@@ -213,16 +211,16 @@ public class ConnectDB {
 
     private static void InsertValues_tblKhachThue() {
         String sql_Insert = "INSERT INTO tblKhachThue ";
-        String values = "(default, 'Nguyen Van A','2001-12-12','Sinh Vien','Nam','0987654321','Da Nang','PH007'),\n"
-                + "(default, 'Tran Van B','2001-12-02','Sinh Vien','Nam','0987654321','Da Nang','PH007'),\n"
-                + "(default, 'Le Thi C','2001-12-01','Sinh Vien','Nu','0987654321','Da Nang','PH007'),\n"
-                + "(default, 'Nguyen Van D','2001-12-12','Sinh Vien','Nam','0987654321','Da Nang','PH009'),\n"
-                + "(default, 'Nguyen Hoang Ke L','2001-12-12','Sinh Vien','Nam','0987654321','Da Nang','PH009'),\n"
-                + "(default, 'Phan Thi Thanh T','2001-12-12','Sinh Vien','Nu','0987654321','Da Nang','PH003'),\n"
-                + "(default, 'Tuong Thi My Ng','2001-12-12','Sinh Vien','Nu','0987654321','Da Nang','PH005'),\n"
-                + "(default, 'Le Thi C','2001-12-12','Sinh Vien','Nu','0987654321','Da Nang','PH005'),\n"
-                + "(default, 'Le Van D','2001-12-12','Sinh Vien','Nam','0987654321','Da Nang','PH009'),\n"
-                + "(default, 'Le Thi C','2001-12-12','Sinh Vien','Nu','0987654321','Da Nang','PH003'),\n"
+        String values = "(default, 'Nguyen Van A','2001-08-01','Sinh Vien','Nam','0917654321','Da Nang','PH007'),\n"
+                + "(default, 'Tran Van B','1999-05-02','Sinh Vien','Nam','0387654321','Da Nang','PH007'),\n"
+                + "(default, 'Le Thi C','1999-02-01','Sinh Vien','Nu','0947654321','Da Nang','PH007'),\n"
+                + "(default, 'Nguyen Van D','2000-03-20','Sinh Vien','Nam','0977654321','Da Nang','PH009'),\n"
+                + "(default, 'Nguyen Hoang Ke L','2002-06-30','Sinh Vien','Nam','0987654321','Da Nang','PH009'),\n"
+                + "(default, 'Phan Thi Thanh T','2001-06-20','Sinh Vien','Nu','0988654321','Da Nang','PH003'),\n"
+                + "(default, 'Tuong Thi My Ng','1999-06-12','Cong Nhan','Nu','0997654321','Da Nang','PH005'),\n"
+                + "(default, 'Le Thi C','2002-07-30','Sinh Vien','Nu','0987656321','Da Nang','PH005'),\n"
+                + "(default, 'Le Van D','2002-08-10','Cong Nhan','Nam','0587654321','Da Nang','PH009'),\n"
+                + "(default, 'Le Thi C','2001-12-12','Sinh Vien','Nu','0987654341','Da Nang','PH003'),\n"
                 + "(default, 'Nguyen Van Hoa','2001-01-07','Sinh Vien','Nam','0987654321','Quang Nam','PH009')";
         String sql = sql_Insert + "\n VALUES " + values;
         try {
