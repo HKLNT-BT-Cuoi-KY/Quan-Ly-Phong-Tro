@@ -6,12 +6,7 @@
 package javaswing.view;
 
 import java.awt.Color;
-import java.util.List;
-import javaswing.Dao.hoaDonDao;
 import javaswing.Dao.khachThueDao;
-import javaswing.Model.KhachThue;
-import javax.swing.JLabel;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
