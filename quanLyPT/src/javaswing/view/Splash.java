@@ -1,10 +1,6 @@
 package javaswing.view;
 
-
-
-
-
-
+import javaswing.Dao.ConnectDB;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /*
@@ -23,8 +19,8 @@ public class Splash extends javax.swing.JFrame {
      */
     public Splash() {
         initComponents();
+        ConnectDB.Init_DB();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,19 +131,19 @@ public class Splash extends javax.swing.JFrame {
             for (int i = 0; i <= 100; i++) {
                 Thread.sleep(10);
                 sp.txtLoadingValue.setText(i + "%");
-                if(i==10){
-                   sp.LoadingLabel.setText("Turing On Modules...");
+                if (i == 10) {
+                    sp.LoadingLabel.setText("Turing On Modules...");
                 }
-                if(i==20){
+                if (i == 20) {
                     sp.LoadingLabel.setText("Loading Modules...");
                 }
-                if(i==50){
+                if (i == 50) {
                     sp.LoadingLabel.setText("Connecting to Database...");
                 }
-                if(i==70){
+                if (i == 70) {
                     sp.LoadingLabel.setText("Connecting Successfull...");
                 }
-                if(i==80){
+                if (i == 80) {
                     sp.LoadingLabel.setText("Lauching Application...");
                 }
                 sp.Bar_Loading.setValue(i);
