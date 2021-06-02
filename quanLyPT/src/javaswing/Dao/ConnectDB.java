@@ -3,7 +3,7 @@ package javaswing.Dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import javaswing.view.MainForm;
+import javaswing.view.Splash;
 import javax.swing.JOptionPane;
 
 public class ConnectDB {
@@ -179,7 +179,7 @@ public class ConnectDB {
             stmt.executeUpdate(sql3);
             System.out.println("alter table");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new MainForm(), e.getMessage());
+            JOptionPane.showMessageDialog(new Splash(), e.getMessage());
         }
     }
 
@@ -207,7 +207,7 @@ public class ConnectDB {
             stmt.executeUpdate(sql);
             System.out.println("insert1");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new MainForm(), e.getMessage());
+            JOptionPane.showMessageDialog(new Splash(), e.getMessage());
         }
     }
 
@@ -230,7 +230,7 @@ public class ConnectDB {
             stmt.executeUpdate(sql);
             System.out.println("insert2");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new MainForm(), e.getMessage());
+            JOptionPane.showMessageDialog(new Splash(), e.getMessage());
         }
     }
 
@@ -246,7 +246,7 @@ public class ConnectDB {
             stmt.executeUpdate(sql);
             System.out.println("insert3");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new MainForm(), e.getMessage());
+            JOptionPane.showMessageDialog(new Splash(), e.getMessage());
         }
     }
 
@@ -258,7 +258,7 @@ public class ConnectDB {
             stmt.executeUpdate(sql);
             System.out.println("insert4");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new MainForm(), e.getMessage());
+            JOptionPane.showMessageDialog(new Splash(), e.getMessage());
         }
     }
 }
