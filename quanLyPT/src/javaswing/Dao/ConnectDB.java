@@ -33,7 +33,9 @@ public class ConnectDB {
         }
         return con_DB;
     }
-
+    public static void main(String[] args) {
+        System.out.println(getConnectDB());
+    }
     public static void Init_DB() {
         if (getConnectDB() == null) {
             CreateDB();
