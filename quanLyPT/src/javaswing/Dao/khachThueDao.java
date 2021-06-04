@@ -200,4 +200,18 @@ public class khachThueDao {
         }
         return false;
     }
+    public static String checkGioiTinh(JComboBox phong){
+        String sql = "select * from tblQlyPhongTro where maPhong = ?";
+        try {
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, phong.getSelectedItem().toString());
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()){
+                return rs.getString("DoiTuongThue");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

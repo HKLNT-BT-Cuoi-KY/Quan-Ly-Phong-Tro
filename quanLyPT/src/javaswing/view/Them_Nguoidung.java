@@ -385,9 +385,23 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                 khach.setQueQuan(txtquequan.getText());
                 khach.setMaPhong(cbxPhong.getSelectedItem().toString());
                 khachThueDao khachthue = new khachThueDao();
-                if (khachthue.insert(khach) > 0) {
-                    JOptionPane.showMessageDialog(this, "Khách thuê  đã được thêm");
-                    new MainForm().setTableDataPhongTro(phongTro.getInFoPhongTro());
+                String tr = khachThueDao.checkGioiTinh(cbxPhong);
+                if(tr.equals("Nam & Nu")){
+                    if (khachthue.insert(khach) > 0) {
+                        JOptionPane.showMessageDialog(this, "Khách thuê  đã được thêm");
+                        new MainForm().setTableDataPhongTro(phongTro.getInFoPhongTro());
+                    }
+                }else{
+                    if((khach.getGioiTinh().equals("Nam") & !khach.getGioiTinh().equals(tr))){
+                        JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nữ thuê");
+                    }else if(khach.getGioiTinh().equals("Nu") & !khach.getGioiTinh().equals(tr)){
+                        JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nam thuê");
+                    }else{
+                        if (khachthue.insert(khach) > 0) {
+                            JOptionPane.showMessageDialog(this, "Khách thuê  đã được thêm");
+                            new MainForm().setTableDataPhongTro(phongTro.getInFoPhongTro());
+                        }
+                    }
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error:" + e.getMessage());
