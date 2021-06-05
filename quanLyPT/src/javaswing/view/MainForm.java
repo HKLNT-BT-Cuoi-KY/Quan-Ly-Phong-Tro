@@ -2115,9 +2115,13 @@ public class MainForm extends javax.swing.JFrame {
                 }
             }
             pt.setTinhTrang(cbtinhtrang.getSelectedItem().toString());
-            phongTro.updatePhongTro(pt);
-            dtmPT.setRowCount(0);
-            setTableDataPhongTro(phongTro.getInFoPhongTro());
+              if(phongTro.updatePhongTro(pt) >0 ){
+                JOptionPane.showMessageDialog(this, "Chỉnh sửa thành công");
+                dtmPT.setRowCount(0);
+                setTableDataPhongTro(phongTro.getInFoPhongTro());
+            }else{
+                JOptionPane.showMessageDialog(this, "Chỉnh sửa không thành công");
+            }
         }
     }//GEN-LAST:event_btnSuaPTActionPerformed
 

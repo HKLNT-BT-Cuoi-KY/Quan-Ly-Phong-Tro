@@ -104,7 +104,7 @@ public class phongTroDao {
         return null;
     }
 
-    public void updatePhongTro(PhongTro pt) {
+   public int updatePhongTro(PhongTro pt) {
         String sql = "update tblQlyPhongTro set  dienTich = ?, soNguoi= ?, giaThue= ?, DoiTuongThue= ?, TinhTrang= ? where maPhong = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -114,12 +114,12 @@ public class phongTroDao {
             ps.setDouble(3, pt.getGiaThue());
             ps.setString(4, pt.getDoiTuong());
             ps.setString(5, pt.getTinhTrang());
-            int rs = ps.executeUpdate();
+            return rs = ps.executeUpdate();          
             //laptop.setKq(rs);
         } catch (SQLException ex) {
             Logger.getLogger(phongTroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return 0;
     }
 
     public void updateCSDN(PhongTro pt) {
