@@ -379,22 +379,17 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                     khach.setGioiTinh("Nam");
                 }
                 if (rdnu.isSelected()) {
-                    khach.setGioiTinh("Nữ");
+                    khach.setGioiTinh("Nu");
                 }
                 khach.setSdt(txtsdt.getText());
                 khach.setQueQuan(txtquequan.getText());
                 khach.setMaPhong(cbxPhong.getSelectedItem().toString());
                 khachThueDao khachthue = new khachThueDao();
                 String tr = khachThueDao.checkGioiTinh(cbxPhong);
-                if(tr.equals("Nam & Nu")){
-                    if (khachthue.insert(khach) > 0) {
-                        JOptionPane.showMessageDialog(this, "Khách thuê  đã được thêm");
-                        new MainForm().setTableDataPhongTro(phongTro.getInFoPhongTro());
-                    }
-                }else{
-                    if((khach.getGioiTinh().equals("Nam") & !khach.getGioiTinh().equals(tr))){
+
+                    if((khach.getGioiTinh().equals("Nam") & !khach.getGioiTinh().equals(tr)) & !tr.equals("Nam & Nu")){
                         JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nữ thuê");
-                    }else if(khach.getGioiTinh().equals("Nu") & !khach.getGioiTinh().equals(tr)){
+                    }else if(khach.getGioiTinh().equals("Nu") & !khach.getGioiTinh().equals(tr) & !tr.equals("Nam & Nu")){
                         JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nam thuê");
                     }else{
                         if (khachthue.insert(khach) > 0) {
@@ -402,7 +397,6 @@ public class Them_Nguoidung extends javax.swing.JFrame {
                             new MainForm().setTableDataPhongTro(phongTro.getInFoPhongTro());
                         }
                     }
-                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error:" + e.getMessage());
                 e.printStackTrace();

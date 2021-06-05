@@ -94,6 +94,9 @@ public class MainForm extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         tabbed = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -216,6 +219,12 @@ public class MainForm extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -970,7 +979,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chỉnh sửa thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel11.setBackground(new java.awt.Color(0, 153, 153));
@@ -1207,7 +1216,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin khách hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         tblTTKH.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1313,7 +1322,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         tblChiSoDien.setRowHeight(30);
-        tblChiSoDien.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(tblChiSoDien);
 
         btnTinhTienDien.setBackground(new java.awt.Color(0, 204, 204));
@@ -1411,7 +1419,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         tblChiSoNuoc.setRowHeight(30);
-        tblChiSoNuoc.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblChiSoNuoc.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane6.setViewportView(tblChiSoNuoc);
 
@@ -1576,7 +1583,6 @@ public class MainForm extends javax.swing.JFrame {
         tbHoaDon.setGridColor(new java.awt.Color(153, 153, 255));
         tbHoaDon.setRowHeight(25);
         tbHoaDon.setSelectionBackground(new java.awt.Color(255, 153, 153));
-        tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbHoaDon.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbHoaDon.getTableHeader().setResizingAllowed(false);
         tbHoaDon.getTableHeader().setReorderingAllowed(false);
@@ -2164,6 +2170,7 @@ public class MainForm extends javax.swing.JFrame {
                 jDate_DoB.setEnabled(true);
                 txtNgheNghiep.setEnabled(true);
                 rdNam.setEnabled(true);
+                rdNu.setEnabled(true);
                 cbxPhong.setEnabled(true);
                 txtQueQuan.setEnabled(true);
                 txtSDT.setEnabled(true);
@@ -2176,6 +2183,7 @@ public class MainForm extends javax.swing.JFrame {
                 jDate_DoB.setEnabled(false);
                 txtNgheNghiep.setEnabled(false);
                 rdNam.setEnabled(false);
+                rdNu.setEnabled(false);
                 cbxPhong.setEnabled(false);
                 cbxPhong.setSelectedIndex(0);
                 txtQueQuan.setEnabled(false);
@@ -2202,28 +2210,37 @@ public class MainForm extends javax.swing.JFrame {
         if (rdNu.isSelected()) {
             kthue.setGioiTinh("Nu");
         }
-        if (khachThueDao.soluongNguoiThue(cbxPhong.getSelectedItem().toString()) > khachThueDao.getCountKhachThue(cbxPhong.getSelectedItem().toString())) {
-            ktDao.updateKhachThue(kthue);
-            Clear_tabKhachThue();
-            JOptionPane.showMessageDialog(rootPane, "Chỉnh Sửa Thành Công");
-            setTableDataKT(ktDao.getAllUsersKT());
-            System.out.println(cbxPhong.getSelectedItem().toString());
-            System.out.println(getCountKhachThue(cbxPhong.getSelectedItem().toString()));
-            if (getCountKhachThue(maPhong) == 0) {
-                khachThueDao.update_TinhTrangPhong(maPhong, "Trong");
-            }
-            
-            if (getCountKhachThue(cbxPhong.getSelectedItem().toString()) > 0) {
-                khachThueDao.update_TinhTrangPhong(cbxPhong.getSelectedItem().toString(), "Da Thue");
-            }
-            
-            setTableDataPhongTro(phongTro.getInFoPhongTro());
-            setEnable_Disable("D");
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Phòng Đã Đủ Người");
-        }
-    }//GEN-LAST:event_btnSaveKTKTActionPerformed
+        String tr = khachThueDao.checkGioiTinh(cbxPhong);        
+     
+            if(kthue.getGioiTinh().equals("Nam") & !kthue.getGioiTinh().equals(tr) & !tr.equals("Nam & Nu")){
+                JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nữ thuê");
+            }else if(kthue.getGioiTinh().equals("Nu") & !kthue.getGioiTinh().equals(tr) & !tr.equals("Nam & Nu")){
+                    JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nam thuê");
+            }else{                               
+                if (khachThueDao.soluongNguoiThue(cbxPhong.getSelectedItem().toString()) > khachThueDao.getCountKhachThue(cbxPhong.getSelectedItem().toString())) {
+                    ktDao.updateKhachThue(kthue);
+                    Clear_tabKhachThue();
+                    JOptionPane.showMessageDialog(rootPane, "Chỉnh Sửa Thành Công");
+                    setTableDataKT(ktDao.getAllUsersKT());
+                    System.out.println(cbxPhong.getSelectedItem().toString());
+                    System.out.println(getCountKhachThue(cbxPhong.getSelectedItem().toString()));
+                    if (getCountKhachThue(maPhong) == 0) {
+                        khachThueDao.update_TinhTrangPhong(maPhong, "Trong");
+                    }
 
+                    if (getCountKhachThue(cbxPhong.getSelectedItem().toString()) > 0) {
+                        khachThueDao.update_TinhTrangPhong(cbxPhong.getSelectedItem().toString(), "Da Thue");
+                    }
+
+                    setTableDataPhongTro(phongTro.getInFoPhongTro());
+                    setEnable_Disable("D");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Phòng Đã Đủ Người");
+                }   
+            }       
+        
+    }//GEN-LAST:event_btnSaveKTKTActionPerformed
+        
     private void tblTTKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTTKHMouseClicked
         int row = tblTTKH.getSelectedRow();
         String maKT = String.valueOf(tblTTKH.getValueAt(row, 0));
@@ -2750,6 +2767,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
