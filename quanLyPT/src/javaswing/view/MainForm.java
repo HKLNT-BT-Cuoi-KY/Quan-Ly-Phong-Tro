@@ -2217,7 +2217,8 @@ public class MainForm extends javax.swing.JFrame {
             }else if(kthue.getGioiTinh().equals("Nu") & !kthue.getGioiTinh().equals(tr) & !tr.equals("Nam & Nu")){
                     JOptionPane.showMessageDialog(this, "Phòng chỉ cho khách là Nam thuê");
             }else{                               
-                if (khachThueDao.soluongNguoiThue(cbxPhong.getSelectedItem().toString()) > khachThueDao.getCountKhachThue(cbxPhong.getSelectedItem().toString())) {
+                if (khachThueDao.soluongNguoiThue(cbxPhong.getSelectedItem().toString()) > khachThueDao.getCountKhachThue(cbxPhong.getSelectedItem().toString())
+                        || cbxPhong.getSelectedItem().toString().equals(String.valueOf(tblTTKH.getValueAt(tblTTKH.getSelectedRow(), 7)))) {
                     ktDao.updateKhachThue(kthue);
                     Clear_tabKhachThue();
                     JOptionPane.showMessageDialog(rootPane, "Chỉnh Sửa Thành Công");
